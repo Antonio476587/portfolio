@@ -1,0 +1,718 @@
+@import "home.css";
+@import "main.css";
+@import "menu.css";
+@import "about.css";
+@import "works.css";
+@import "contact.css";
+@import "notfound.css";
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+/* Variables and GLOBAL STYLES */
+
+.body {
+  position: relative;
+}
+
+.wrapper-container {
+  position: fixed;
+  width: 99.9vw;
+  height: 100vh;
+  background-color: var(--bs-dark);
+  z-index: 100000;
+}
+
+:root {
+  --color-shadow: #000;
+  --animate-duration: 1400ms;
+  --color-body-background: #ffffcc;
+  --color-foreground: #66cccc;
+  --color-foreground-2: #003333;
+}
+
+.any-infinite {
+  animation-duration: 2s;
+  animation-delay: 20s;
+  animation-iteration-count: 3;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .animate__animated {
+    -webkit-animation-duration: 1s !important;
+    animation-duration: 1s !important;
+    -webkit-transition-duration: var(--animate-duration) !important;
+    transition-duration: var(--animate-duration) !important;
+    -webkit-animation-iteration-count: unset;
+    animation-iteration-count: unset;
+  }
+  .animate__animated[class*="Out"] {
+    opacity: unset;
+  }
+}
+
+svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* Key frames */
+
+/* Movement animation */
+@keyframes movement {
+  0% {
+    filter: blur(0.5px) brightness(1.2);
+  }
+
+  50% {
+    filter: blur(0.7px) brightness(1.28);
+  }
+  100% {
+    filter: blur(0.5px) brightness(1.2);
+  }
+}
+
+@keyframes colorado {
+  0% {
+    color: var(--bs-dark);
+  }
+
+  100% {
+    color: var(--bs-gray-500);
+  }
+}
+
+@keyframes levitating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes movement {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 15vh;
+  }
+}
+
+@keyframes jumping {
+  0% {
+    transform: translateY(0);
+  }
+  0% {
+    transform: translateY(200%);
+  }
+}
+
+/* Media queries */
+
+/* Highest phones */
+@media screen and (max-width: 575px) and (min-height: 801px) {
+  /* Home */
+  .bg-complement {
+    width: 125px;
+    height: 125px;
+  }
+
+  .bg-complement div::before {
+    transform: rotateX(90deg) translateZ(62.5px);
+  }
+
+  .bg-complement div::after {
+    transform: rotateX(-90deg) translateZ(62.5px);
+  }
+
+  .bg-complement span {
+    transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
+  }
+
+  #h1 {
+    font-size: 15.5vw;
+  }
+  /* About */
+
+  /* Contact */
+
+  .contact {
+    height: 100vh;
+  }
+}
+
+/* Landscape phones */
+@media screen and (min-width: 576px) {
+  /* Home page */
+  .home {
+    height: 100vh;
+  }
+
+  #h1 {
+    font-size: 13vw;
+  }
+
+  .bg-complement {
+    width: 125px;
+    height: 125px;
+  }
+
+  .bg-complement div::before {
+    transform: rotateX(90deg) translateZ(62.5px);
+  }
+
+  .bg-complement div::after {
+    transform: rotateX(-90deg) translateZ(62.5px);
+  }
+
+  .bg-complement span {
+    transform: rotateY(calc(90deg * var(--i))) translateZ(62.5px);
+  }
+
+  .divi-content {
+    top: 70%;
+  }
+
+  .nav-home {
+    top: 81%;
+  }
+
+  .divi-content h4 {
+    font-size: calc(1.25rem + 0.3vw);
+  }
+
+  /* About page */
+
+  /* Contact page */
+
+  .contact {
+    height: 100%;
+  }
+
+  .contacts {
+    padding: 0.5em;
+  }
+
+  .footer blockquote b {
+    font-size: 100%;
+    font-weight: bold;
+  }
+
+  .goodbye {
+    font-size: 80%;
+  }
+
+  /* Works */
+
+  .carousel-caption {
+    bottom: -1rem;
+  }
+}
+
+/* Tablets and anothers */
+@media screen and (min-width: 768px) {
+  /* Home page */
+  .home {
+    height: 100vh;
+  }
+
+  #h1 {
+    font-size: 16vw;
+  }
+
+  .divi-content {
+    top: 85%;
+  }
+
+  .nav-home {
+    top: 90%;
+  }
+
+  /* About page */
+
+  .me {
+    position: relative;
+    min-width: 40vw;
+    min-height: 40vh;
+    height: initial;
+    aspect-ratio: 3/4 !important;
+    border-right: 2px solid var(--bs-orange);
+  }
+
+  .ninja-icon {
+    font-size: 2em;
+  }
+
+  .text {
+    font-size: 120%;
+  }
+
+  ul.notes li#note1 {
+    width: 80px;
+    height: 80px;
+    top: 156px;
+    left: 54px;
+  }
+
+  ul.notes li#note2 {
+    width: 80px;
+    height: 80px;
+    top: 148px;
+    left: 665px;
+  }
+  ul.notes li#note3 {
+    width: 50px;
+    height: 50px;
+    top: 25px;
+    left: 351px;
+  }
+  ul.notes li#note4 {
+    width: 110px;
+    height: 70px;
+    top: 505px;
+    left: 355px;
+  }
+
+  .ability {
+    font-size: 120%;
+    font-family: var(--bs-font-monospace);
+  }
+
+  .level {
+    font-size: 0.8em;
+  }
+
+  /* Works page */
+
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+
+  /* conctact page */
+
+  .contact {
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  .contacts {
+    padding: 1em;
+    color: var(--bs-red);
+  }
+
+  .contacts svg {
+    width: 2em;
+    height: 2em;
+  }
+
+  div.contact-body {
+    height: 10vh;
+  }
+
+  div.contact-body-active {
+    height: max-content;
+  }
+
+  .footer blockquote b {
+    font-size: 130%;
+    color: var(--bs-dark);
+  }
+
+  /* Works */
+
+  .carousel-caption {
+    bottom: 3rem;
+  }
+}
+
+/* Desktops */
+@media screen and (min-width: 992px) {
+  /* Home page */
+  .bg-complement {
+    width: 200px;
+    height: 200px;
+  }
+
+  .bg-complement div::before {
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  .bg-complement div::after {
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+
+  .bg-complement span {
+    transform: rotateY(calc(90deg * var(--i))) translateZ(100px);
+  }
+
+  #h1 {
+    font-size: 15vw;
+  }
+
+  .con-up svg {
+    width: 88px;
+    height: 88px;
+  }
+
+  /* Main */
+
+  .main-menu .main-menu-item {
+    width: 50%;
+    height: 100%;
+    perspective-origin: 360% 50%;
+  }
+
+  #main-menu-item1 {
+    top: 0;
+    left: 0%;
+  }
+
+  #main-menu-item2 {
+    top: 0%;
+    left: 50%;
+    perspective-origin: -260% 50%;
+  }
+
+  /* About page */
+
+  /* svgs forms */
+
+  .svg-div {
+    display: block;
+  }
+
+  /* absolute btn-change-img */
+
+  .bbtn:last-child {
+    transform: rotateY(180deg);
+  }
+
+  /* Photoshop Simón Bolivar with me */
+
+  .flexing {
+    display: flex;
+  }
+
+  .me {
+    width: 35vw;
+  }
+
+  /* Antonio Simon */
+
+  /* About me */
+
+  .about-me {
+    margin-left: 5vw;
+  }
+
+  .title-me h3 {
+    font-size: 200%;
+  }
+
+  .title-me span svg {
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .container-mini-yo {
+    width: 25%;
+    transform: translateY(30%);
+  }
+
+  /* Abilities */
+
+  .div-abilities {
+    width: 30vw;
+  }
+
+  .graphic__design {
+    top: 60%;
+    left: 60%;
+  }
+
+  .langs {
+    top: 10%;
+    left: 55%;
+  }
+
+  .programming {
+    top: 10%;
+    left: -5%;
+  }
+
+  .attrs {
+    top: 5%;
+    left: 0%;
+  }
+
+  /* Works page */
+
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+  /* Work page */
+
+  /* Header */
+
+  .bookmark {
+    left: 60%;
+    opacity: 1;
+  }
+
+  .bookmark-child {
+    width: 6em;
+    height: 4.3em;
+    clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
+    border-radius: 0 0 6% 6%;
+  }
+
+  nav ul {
+    flex: 1;
+  }
+
+  nav ul div {
+    display: flex;
+    width: 47%;
+    border-bottom: 2px solid var(--color-foreground-2);
+  }
+
+  nav li .active {
+    color: #fff !important;
+  }
+
+  /* Section 1 */
+
+  section.banner-1 {
+    margin: 1.5em auto;
+    height: 85vh;
+  }
+
+  section.banner-1 .banner-1-div {
+    display: flex;
+    height: 80%;
+  }
+
+  section.banner-1 h2 {
+    line-height: 170%;
+  }
+
+  .banner-1-div .container {
+    width: 90%;
+  }
+
+  /* Stripe effect */
+
+  .banner-1-div .container .div {
+    width: 10%;
+    height: 10%;
+    top: 0%;
+    left: 100%;
+  }
+
+  .banner-1-div .container .div::before {
+    width: 100%;
+    height: 100%;
+    top: 120%;
+    left: 0%;
+  }
+
+  .banner-1-div .container .div::after {
+    width: 100%;
+    height: 50%;
+    top: 240%;
+    left: 0%;
+  }
+
+  /*  Second stripe effect */
+
+  .banner-1-div .container .div:nth-child(4) {
+    width: 10%;
+    height: 5%;
+    top: 31%;
+    left: 100%;
+  }
+
+  .banner-1-div .container .div:nth-child(4)::before {
+    width: 100%;
+    height: 200%;
+    top: 150%;
+    left: 0%;
+  }
+
+  .banner-1-div .container .div:nth-child(4)::after {
+    width: 100%;
+    height: 390%;
+    top: 390%;
+    left: 0%;
+  }
+
+  /*  Third stripe effect */
+
+  .banner-1-div .container .div:nth-child(5) {
+    width: 10%;
+    height: 5%;
+    top: 72%;
+    left: 100%;
+  }
+
+  .banner-1-div .container .div:nth-child(5)::before {
+    width: 100%;
+    height: 100%;
+    top: 130%;
+    left: 0%;
+  }
+
+  .banner-1-div .container .div:nth-child(5)::after {
+    width: 100%;
+    height: 300%;
+    top: 260%;
+    left: 0%;
+  }
+
+  /* SECTION MAIN for section 2/3 */
+
+  .section-main {
+    display: grid;
+    width: 100%;
+    max-width: 97vw !important;
+    height: 95vh;
+    grid-template-columns: 48% 48%;
+    grid-template-rows: 100%;
+    grid-auto-flow: dense;
+    column-gap: 4%;
+  }
+
+  .section-main .div-img {
+    height: 80%;
+  }
+
+  /* Contact page */
+
+  div.contact-body-active {
+    min-height: 40vh;
+    height: 660%;
+    max-height: 60vh;
+    flex-direction: row;
+  }
+
+  div.menu-nft-active {
+    width: 30vw;
+  }
+
+  .footer {
+    justify-content: end;
+  }
+
+  .footer blockquote b {
+    font-size: 130%;
+  }
+
+  .header-foot {
+    margin-bottom: 3%;
+  }
+}
+
+/* Large desktops */
+@media screen and (min-width: 1200px) {
+  /* Home page */
+
+  /* About page */
+
+  /* absolute btn-change-img */
+
+  .div-abilities {
+    width: 25vw;
+  }
+
+  .ilustration-container {
+    max-width: 90vw;
+  }
+
+  /* Works page */
+
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+
+  /* Contact */
+
+  ul.notes li#note1 {
+    width: 100px;
+    height: 100px;
+    top: 208px;
+    left: 70px;
+  }
+
+  ul.notes li#note2 {
+    width: 100px;
+    height: 100px;
+    top: 200px;
+    left: 900px;
+  }
+  ul.notes li#note3 {
+    width: 75px;
+    height: 75px;
+    top: 30px;
+    left: 470px;
+  }
+  ul.notes li#note4 {
+    width: 145px;
+    height: 95px;
+    top: 690px;
+    left: 480px;
+  }
+}
+
+/* Ultra large desktops */
+@media screen and (min-width: 1400px) {
+  /* Main */
+
+  .span-main-menu span h3 {
+    font-size: 400%;
+  }
+
+  /* About */
+
+  .container-mini-yo {
+    transform: none;
+  }
+}
+
+/* Hyper Ultra large Screen */
+@media screen and (min-width: 1800px) {
+  ul.notes li#note1 {
+    width: 175px;
+    height: 175px;
+    top: 546px;
+    left: 120px;
+  }
+  ul.notes li#note2 {
+    width: 175px;
+    height: 175px;
+    top: 524px;
+    left: 1510px;
+  }
+  ul.notes li#note3 {
+    width: 125px;
+    height: 125px;
+    top: 248px;
+    left: 785px;
+  }
+  ul.notes li#note4 {
+    width: 220px;
+    height: 163px;
+    top: 1355px;
+    left: 800px;
+  }
+}

@@ -1,0 +1,67 @@
+div.not-found {
+  margin: auto;
+  width: 75%;
+  height: max-content;
+}
+
+div.not-found h2 {
+  font-family: Helvetica, "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  margin: 7% 0;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+div.not-found-content {
+  margin: 7%;
+}
+
+div.not-found-content > h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 2% 0;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+div.not-found-content ul li {
+  margin: 1%;
+}
+
+div.not-found-content ul li h4 {
+  font-size: large;
+  font-family: "Courier New", Courier, monospace;
+}
+
+div.not-found-link {
+  margin-top: 10%;
+}
+
+div.not-found-link h3 {
+  display: inline-block;
+  margin: 0 2%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: x-large;
+  letter-spacing: 1px;
+}
+
+div.not-found-link button {
+  border: none;
+  height: 2.5em;
+  border-radius: 2.5%;
+  background-color: darkolivegreen;
+  transition: 0.5;
+}
+div.not-found-link button a {
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  color: azure;
+  text-decoration: none;
+}
+
+div.not-found-link button:hover {
+  background-color: #40581a;
+}
+div.not-found-link button:focus {
+  background-color: #40581a;
+}

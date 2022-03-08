@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+
+/* DELETE THIS */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Menu */
+
+body .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  z-index: 200000;
+}
+
+body .menu a {
+  text-decoration: none;
+}
+
+/* X Button */
+
+body .menu .div-menu-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  width: 5vh;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10;
+}
+
+.div-menu-btn .menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: #222;
+  box-shadow: 0 0 3px 3px var(--color-shadow);
+  transition: 0.5s;
+}
+
+.div-menu-btn .menu-btn:hover {
+  box-shadow: 0 0 14px 8px var(--color-shadow);
+}
+
+.menu-btn svg {
+  box-shadow: 0 0 10.5px 4.5px var(--color-shadow);
+  color: var(--bs-light);
+}
+/* Menu Items */
+
+body .menu .items {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Aside menu */
+
+body .nav-menu {
+  position: relative;
+  flex: 1;
+  background: var(--bs-gray-800);
+}
+
+/* Item menu */
+
+.menu .item {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 1em 0px var(--color-shadow);
+}
+
+/* Children´s menu item */
+
+.menu a .item div {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  background: darkorange;
+  box-shadow: inset 0px 0px 1em 0px var(--color-shadow);
+  align-items: center;
+  justify-content: center;
+}
+
+.menu a:nth-child(2) .item div {
+  background: forestgreen;
+}
+
+.menu a:nth-child(3) .item div {
+  background: darkmagenta;
+}
+
+.menu a:last-child .item div {
+  background: darkred;
+}
+
+/* Cinema */
+
+.menu a .item div .cinema-menu-div {
+  background: var(--bs-white);
+  filter: blur(0.5px) brightness(1.2);
+  cursor: pointer;
+  mix-blend-mode: luminosity;
+}
+
+.menu .item:hover > div .cinema-menu-div {
+  animation: movement 1s infinite linear;
+}
+
+.menu .item:focus > div .cinema-menu-div {
+  animation: movement 2s infinite linear;
+}
+
+/* Span-cinema */
+
+.span-cinema {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.span-cinema:hover > span {
+  width: 17vw;
+  height: 17vw;
+  transform: rotate(712deg);
+}
+
+/* Circle span */
+
+.span-cinema span {
+  display: flex;
+  width: 0vw;
+  height: 0vw;
+  background: var(--bs-gray-400);
+  background: radial-gradient(
+    circle,
+    var(--bs-gray-100) 10%,
+    var(--bs-gray-200) 10%,
+    var(--bs-gray-200) 20%,
+    var(--bs-gray-300) 20%,
+    var(--bs-gray-300) 30%,
+    var(--bs-gray-400) 30%,
+    var(--bs-gray-400) 40%,
+    var(--bs-gray-500) 40%,
+    var(--bs-gray-500) 50%,
+    var(--bs-gray-600) 50%,
+    var(--bs-gray-600) 60%,
+    var(--bs-gray-700) 60%,
+    var(--bs-gray-700) 70%,
+    var(--bs-gray-800) 70%,
+    var(--bs-gray-800) 80%,
+    var(--bs-gray-900) 80%,
+    var(--bs-gray-900) 90%,
+    #111111 90%
+  );
+  border-radius: 50%;
+  color: var(--color-shadow);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: rotate(-8deg);
+  transition: 1s;
+  filter: drop-shadow(0px 0px 2px var(--color-shadow));
+}
+
+/* Children´s span */
+
+.span-cinema span h3 {
+  font-size: 400%;
+  font-weight: 700;
+  font-family: "Yellowtail", cursive;
+  letter-spacing: 1px;
+  line-height: 1;
+  filter: drop-shadow(0px 0px 3px var(--bs-white));
+}
+
+.span-cinema span svg {
+  width: 30%;
+  height: 30%;
+  color: var(--bs-gray-800);
+  transition: .75s;
+}
+
+.active .span-cinema span svg {
+  width: 40%;
+  height: 40%;
+  transform: rotate(-340deg);
+}
+
+.active .span-cinema span svg {
+  width: 40%;
+  height: 40%;
+  transform: rotate(-340deg);
+}

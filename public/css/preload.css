@@ -1,0 +1,31 @@
+
+.preload {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bs-gray-dark);
+  z-index: 1000000;
+  text-align: center;
+}
+
+.svg {
+  height: 95vh;
+  width: 95vw;
+}
+
+.svg path {
+  fill: none;
+  stroke: var(--bs-white);
+  stroke-width: 1.5px;
+}
+
+@keyframes movimiento {
+  0% {
+    stroke-dashoffset: 500px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+} ;

@@ -1,0 +1,86 @@
+@import "work.css";
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+/* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+
+.carousel-inner {
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  transform-style: preserve-3d;
+  transform: rotateY(90deg) skewX(-15deg);
+  transition: 1s;
+}
+
+.carousel-item .bd-placeholder-img {
+  background: url(/img/Moca-800.jpg);
+  width: 70%;
+  height: 50%;
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  margin: auto;
+}
+
+.carousel-item:nth-child(2) .bd-placeholder-img {
+  background: url(/img/Target-800.jpg);
+}
+
+.carousel-item:last-child .bd-placeholder-img {
+  background: url(/img/treeonaray.png);
+}
+
+.carousel-item .bd-placeholder-img,
+.carousel-item:nth-child(2) .bd-placeholder-img,
+.carousel-item:last-child .bd-placeholder-img {
+  /*     background-position: 50% 145%; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel-item.active {
+  transform-style: preserve-3d;
+  transform: rotateY(0deg) skewX(0deg);
+}
+
+.carousel-item.active.carousel-item-start {
+  transform: rotateY(-90deg) skewX(15deg);
+  opacity: 0;
+}
+
+.carousel-item.active.carousel-item-end {
+  transform: rotateY(-90deg) skewX(15deg);
+  opacity: 0;
+}
+
+.carousel-item p {
+  font-weight: bolder;
+}
+
+/* Carousel base class */
+.carousel {
+  height: 100vh;
+  background: url(/img/bg-works.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5vh 0;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 90vh;
+}
