@@ -7,7 +7,8 @@ export default function template(body) {
     ${templateCompiler("templates/head/head.pug", { headTags: templateCompiler.convertToValidPugInsertion(gsapScripts )})}
   
   <body allow="fullscreen *">
-  
+    ${templateCompiler("templates/elements/wrapper.pug")}
+
     <div class="body" id="body">
   
       ${templateCompiler("templates/elements/preload.pug")}

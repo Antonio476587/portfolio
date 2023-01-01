@@ -33,6 +33,12 @@ it("should content 'templates/head/head.pug' template inside of the template", (
     expect(newChildren.includes(templateCompiler("templates/head/head.pug"))).toBeTruthy();
 });
 
+it("should content 'templates/elements/wrapper.pug' template inside of the template", () => {
+    const newChildren = template("");
+
+    expect(newChildren.includes(templateCompiler("templates/elements/wrapper.pug"))).toBeTruthy();
+});
+
 it("should content 'templates/scripts/scripts.pug' template inside of the template", () => {
     const newChildren = template("");
 

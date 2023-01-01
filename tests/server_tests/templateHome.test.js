@@ -27,6 +27,12 @@ it("should content 'templates/head/head.pug' template inside of the template", (
     expect(newChildren.includes(templateCompiler("templates/head/head.pug", { headTags: convertToValidPugInsertion(gsapScripts) }))).toBeTruthy();
 });
 
+it("should content 'templates/elements/wrapper.pug' template inside of the template", () => {
+    const newChildren = templateHome("");
+
+    expect(newChildren.includes(templateCompiler("templates/elements/wrapper.pug"))).toBeTruthy();
+});
+
 it("should content 'templates/elements/preload.pug' template inside of the template", () => {
     const newChildren = templateHome("");
 
