@@ -84,7 +84,7 @@ it("should have an empty value", () => {
     });
 
     expect(document.getElementsByTagName("input")[0].getAttribute("value")).toBe("");
-}); 
+});
 
 describe("event testing", () => {
 
