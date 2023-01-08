@@ -83,7 +83,7 @@ it("should have an empty value", () => {
         root.render(<TextInput inputProps={inputProps} clear={true} />);
     });
 
-    expect(document.getElementsByTagName("input")[0].getAttribute("value")).toBe("");
+    expect(document.getElementsByTagName("input")[0].getAttribute("value")).toEqual("");
 });
 
 describe("event testing", () => {
