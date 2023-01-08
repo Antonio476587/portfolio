@@ -86,6 +86,55 @@ it("should have an empty value", () => {
     expect(document.getElementsByTagName("input")[0].getAttribute("value")).toEqual("");
 });
 
+it("should have a default limit of 255 characters", () => {
+    const nonAcceptableInputProps = {
+        id: "nonAcceptableInput",
+        value: "baby te necesito".repeat(20),
+    };
+
+    const acceptableInputProps = {
+        id: "acceptableInput",
+        value: "baby te necesito".repeat(16).slice(0, 255),
+    };
+
+    const usualInputProps = {
+        id: "usualInput",
+        value: "baby te necesito",
+    };
+
+    expect(nonAcceptableInputProps.value.length).toBeGreaterThan(255);
+    expect(acceptableInputProps.value.length).toBeLessThan(256);
+    expect(usualInputProps.value).toEqual("baby te necesito");
+
+    act(() => {
+        root.render((
+            <>
+                <TextInput inputProps={nonAcceptableInputProps} />
+                <TextInput inputProps={acceptableInputProps} />
+                <TextInput inputProps={usualInputProps} />
+            </>
+        ));
+    });
+
+    expect(document.getElementById("nonAcceptableInput").value.length).toEqual(255);
+    expect(document.getElementById("acceptableInput").value.length).toEqual(255);
+    expect(document.getElementById("usualInput").value.length).toBeLessThan(255);
+
+});
+
+it("should avoid very large inputs", () => {
+    const inputProps = {
+        value: "baby te necesito".repeat(1000),
+        maxlength: 500, 
+    };
+
+    act(() => {
+        root.render(<TextInput inputProps={inputProps} />);
+    });
+
+    expect(document.getElementsByTagName("input")[0].value.length).toEqual(500);
+});
+
 describe("event testing", () => {
 
 // I wasn't able to test the onChange and onBlur events in textInput.tsx
