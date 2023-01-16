@@ -9,7 +9,7 @@ import { act } from "react-dom/test-utils";
 
 import Nav from "../../../src/Work/HeaderWorkNav";
 
-function BrowserRouterWrapper(props) {
+function Wrapper(props) {
     const aRefs = useRef();
 
     const addALinksRefs = (el) => {
@@ -61,13 +61,13 @@ afterEach(() => {
 
 it("should have just 2 or 4 nav-links", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<Wrapper />);
     });
 
     expect(document.querySelectorAll(".nav-link").length).toEqual(2);
 
     act(() => {
-        root.render(<BrowserRouterWrapper navChilds={2} />);
+        root.render(<Wrapper navChilds={2} />);
     });
 
     expect(document.querySelectorAll(".nav-link").length).toEqual(4);
@@ -76,7 +76,7 @@ it("should have just 2 or 4 nav-links", () => {
 it("should be the first kind of link", () => {
 
     act(() => {
-        root.render(<BrowserRouterWrapper typeLink={true} />);
+        root.render(<Wrapper typeLink={true} />);
     });
 
     expect(document.querySelector(".nav-link.active")).toBeDefined();
@@ -84,7 +84,7 @@ it("should be the first kind of link", () => {
 
 it("should not be the first kind of link", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<Wrapper />);
     });
 
     expect(document.querySelector(".nav-link.active")).toBeNull();
@@ -92,7 +92,7 @@ it("should not be the first kind of link", () => {
 
 it("should have aria-current=location", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<Wrapper />);
     });
 
     expect(document.querySelector("a[href='/?P=false']").hasAttribute("aria-current")).toBeTruthy();
