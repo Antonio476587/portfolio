@@ -5,20 +5,11 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { Link, BrowserRouter } from "react-router-dom";
 // This is for button functionality
 import bootstrap from "bootstrap";
 import { act } from "react-dom/test-utils";
 
 import HeaderWork from "../../../src/Work/HeaderWork";
-
-function BrowserRouterWrapper(props) {
-    return (
-        <BrowserRouter>
-            <HeaderWork />
-        </BrowserRouter>
-    );
-}
 
 let container = null;
 let root = null;
@@ -40,7 +31,7 @@ afterEach(() => {
 
 it("should expand the navbar and change some classes", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<HeaderWork />);
     });
 
     const smootherNav = document.querySelector(".smoother-nav");
@@ -58,7 +49,7 @@ it("should expand the navbar and change some classes", () => {
 
 it("should toggle the active class of the anchorActive and anchorHome", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<HeaderWork />);
     });
 
 
@@ -75,7 +66,7 @@ it("should toggle the active class of the anchorActive and anchorHome", () => {
 
 it("should remove the active class", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<HeaderWork />);
     });
 
     const anchorActive = document.querySelector("a.active");
