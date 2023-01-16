@@ -6,18 +6,9 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
-import { BrowserRouter } from "react-router-dom";
  
 import BuildingWindow from "../../../src/Works/BuildingWindow";
- 
-function BuildingWindowWrapper (props) {
-    return (
-        <BrowserRouter>
-            <BuildingWindow {...props} />
-        </BrowserRouter>  
-    );
-}
-
+  
 let container = null;
 let root = null;
 beforeEach(() => {
@@ -42,7 +33,7 @@ describe("Rendered props", () => {
         const defaultStatus = "default-status";
 
         act(() => {
-            root.render(<BuildingWindowWrapper defaultStatus={defaultStatus} />);
+            root.render(<BuildingWindow defaultStatus={defaultStatus} />);
         });
 
         expect(document.querySelector(`div.${defaultStatus}`)).not.toBeNull();
@@ -52,7 +43,7 @@ describe("Rendered props", () => {
         const imgUrl = "url/to/an/image/awesome.jpg";
 
         act(() => {
-            root.render(<BuildingWindowWrapper img={imgUrl} />);
+            root.render(<BuildingWindow img={imgUrl} />);
         });
 
         expect(document.querySelector("img").getAttribute("src")).toEqual(imgUrl);
@@ -62,7 +53,7 @@ describe("Rendered props", () => {
         const alternativeText = "this is the alternative text for the image";
 
         act(() => {
-            root.render(<BuildingWindowWrapper alternativeText={alternativeText} />);
+            root.render(<BuildingWindow alternativeText={alternativeText} />);
         });
 
         expect(document.querySelector("img").alt).toEqual(alternativeText);
@@ -72,7 +63,7 @@ describe("Rendered props", () => {
         const workUrlId = "2";
 
         act(() => {
-            root.render(<BuildingWindowWrapper workUrlId={workUrlId} />);
+            root.render(<BuildingWindow workUrlId={workUrlId} />);
         });
 
         expect(document.querySelector("a").getAttribute("href")).toEqual(`/work/${workUrlId}`);

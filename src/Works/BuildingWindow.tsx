@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 interface BuildingWindow {
     defaultStatus: string;
@@ -12,9 +11,9 @@ function BuildingWindow({ defaultStatus, img, alternativeText, workUrlId }: Buil
 
     return (
         <div className={defaultStatus}>
-            <Link to={`/work/${workUrlId}`}>
+            <a href={`/work/${workUrlId}`}>
                 <img src={img} alt={alternativeText} />
-            </Link>
+            </a>
         </div>
     );
 }
