@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 interface NavProps {
     typeLink?: string,
@@ -10,13 +9,13 @@ const Nav = React.forwardRef(function Nav({ typeLink }: NavProps, ref: React.Ref
         return (
             <div className="second-nav">
                 <li className="nav-item">
-                    <Link
+                    <a
                         className="nav-link active"
-                        to="/works"
+                        href="/works"
                         ref={ref}
                     >
             Works
-                    </Link>
+                    </a>
                 </li>
 
                 <li className="nav-item">
@@ -37,9 +36,9 @@ const Nav = React.forwardRef(function Nav({ typeLink }: NavProps, ref: React.Ref
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/about" ref={ref}>
+                <a className="nav-link" href="/about" ref={ref}>
           About
-                </Link>
+                </a>
             </li>
         </div>
     );

@@ -4,7 +4,6 @@
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React, { useRef } from "react";
-import { Link, BrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { act } from "react-dom/test-utils";
 
@@ -23,22 +22,22 @@ function BrowserRouterWrapper(props) {
 
     if (props.navChilds == 2) {
         return (
-            <BrowserRouter>
+            <>
                 <Nav ref={addALinksRefs} />
                 <Nav typeLdeink="LinkFirst" ref={addALinksRefs} />
-            </BrowserRouter>
+            </>
         );
     } else if (props.typeLink) {
         return (
-            <BrowserRouter>
+            <>
                 <Nav typeLink="LinkFirst" ref={addALinksRefs} />
-            </BrowserRouter>
+            </>
         );
     } else {
         return (
-            <BrowserRouter>
+            <>
                 <Nav ref={addALinksRefs} />
-            </BrowserRouter>
+            </>
         );
     }
 }
