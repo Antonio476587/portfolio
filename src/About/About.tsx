@@ -2,7 +2,6 @@ import anime from "animejs";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import HeaderAbout from "./HeaderAbout";
 import Illustration from "./Illustration";
@@ -199,9 +198,9 @@ export default function About(): JSX.Element {
 
             <Illustration ref={illustrationRef} />
 
-            <Link to="/works" className="go-work">
+            <a href="/works" className="go-work">
                 <span className="container">{workSvg}</span>
-            </Link>
+            </a>
         </div>
     );
 }

@@ -5,7 +5,6 @@ globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
 import { act } from "react-dom/test-utils";
 
 import About, { InfoAbout } from "../../../src/About/About";
@@ -14,14 +13,6 @@ import About, { InfoAbout } from "../../../src/About/About";
 jest.mock("../../../src/About/HeaderAbout");
 
 jest.mock("../../../src/About/Illustration");
-
-function BrowserRouterWrapper(props) {
-    return (
-        <BrowserRouter>
-            <About />
-        </BrowserRouter>
-    );
-}
 
 function InfoAboutWrapper(props) {
     const infoAboutRef = React.useRef();
@@ -48,7 +39,7 @@ afterEach(() => {
 
 it("should exist", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<About />);
     });
 
     expect(document.getElementById("About")).not.toBeNull();
@@ -56,7 +47,7 @@ it("should exist", () => {
 
 it("should render the .svg-div elements", () => {
     act(() => {
-        root.render(<BrowserRouterWrapper />);
+        root.render(<About />);
     });
 
     document.querySelectorAll(".svg-div").forEach(element => {
@@ -87,7 +78,7 @@ describe("when location.pathname == /about", () => {
 
     it("should animate .svg-div elements", () => {
         act(() => {
-            root.render(<BrowserRouterWrapper />);
+            root.render(<About />);
         });
 
         document.querySelectorAll(".svg-div").forEach(animatedElement => {
@@ -105,7 +96,7 @@ describe("when location.pathname != '/about", () => {
 
     it("shouldn't animate .svg-div elements", () => {
         act(() => {
-            root.render(<BrowserRouterWrapper />);
+            root.render(<About />);
         });
 
         document.querySelectorAll(".svg-div").forEach(notAnimatedElement => {
