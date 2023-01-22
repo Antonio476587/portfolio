@@ -8,6 +8,15 @@
 
 /* Variables and GLOBAL STYLES */
 
+.btn.btn-secondary {
+  &:hover,
+  &:focus {
+    outline-offset: 3px;
+    outline: 3px solid var(--bs-gray-100);
+    box-shadow: 0 5px 20px 4px var(--bs-orange);
+  }
+}
+
 .lightDiv#lightDiv {
   position: fixed;
   left: 0;
