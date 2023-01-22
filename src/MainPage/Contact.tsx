@@ -62,7 +62,7 @@ function BlockquouteDate({ cite, content, autor }: BlockquouteDate) {
             <b>
                 {content}
                 <div>
-                    <i>→{autor}←</i>
+                    <i><s>→</s>{autor}<s>←</s></i>
                 </div>
             </b>
         </blockquote>
