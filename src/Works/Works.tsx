@@ -63,7 +63,7 @@ export default function Works() {
                 .add({
                     targets: streetRef.current,
                     height: 0,
-                    top: "20%",
+                    top: "90%",
                     duration: 500,
                     easing: "easeOutCirc",
                 }, 0);
