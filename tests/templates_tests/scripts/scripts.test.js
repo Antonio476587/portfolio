@@ -46,4 +46,11 @@ describe("it should include these scripts tags and their corresponding attribute
         expect(vendorScriptHTMLElement.getAttribute("type")).toEqual("application/javascript");
     });
 
+    test("interactions script", () => {
+        const interactionsScriptHTMLElement = document.querySelector("script[src=\"/js/interactions.js\"]");
+
+        expect(interactionsScriptHTMLElement).not.toBeNull();
+        expect(interactionsScriptHTMLElement.getAttribute("type")).toEqual("application/javascript");
+    });
+
 });
