@@ -75,6 +75,9 @@ a.go-work {
   margin: auto;
   width: 80vw;
   border-left: 2px solid var(--bs-white);
+  opacity: 0;
+  rotate: 45deg;
+  scale: 0.3;
 
   .title-me {
     div {
@@ -156,6 +159,8 @@ a.go-work {
 
 .flexing {
   position: relative;
+  opacity: 0;
+  scale: 0.3;
 
   &::after {
     content: "";

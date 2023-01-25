@@ -48,7 +48,6 @@ export default function About(): JSX.Element {
     const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
     const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
     const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
     const q: gsap.utils.SelectorFunc = gsap.utils.selector(box);
 
     const boxes: JSX.Element[] = [];
@@ -108,28 +107,22 @@ export default function About(): JSX.Element {
         const headerAbout = headerAboutRef.current ?? false;
         const illustration = illustrationRef.current ?? false;
         
-        tl.current = gsap.timeline({
-            defaults: {
-                duration: 1,
-                scale: 0.3,
-                autoAlpha: 0,
-            },
-        });
-
-        let animation1: gsap.core.Tween;
-        let animation2: gsap.core.Tween;
+        let animationInfoAbout: gsap.core.Tween;
+        let animationInfoAboutCallback: gsap.core.Tween;
+        let animationHeaderAbout: gsap.core.Tween;
+        let animationIllustration: gsap.core.Tween;
 
         if (infoAbout) {
             
-            animation1 = gsap.from(infoAbout, {
+            animationInfoAbout = gsap.to(infoAbout, {
                 delay: 0.5,
                 duration: 1,
-                autoAlpha: 0,
-                scale: 0.3,
-                rotation: 45,
+                autoAlpha: 1,
+                scale: 1,
+                rotation: 0,
                 onComplete: () => {
-                    animation1.kill();
-                    animation2 = gsap.to(infoAbout, {
+                    animationInfoAbout.kill();
+                    animationInfoAboutCallback = gsap.to(infoAbout, {
                         rotation: 45,
                         autoAlpha: 0,
                         scrollTrigger: {
@@ -148,35 +141,38 @@ export default function About(): JSX.Element {
 
         if (headerAbout && illustration) {
 
-            tl.current
-                .from(headerAbout, {
-                    xPercent: 3,
-                    scrollTrigger: {
-                        id: "section1",
-                        trigger: headerAbout,
-                        start: "top+=150 bottom",
-                        end: "center center",
-                        scrub: true,
-                        toggleActions: "play none none reverse",
-                    },
-                })
-                .from(illustration, {
-                    scrollTrigger: {
-                        id: "section3",
-                        trigger: illustration,
-                        start: "top bottom",
-                        end: "center bottom",
-                        scrub: true,
-                        toggleActions: "play none none reverse",
-                    },
-                });
+            animationHeaderAbout = gsap.to(headerAbout, {
+                autoAlpha: 1,
+                scale: 1,
+                xPercent: 3,
+                scrollTrigger: {
+                    id: "section1",
+                    trigger: headerAbout,
+                    start: "bottom bottom",
+                    end: "center center",
+                    scrub: true,
+                    once: true,
+                },
+            });
+            animationIllustration = gsap.from(illustration, {
+                opacity: 0,
+                scrollTrigger: {
+                    id: "section3",
+                    trigger: illustration,
+                    start: "top bottom",
+                    end: "center bottom",
+                    toggleActions: "play none none reverse",
+                    scrub: true,
+                },
+            });
                 
         }
 
         return () => {
-            tl.current?.kill();
-            animation1?.kill();
-            animation2?.kill();
+            animationInfoAbout?.kill();
+            animationInfoAboutCallback?.kill();
+            animationHeaderAbout?.kill();
+            animationIllustration?.kill();
         };
     }, [
         illustrationRef,
