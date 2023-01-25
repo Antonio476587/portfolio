@@ -26,7 +26,8 @@
   background: radial-gradient(
     circle at var(--x) var(--y),
     transparent 40%,
-    rgba(255, 255, 255, 0.95) 80%
+    rgba(255, 255, 255, 0.50) 70%,
+    rgba(255, 255, 255, 0.95) 90%
   );
   pointer-events: none;
   z-index: 100000;
