@@ -22,7 +22,7 @@ interface inputProps {
   rows?: string;
   columns?: string;
   value: string | null | email;
-  maxlength?: number;
+  maxLength?: number;
 }
 
 interface TextInputProps {
@@ -33,9 +33,9 @@ interface TextInputProps {
 
 export default function TextInput(props: TextInputProps): React.ReactElement {
 
-    const { maxlength = 255 } = props.inputProps; 
+    const { maxLength = 255 } = props.inputProps; 
 
-    const [value, setValue] = useState(secureLength(format(props.inputProps.value), maxlength));
+    const [value, setValue] = useState(secureLength(format(props.inputProps.value), maxLength));
     const { upperChange } = props;
 
     useEffect(() => {
@@ -47,7 +47,7 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
     }
 
     function onChange(e: ChangeEvent) {
-        e.target.value !== null && typeof e.target.value !== "number" ? setValue(secureLength(e.target.value, maxlength)) : setValue("");
+        e.target.value !== null && typeof e.target.value !== "number" ? setValue(secureLength(e.target.value, maxLength)) : setValue("");
     }
 
     const { tag = "input" } = props.inputProps;
@@ -57,6 +57,6 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
         value,
         onBlur,
         onChange,
-        maxlength,
+        maxLength,
     });
 }

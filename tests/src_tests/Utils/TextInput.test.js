@@ -33,7 +33,7 @@ it("shouldn't render without props and be an input element", () => {
 
     expect(document.body.innerHTML.includes("input")).toBeTruthy();
     expect(document.querySelector("input")).not.toBeNull();
-    expect(document.body.firstChild.innerHTML).toEqual("<input value=\"\">");
+    expect(document.body.firstChild.innerHTML).toEqual("<input maxlength=\"255\" value=\"\">");
 });
 
 it("should be a textarea", () => {
@@ -125,7 +125,7 @@ it("should have a default limit of 255 characters", () => {
 it("should avoid very large inputs", () => {
     const inputProps = {
         value: "baby te necesito".repeat(1000),
-        maxlength: 500, 
+        maxLength: 500, 
     };
 
     act(() => {
