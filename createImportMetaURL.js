@@ -1,4 +1,5 @@
-import fs from "fs";
+import * as fs from "std/node/fs.ts";
+
 let envFileBuffer = null;
 
 try {
