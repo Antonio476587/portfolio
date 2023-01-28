@@ -1,12 +1,11 @@
-import anime from "animejs";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import anime from "https://esm.sh/animejs@3.2.1";
+import gsap from "https://esm.sh/gsap@3.11.4";
+import ScrollTrigger from "https://esm.sh/gsap@3.11.4/dist/ScrollTrigger";
+import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 
-import HeaderAbout from "./HeaderAbout";
-import Illustration from "./Illustration";
-import { personSvg, arrowLeftSquare, workSvg } from "../Utils/Svg";
+import HeaderAbout from "./HeaderAbout.tsx";
+import Illustration from "./Illustration.tsx";
+import { arrowLeftSquare, personSvg, workSvg } from "../Utils/Svg.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,188 +17,183 @@ let colorBox;
 let colorBox2;
 
 const InfoAbout = React.forwardRef(function InfoAbout(
-    _props,
-    ref: React.RefObject<HTMLDivElement>
+  _props,
+  ref: React.RefObject<HTMLDivElement>,
 ): JSX.Element {
-    return (
-        <div className="container mb-5 about-me cajita" ref={ref}>
-            <div className="container title-me d-flex">
-                <div className="container">
-                    <h3 className="h3">About me</h3>
-                </div>
-                <span className="container">{personSvg}</span>
-            </div>
+  return (
+    <div className="container mb-5 about-me cajita" ref={ref}>
+      <div className="container title-me d-flex">
+        <div className="container">
+          <h3 className="h3">About me</h3>
+        </div>
+        <span className="container">{personSvg}</span>
+      </div>
 
-            <div className="container text-container">
-                <p className="text m-1 pr p-about-me">
+      <div className="container text-container">
+        <p className="text m-1 pr p-about-me">
           I always want to give my best, help who need it and grow as a person.
           I would like to provide a great programming experience by working with
           you, I don’t consider any project too big or small. I always try to be
           updated and consider me responsible and constant, and if I got errors,
           I try to learn from them as much as I can, ¡Thanks for visit me!
-                </p>
-            </div>
-        </div>
-    );
+        </p>
+      </div>
+    </div>
+  );
 });
 
 export default function About(): JSX.Element {
-    const box: React.RefObject<HTMLDivElement> = useRef(null);
-    const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
-    const q: gsap.utils.SelectorFunc = gsap.utils.selector(box);
+  const box: React.RefObject<HTMLDivElement> = useRef(null);
+  const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
+  const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
+  const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
+  const q: gsap.utils.SelectorFunc = gsap.utils.selector(box);
 
-    const boxes: JSX.Element[] = [];
+  const boxes: JSX.Element[] = [];
 
-    for (let i = 0; i < 50; i++) {
-        const element: JSX.Element = <div key={i + 1} className="svg-div" />;
-        boxes.push(element);
+  for (let i = 0; i < 50; i++) {
+    const element: JSX.Element = <div key={i + 1} className="svg-div" />;
+    boxes.push(element);
+  }
+
+  useEffect(() => {
+    globalThis.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    anime.set(".svg-div", {
+      translateX: () => anime.random(-400, 400),
+      translateY: () => anime.random(-1100, 1100),
+      rotate: () => anime.random(0, 360),
+    });
+  }, []);
+
+  useEffect(() => {
+    function randomValues() {
+      if (location.pathname !== "/about") return;
+      anime({
+        targets: [".svg-div"],
+        easing: "easeInOutQuad",
+        duration: 6000,
+        scale: () => anime.random(0.5, 1.5),
+        translateX: () => anime.random(-400, 400),
+        translateY: () => anime.random(-1100, 1100),
+        rotate: () => anime.random(0, 360),
+        complete: randomValues,
+      });
+      gsap.getProperty(".svg-div", "--gradient-color") === black
+        ? (colorBox = azure)
+        : (colorBox = black);
+      gsap.to(q(".svg-div"), {
+        duration: 6,
+        "--gradient-color": colorBox,
+      });
+      gsap.getProperty(".svg-div", "--gradient-color-2") === sand
+        ? (colorBox2 = orange)
+        : (colorBox2 = sand);
+      gsap.to(q(".svg-div"), {
+        duration: 6,
+        "--gradient-color-2": colorBox2,
+      });
     }
 
-    useEffect(() => {
-        globalThis.scrollTo(0, 0);
-    }, []);
+    if (location.pathname == "/about") randomValues();
+  }, [q, box]);
 
-    useEffect(() => {
-        anime.set(".svg-div", {
-            translateX: () => anime.random(-400, 400),
-            translateY: () => anime.random(-1100, 1100),
-            rotate: () => anime.random(0, 360),
-        });
-    }, []);
+  useEffect(() => {
+    const infoAbout = infoAboutRef.current ?? false;
+    const headerAbout = headerAboutRef.current ?? false;
+    const illustration = illustrationRef.current ?? false;
 
-    useEffect(() => {
-        function randomValues() {
-            if (location.pathname !== "/about") return;
-            anime({
-                targets: [".svg-div"],
-                easing: "easeInOutQuad",
-                duration: 6000,
-                scale: () => anime.random(0.5, 1.5),
-                translateX: () => anime.random(-400, 400),
-                translateY: () => anime.random(-1100, 1100),
-                rotate: () => anime.random(0, 360),
-                complete: randomValues,
-            });
-            gsap.getProperty(".svg-div", "--gradient-color") === black
-                ? (colorBox = azure)
-                : (colorBox = black);
-            gsap.to(q(".svg-div"), {
-                duration: 6,
-                "--gradient-color": colorBox,
-            });
-            gsap.getProperty(".svg-div", "--gradient-color-2") === sand
-                ? (colorBox2 = orange)
-                : (colorBox2 = sand);
-            gsap.to(q(".svg-div"), {
-                duration: 6,
-                "--gradient-color-2": colorBox2,
-            });
-        }
+    let animationInfoAbout: gsap.core.Tween;
+    let animationInfoAboutCallback: gsap.core.Tween;
+    let animationHeaderAbout: gsap.core.Tween;
+    let animationIllustration: gsap.core.Tween;
 
-        if (location.pathname == "/about") randomValues();
-    }, [q, box]);
+    if (infoAbout) {
+      animationInfoAbout = gsap.to(infoAbout, {
+        delay: 0.5,
+        duration: 1,
+        autoAlpha: 1,
+        scale: 1,
+        rotation: 0,
+        onComplete: () => {
+          animationInfoAbout.kill();
+          animationInfoAboutCallback = gsap.to(infoAbout, {
+            rotation: 45,
+            autoAlpha: 0,
+            scrollTrigger: {
+              id: "infoTrigger",
+              trigger: infoAbout,
+              start: "top top",
+              end: "bottom top+=50",
+              scrub: true,
+              toggleActions: "play none none reverse",
+            },
+          });
+        },
+      });
+    }
 
-    useEffect(() => {
+    if (headerAbout && illustration) {
+      animationHeaderAbout = gsap.to(headerAbout, {
+        autoAlpha: 1,
+        scale: 1,
+        xPercent: 3,
+        scrollTrigger: {
+          id: "section1",
+          trigger: headerAbout,
+          start: "bottom bottom",
+          end: "center center",
+          scrub: true,
+          once: true,
+        },
+      });
+      animationIllustration = gsap.from(illustration, {
+        opacity: 0,
+        scrollTrigger: {
+          id: "section3",
+          trigger: illustration,
+          start: "top bottom",
+          end: "center bottom",
+          toggleActions: "play none none reverse",
+          scrub: true,
+        },
+      });
+    }
 
-        const infoAbout = infoAboutRef.current ?? false;
-        const headerAbout = headerAboutRef.current ?? false;
-        const illustration = illustrationRef.current ?? false;
-        
-        let animationInfoAbout: gsap.core.Tween;
-        let animationInfoAboutCallback: gsap.core.Tween;
-        let animationHeaderAbout: gsap.core.Tween;
-        let animationIllustration: gsap.core.Tween;
+    return () => {
+      animationInfoAbout?.kill();
+      animationInfoAboutCallback?.kill();
+      animationHeaderAbout?.kill();
+      animationIllustration?.kill();
+    };
+  }, [
+    illustrationRef,
+    illustrationRef.current,
+    headerAboutRef,
+    headerAboutRef.current,
+  ]);
 
-        if (infoAbout) {
-            
-            animationInfoAbout = gsap.to(infoAbout, {
-                delay: 0.5,
-                duration: 1,
-                autoAlpha: 1,
-                scale: 1,
-                rotation: 0,
-                onComplete: () => {
-                    animationInfoAbout.kill();
-                    animationInfoAboutCallback = gsap.to(infoAbout, {
-                        rotation: 45,
-                        autoAlpha: 0,
-                        scrollTrigger: {
-                            id: "infoTrigger",
-                            trigger: infoAbout,
-                            start: "top top",
-                            end: "bottom top+=50",
-                            scrub: true,
-                            toggleActions: "play none none reverse",
-                        },
-                    });
-                },
-            });
-            
-        }
+  return (
+    <div className="about" id="About" role="main" aria-roledescription="about">
+      <a href="/?P=false" className="back-about">
+        <span className="container">{arrowLeftSquare}</span>
+      </a>
 
-        if (headerAbout && illustration) {
+      <div ref={box}>{boxes}</div>
 
-            animationHeaderAbout = gsap.to(headerAbout, {
-                autoAlpha: 1,
-                scale: 1,
-                xPercent: 3,
-                scrollTrigger: {
-                    id: "section1",
-                    trigger: headerAbout,
-                    start: "bottom bottom",
-                    end: "center center",
-                    scrub: true,
-                    once: true,
-                },
-            });
-            animationIllustration = gsap.from(illustration, {
-                opacity: 0,
-                scrollTrigger: {
-                    id: "section3",
-                    trigger: illustration,
-                    start: "top bottom",
-                    end: "center bottom",
-                    toggleActions: "play none none reverse",
-                    scrub: true,
-                },
-            });
-                
-        }
+      <InfoAbout ref={infoAboutRef} />
 
-        return () => {
-            animationInfoAbout?.kill();
-            animationInfoAboutCallback?.kill();
-            animationHeaderAbout?.kill();
-            animationIllustration?.kill();
-        };
-    }, [
-        illustrationRef,
-        illustrationRef.current,
-        headerAboutRef,
-        headerAboutRef.current,
-    ]);
+      <HeaderAbout ref={headerAboutRef} />
 
-    return (
-        <div className="about" id="About" role="main" aria-roledescription="about">
-            <a href="/?P=false" className="back-about">
-                <span className="container">{arrowLeftSquare}</span>
-            </a>
+      <Illustration ref={illustrationRef} />
 
-            <div ref={box}>{boxes}</div>
-
-            <InfoAbout ref={infoAboutRef} />
-
-            <HeaderAbout ref={headerAboutRef} />
-
-            <Illustration ref={illustrationRef} />
-
-            <Link to="/works" className="go-work">
-                <span className="container">{workSvg}</span>
-            </Link>
-        </div>
-    );
+      <a href="/works" className="go-work">
+        <span className="container">{workSvg}</span>
+      </a>
+    </div>
+  );
 }
 
 export { InfoAbout };

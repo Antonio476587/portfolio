@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { type ReactElement } from "https://esm.sh/react@18.2.0";
 
 interface workToRender {
   h2: string | ReactElement;
