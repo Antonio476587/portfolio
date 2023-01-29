@@ -6,6 +6,8 @@ import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
+import { storage, ref, getBytes, getMetadata, getBlob } from "./utils/firebaseinitializer.ts";
+
 // import template from "./server/template.js";
 // import templateHome from "./server/templateHome.js";
 import components from "./src/components.tsx";
@@ -71,7 +73,46 @@ function render(req: Request) {
   } */
 }
 
+async function getContent(
+  ref: any,
+  typeOfContent: "media" | "text",
+): Promise<[Blob | ArrayBuffer, any]> {
+  if (typeOfContent == "media") {
+    const blob: Blob = await getBlob(ref);
+    const blobMetadata = await getMetadata(ref);
+    return [blob, blobMetadata];
+  } else {
+    const data: ArrayBuffer = await getBytes(ref);
+    const dataMetadata = await getMetadata(ref);
+    return [data, dataMetadata];
+  }
+}
+
 const handler = router({
+  "GET@/static/*": async function (req) {
+    const splittedUrl = req.url.split("static/");
+    const staticContentToFetch = splittedUrl.at(splittedUrl.length - 1);
+
+    try {
+      const staticRef = ref(storage, staticContentToFetch);
+      const typeOfContent = splittedUrl.some((v) => v.includes("media"))
+        ? "media"
+        : "text";
+
+      const content = await getContent(staticRef, typeOfContent);
+
+      const resp = new Response(content.at(0), {
+        status: 200,
+        headers: {
+          "Content-Type": content.at(1).contentType,
+        },
+      });
+
+      return resp;
+    } catch (error) {
+      return new Response("Not Found", { status: 404 });
+    }
+  },
   "GET@/": async (_req) => {
     const resp = await renderSSR(<components.MainPage />);
     return resp;
