@@ -169,7 +169,7 @@ function ContactForm({ active }: ContactForm) {
           <div className="div-nft-gift-hover-2" />
           {giveNFT === "nft-gift-desactive"
             ? null
-            : <img src="/img/1.png" alt="" className="nft" />}
+            : <img src="/static/media/images/1.png" alt="" className="nft" />}
         </div>
         {giveNFT === "nft-gift-desactive"
           ? (
@@ -183,7 +183,7 @@ function ContactForm({ active }: ContactForm) {
             </button>
           )
           : (
-            <a href="/img/1.png" download="">
+            <a href="/static/media/images/1.png" download="">
               <button
                 type="button"
                 title="button to download the NFT"
