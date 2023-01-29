@@ -1,5 +1,7 @@
+import { config } from "https://deno.land/x/dotenv/mod.ts";
+config({ path: Deno.cwd() + "/.env", export: true });
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
+import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
 import {  getStorage } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-storage.js";
 
 const firebaseConfig = {
@@ -18,6 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const analytics = getAnalytics(app);
+logEvent(analytics, 'notification_received');
 
 const storage = getStorage(app);
 
