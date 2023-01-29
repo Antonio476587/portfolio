@@ -9,15 +9,15 @@ import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 import { storage, ref, getBytes, getMetadata, getBlob } from "./utils/firebaseinitializer.ts";
 
 // import template from "./server/template.js";
-// import templateHome from "./server/templateHome.js";
+import templateHome from "./server/templateHome.js";
 import components from "./src/components.tsx";
 
-async function renderSSR(compnent: React.ReactNode): Promise<Response> {
+async function renderSSR(component: React.ReactNode): Promise<Response> {
   let controller = new AbortController();
   let didError = false;
   try {
     let stream = await ReactDOMServer.renderToReadableStream(
-      compnent,
+      templateHome(component),
       {
         signal: controller.signal,
         onError(error) {
@@ -33,7 +33,7 @@ async function renderSSR(compnent: React.ReactNode): Promise<Response> {
 
     // await stream.allReady;
 
-    return new Response(stream, {
+    return new Response(templateHome(stream), {
       status: didError ? 500 : 200,
       headers: { "Content-Type": "text/html" },
     });
