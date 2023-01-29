@@ -206,10 +206,10 @@ const Illustration = React.forwardRef(
     return (
       <div className="container-illustration container cajita" ref={ref}>
         <img
-          src="/img/avatar-uo-300.png"
+          src="/static/media/images/avatar-uo-300.png"
           alt="This is avatar of me. It's seemed to the avatar Ank"
-          srcSet="/img/avatar-uo-300.png 300w,
-        /img/avatar-uo-700-2.png 700w, /img/avatar-uo-950-2.png 950w, /img/avatar-uo-1600.png 1800w"
+          srcSet="/static/media/images/avatar-uo-300.png 300w,
+        /static/media/images/avatar-uo-700-2.png 700w, /static/media/images/avatar-uo-950-2.png 950w, /static/media/images/avatar-uo-1600.png 1800w"
           sizes="(max-width: 768px) 300px, (max-width: 1200px) 700px, (max-width: 1800px) 950px, 1800px"
         />
         <ul className="notes">{notes}</ul>

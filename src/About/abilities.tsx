@@ -1,7 +1,7 @@
 import React from "https://esm.sh/react@18.2.0";
 
 const imgCreator = (src: string, alt: string) => (
-  <img src={"/img/" + src} alt={alt} />
+  <img src={"/static/media/images/" + src} alt={alt} />
 );
 
 export interface ability {
