@@ -1,11 +1,11 @@
-import path from "path";
-import fs from "fs";
-import minimist from "minimist";
-import { argv } from "process";
+import path from "node:path";
+import fs from "node:fs";
+import minimist from "https://esm.sh/minimist@1.2.7";
+import { argv } from "node:process";
 
 const argvFlags =  minimist(argv.slice(2));
 
-import pug, { Options, LocalsObject } from "pug";
+import pug, { Options, LocalsObject } from "https://esm.sh/pug@3.0.2";
 
 import { __dirname as __root_dirname } from "../pathEMS.js";
 
