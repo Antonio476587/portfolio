@@ -10,5 +10,8 @@
     "options": {
       "semiColons": true
     }
+  },
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
   }
 }
