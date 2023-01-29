@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch --allow-all main.tsx"
+    "dev": "deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx"
   },
   "fmt": {
     "files": {
