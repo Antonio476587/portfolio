@@ -6,7 +6,8 @@ import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
-import { storage, ref, getBytes, getMetadata, getBlob } from "./utils/firebaseinitializer.ts";
+import { storage, ref } from "./utils/firebaseInitializer.ts";
+import { getContent } from "./utils/firebaseUtils.ts";
 
 // import template from "./server/template.js";
 import templateHome from "./server/templateHome.js";
@@ -71,21 +72,6 @@ function render(req: Request) {
       return template(body);
       // res.send(template(body));
   } */
-}
-
-async function getContent(
-  ref: any,
-  typeOfContent: "media" | "text",
-): Promise<[Blob | ArrayBuffer, any]> {
-  if (typeOfContent == "media") {
-    const blob: Blob = await getBlob(ref);
-    const blobMetadata = await getMetadata(ref);
-    return [blob, blobMetadata];
-  } else {
-    const data: ArrayBuffer = await getBytes(ref);
-    const dataMetadata = await getMetadata(ref);
-    return [data, dataMetadata];
-  }
 }
 
 const handler = router({
