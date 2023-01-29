@@ -1,4 +1,5 @@
-import "https://esm.sh/v104/@types/react@18.0.26/index";
+import "https://deno.land/x/dotenv/load.ts";
+import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 
