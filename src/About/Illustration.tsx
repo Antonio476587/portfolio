@@ -1,5 +1,5 @@
 import React, { useRef } from "https://esm.sh/react@18.2.0";
-import abilities from "./abilities.ts";
+import abilities from "./abilities.tsx";
 import AbilitiesTable from "./AbilitiesTable.tsx";
 
 function handleAnimationEnd(event: AnimationEvent) {
