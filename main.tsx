@@ -3,6 +3,7 @@ import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 
+import "./utils/moduleDeclarations.ts";
 import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
