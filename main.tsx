@@ -2,6 +2,7 @@ import "https://deno.land/x/dotenv/load.ts";
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
+import { readableStreamFromIterable } from "https://deno.land/std@0.175.0/streams/mod.ts";
 
 import "./utils/moduleDeclarations.ts";
 import React from "https://esm.sh/react@18.2.0";
@@ -10,36 +11,22 @@ import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 import { storage, FS } from "./utils/firebaseInitializer.ts";
 const { ref } = FS;
 
-import { getContent } from "./utils/firebaseUtils.ts";
+import { getContent, addMessage } from "./utils/firebaseUtils.ts";
 
 // import template from "./server/template.js";
 import templateHome from "./server/templateHome.js";
 import components from "./src/components.tsx";
 
 async function renderSSR(component: React.ReactNode): Promise<Response> {
-  let controller = new AbortController();
-  let didError = false;
   try {
-    let stream = await ReactDOMServer.renderToReadableStream(
-      templateHome(component),
-      {
-        signal: controller.signal,
-        onError(error) {
-          didError = true;
-          console.error(error);
-        },
-      },
-    );
+    let content = ReactDOMServer.renderToString(component);
+    const document = templateHome(content);
 
-    // This is to wait for all Suspense boundaries to be ready. You can uncomment
-    // this line if you want to buffer the entire HTML instead of streaming it.
-    // You can use this for crawlers or static generation:
+    const stream = readableStreamFromIterable(document);
 
-    // await stream.allReady;
-
-    return new Response(templateHome(stream), {
-      status: didError ? 500 : 200,
-      headers: { "Content-Type": "text/html" },
+    return new Response(stream.pipeThrough(new TextEncoderStream()), {
+      status: 200,
+      headers: { "Content-Type": "text/html", "x-content-type-options": "nosniff", },
     });
   } catch (error) {
     return new Response(
