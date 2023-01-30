@@ -40,30 +40,6 @@ async function renderSSR(component: React.ReactNode): Promise<Response> {
 }
 console.log("rerrun");
 
-
-function render(req: Request) {
-  // const context = {};
-  // const Element = (props: any) => (
-  //     <StaticRouter location={req.url} context={context}>
-  //         <Page />
-  //     </StaticRouter>
-  // );
-  // const RStream = ssr(() => <Hello name="Denito" />).body;
-  // return renderSSR(<NotFound />);
-  // const body = ReactDOMServer.renderToString(element);
-  /*   if (req.url.endsWith("/") || req.url.endsWith("/?P=false")) {
-      // res.append("Link", "</css/preload.css>; rel=preload; as=style");
-      // for (let i = 0; i < 6; i++) {
-          // res.append("Link", `</img/Q${i + 1}.webp>; rel=preload; as=image`);
-      // }
-      return templateHome(body);
-      // res.send(templateHome(body));
-  } else {
-      return template(body);
-      // res.send(template(body));
-  } */
-}
-
 const handler = router({
   "GET@/static/*": async function (req) {
     const splittedUrl = req.url.split("static/");
