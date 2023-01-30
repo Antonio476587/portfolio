@@ -5,7 +5,7 @@ import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 import { readableStreamFromIterable } from "https://deno.land/std@0.175.0/streams/mod.ts";
 
 import "./utils/moduleDeclarations.ts";
-import React from "https://esm.sh/react@18.2.0";
+// import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
 import { storage, FS } from "./utils/firebaseInitializer.ts";
@@ -17,9 +17,9 @@ import { getContent, addMessage } from "./utils/firebaseUtils.ts";
 import templateHome from "./server/templateHome.js";
 import components from "./src/components.tsx";
 
-async function renderSSR(component: React.ReactNode): Promise<Response> {
+function renderSSR(component: JSX.Element): Response {
   try {
-    let content = ReactDOMServer.renderToString(component);
+    const content = ReactDOMServer.renderToString(component);
     const document = templateHome(content);
 
     const stream = readableStreamFromIterable(document);
@@ -65,26 +65,26 @@ const handler = router({
       return new Response("Not Found", { status: 404 });
     }
   },
-  "GET@/": async (_req) => {
-    const resp = await renderSSR(<components.MainPage />);
+  "GET@/": (_req) => {
+    const resp = renderSSR(<components.MainPage />);
     return resp;
   },
-  "GET@/about": async (_req) => {
-    const resp = await renderSSR(<components.About />);
+  "GET@/about": (_req) => {
+    const resp = renderSSR(<components.About />);
     return resp;
   },
-  "GET@/works": async (_req) => {
-    const resp = await renderSSR(<components.Works />);
+  "GET@/works": (_req) => {
+    const resp = renderSSR(<components.Works />);
     return resp;
   },
-  "GET@/work/:id": async (req) => {
+  "GET@/work/:id": (req) => {
     const urlSplitted = req.url.split("/");
     const id = urlSplitted[urlSplitted.length - 1];
-    const resp = await renderSSR(<components.WorkWrapper id={id} />);
+    const resp = renderSSR(<components.WorkWrapper id={id} />);
     return resp;
   },
-  "GET@/*": async (_req) => {
-    const resp = await renderSSR(<components.NotFound />);
+  "GET@/*": (_req) => {
+    const resp = renderSSR(<components.NotFound />);
     return resp;
   },
   "POST@/": (_req) => new Response("Hello post!", { status: 200 }),
