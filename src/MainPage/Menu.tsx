@@ -25,7 +25,7 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
           <div className="menu-item">
             <a href="#Home" onClick={() => changeVisibilityMenu()}>
               <div>
-                <img src="img/home.jpg" alt="" />
+                <img src="/static/media/images/home.jpg" alt="" />
               </div>
             </a>
             <h3>{houseSvg} Home</h3>
@@ -33,7 +33,7 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
           <div className="menu-item">
             <a href="/about" onClick={() => changeVisibilityMenu()}>
               <div>
-                <img src="img/about.jpg" alt="" />
+                <img src="/static/media/images/about.jpg" alt="" />
               </div>
             </a>
             <h3>{pencilWorkspaceSvg} About</h3>
@@ -41,7 +41,7 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
           <div className="menu-item">
             <a href="/works" onClick={() => changeVisibilityMenu()}>
               <div>
-                <img src="img/works.jpg" alt="" />
+                <img src="/static/media/images/works.jpg" alt="" />
               </div>
             </a>
             <h3>{pencilSvg} Works</h3>
@@ -49,7 +49,7 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
           <div className="menu-item">
             <a href="#Contact" onClick={() => changeVisibilityMenu()}>
               <div>
-                <img src="img/contact.jpg" alt="" />
+                <img src="/static/media/images/contact.jpg" alt="" />
               </div>
             </a>
             <h3>{briefcaseSvg} Contact</h3>
