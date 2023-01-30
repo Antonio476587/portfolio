@@ -13,8 +13,8 @@ const { ref } = FS;
 
 import { getContent, addMessage } from "./utils/firebaseUtils.ts";
 
-// import template from "./server/template.js";
-import templateHome from "./server/templateHome.js";
+// import template from "./templates/template.js";
+import templateHome from "./templates/templateHome.js";
 import components from "./src/components.tsx";
 
 function renderSSR(component: JSX.Element): Response {
