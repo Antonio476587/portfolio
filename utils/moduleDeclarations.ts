@@ -30,5 +30,4 @@ declare global {
       userselect?: string;
     }
   }
-  
 }
