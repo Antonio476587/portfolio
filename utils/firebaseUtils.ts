@@ -4,9 +4,9 @@ const {getBlob, getBytes, getMetadata} = FS;
 const {addDoc, collection} = FF;
 
 async function getContent(
-    ref: any,
+    ref: FS.StorageReference,
     typeOfContent: "media" | "text",
-  ): Promise<[Blob | ArrayBuffer, any]> {
+  ): Promise<[Blob | ArrayBuffer, FS.FullMetadata]> {
     if (typeOfContent == "media") {
       const blob: Blob = await getBlob(ref);
       const blobMetadata = await getMetadata(ref);
