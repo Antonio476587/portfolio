@@ -1,10 +1,12 @@
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 config({ path: Deno.cwd() + "/.env", export: true });
 import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
-import { getAnalytics, logEvent } from "https://esm.sh/firebase@9.16.0/analytics";
+import {
+  getAnalytics,
+  logEvent,
+} from "https://esm.sh/firebase@9.16.0/analytics";
 import { getStorage } from "https://esm.sh/firebase@9.16.0/storage";
 import { getFirestore } from "https://esm.sh/firebase@9.16.0/firestore";
-
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -21,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 
 // Analytics
 const analytics = getAnalytics(app);
-logEvent(analytics, 'notification_received');
+logEvent(analytics, "notification_received");
 
 // Storage
 const storage = getStorage(app);
@@ -29,12 +31,7 @@ const storage = getStorage(app);
 // DataBase
 const db = getFirestore(app);
 
-export {
-    app,
-    analytics,
-    storage,
-    db,
-}
+export { analytics, app, db, storage };
 export * as F from "https://esm.sh/firebase@9.16.0/app";
 export * as FA from "https://esm.sh/firebase@9.16.0/analytics";
 export * as FS from "https://esm.sh/firebase@9.16.0/storage";
