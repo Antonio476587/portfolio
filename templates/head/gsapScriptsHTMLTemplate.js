@@ -1,10 +1,10 @@
 const htmlSyntax = 
 `      <!-- GSAP -->
-<script src="/static/js/gsap/gsap.min.js" rel="preload"></script>
+<script src="https://unpkg.com/gsap@3.11.4/dist/gsap.min.js" rel="preload"></script>
 <!-- GSAP Scroll Trigger -->
-<script src="/static/js/gsap/ScrollToPlugin.min.js"></script>
+<script src="https://unpkg.com/gsap@3.11.4/dist/ScrollToPlugin.min.js"></script>
 <!-- GSAP Scroll To -->
-<script src="/static/js/gsap/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/gsap@3.11.4/dist/ScrollTrigger.min.js"></script>
 <!-- GSAP Register global plugin -->
 <script>
   gsap.registerPlugin(ScrollTrigger);
