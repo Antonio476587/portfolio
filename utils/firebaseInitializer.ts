@@ -1,8 +1,9 @@
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 config({ path: Deno.cwd() + "/.env", export: true });
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
-import {  getStorage } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-storage.js";
+import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
+import { getAnalytics, logEvent } from "https://esm.sh/firebase@9.16.0/analytics";
+import { getStorage } from "https://esm.sh/firebase@9.16.0/storage";
+import { getFirestore } from "https://esm.sh/firebase@9.16.0/firestore";
 
 const firebaseConfig = {
   apiKey: Deno.env.get("FIREBASE_API_KEY"),
