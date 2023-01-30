@@ -2,7 +2,7 @@ import "https://deno.land/x/dotenv/load.ts";
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
-import { readableStreamFromIterable } from "https://deno.land/std@0.175.0/streams/mod.ts";
+import { readableStreamFromIterable, readerFromStreamReader, readAll } from "https://deno.land/std@0.175.0/streams/mod.ts";
 
 import "./utils/moduleDeclarations.ts";
 // import React from "https://esm.sh/react@18.2.0";
@@ -87,7 +87,28 @@ const handler = router({
     const resp = renderSSR(<components.NotFound />);
     return resp;
   },
-  "POST@/": (_req) => new Response("Hello post!", { status: 200 }),
+  // There is an error that disallows me to use a specific path like "/messages"
+  "POST@/*": async (req) => {
+    if (req.body) {
+      const buffer = await readAll(readerFromStreamReader(req.body.getReader()));
+      const message = JSON.parse(((new TextDecoder)).decode(buffer));
+
+      if (!("name" in message) || !("email" in message) || !("message" in message)) {
+        return new Response("Bad input from the user", { status: 400 });
+      }
+
+      try {
+        const messageState = await addMessage(message);
+        if (!messageState) {
+          return new Response("The message was bad recibed! Please contact the administrator to fix the problem", { status: 406 });
+        }
+        return new Response("The message was succesfully recibed!", { status: 200 });
+      } catch (error) {
+        console.error(error);
+    }
+    }
+    return new Response("The message was bad recibed! Please contact the administrator to fix the problem", { status: 406 });
+  },
 });
 
 await serve(handler, { addr: ":10800" });

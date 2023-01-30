@@ -1,7 +1,13 @@
 import { FS, FF, db } from "./firebaseInitializer.ts";
 
 const {getBlob, getBytes, getMetadata} = FS;
-const {addDoc, collection} = FF;
+const {addDoc, collection, getDocs, getDoc,doc, Timestamp} = FF;
+
+type message = {
+    name: string,
+    email: string,
+    message: string,
+};
 
 async function getContent(
     ref: FS.StorageReference,
@@ -18,4 +24,16 @@ async function getContent(
     }
   }
 
-export { getContent };
+  async function addMessage(message: message): Promise<string> {
+    try {
+        const docRef = await addDoc(collection(db, "messages"), {
+          ...message,
+          date: Timestamp.now(),
+        });
+        return docRef.id;
+    } catch (error) {
+        throw new Error(error);
+    }
+  }
+
+export { getContent, addMessage };
