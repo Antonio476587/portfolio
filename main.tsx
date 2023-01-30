@@ -7,7 +7,9 @@ import "./utils/moduleDeclarations.ts";
 import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
-import { storage, ref } from "./utils/firebaseInitializer.ts";
+import { storage, FS } from "./utils/firebaseInitializer.ts";
+const { ref } = FS;
+
 import { getContent } from "./utils/firebaseUtils.ts";
 
 // import template from "./server/template.js";

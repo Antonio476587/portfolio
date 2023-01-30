@@ -35,6 +35,7 @@ export {
     storage,
     db,
 }
-export * from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-export * from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
-export * from "https://www.gstatic.com/firebasejs/9.16.0/firebase-storage.js";
+export * as F from "https://esm.sh/firebase@9.16.0/app";
+export * as FA from "https://esm.sh/firebase@9.16.0/analytics";
+export * as FS from "https://esm.sh/firebase@9.16.0/storage";
+export * as FF from "https://esm.sh/firebase@9.16.0/firestore";

@@ -1,4 +1,7 @@
-import { getBlob, getMetadata, getBytes } from "./firebaseInitializer.ts";
+import { FS, FF, db } from "./firebaseInitializer.ts";
+
+const {getBlob, getBytes, getMetadata} = FS;
+const {addDoc, collection} = FF;
 
 async function getContent(
     ref: any,
