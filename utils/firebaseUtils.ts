@@ -1,7 +1,7 @@
 import { db, FF, FS } from "./firebaseInitializer.ts";
 
 const { getBlob, getBytes, getMetadata } = FS;
-const { addDoc, collection, getDocs, getDoc, doc, Timestamp } = FF;
+const { addDoc, collection, Timestamp } = FF;
 
 type message = {
   name: string;
