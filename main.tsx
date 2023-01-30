@@ -77,10 +77,10 @@ const handler = router({
 
       const content = await getContent(staticRef, typeOfContent);
 
-      const resp = new Response(content.at(0), {
+      const resp = new Response(content[0], {
         status: 200,
         headers: {
-          "Content-Type": content.at(1).contentType,
+          "Content-Type": content[1].contentType?? "application/octet-stream",
         },
       });
 
