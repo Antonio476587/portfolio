@@ -15,7 +15,10 @@ const workContents: Array<Work> = [
     in the programming, and the principles are the same yet.
     `,
     media1: ["/static/media/images/tracker1.jpg", "How I create the NFTs."],
-    media2: ["/static/media/images/tracker2.jpg", "Each NFT has unique things."],
+    media2: [
+      "/static/media/images/tracker2.jpg",
+      "Each NFT has unique things.",
+    ],
     p2: `When I started the book, I had a little idea about React,
     I knew Mongodb, Node and Express, but I didn't know nothing about
     GraphQL, ReactRouter, ESlint and a lot more of things that I learned.
@@ -79,7 +82,10 @@ const workContents: Array<Work> = [
         <a href="/tic-tac-toe.html">Click here if you would like to play it</a>.
       </>
     ),
-    media1: ["/static/media/images/three1.jpg", "The game of three on a ray that I made"],
+    media1: [
+      "/static/media/images/three1.jpg",
+      "The game of three on a ray that I made",
+    ],
     media2: [
       "/static/media/images/three2.jpg",
       "The code of the AI and the HTML code with Pug template.",
@@ -119,7 +125,10 @@ const workContents: Array<Work> = [
     media3: ["/static/media/videos/barbagsap.mp4", "A video of barbagsap"],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/barba2.jpg", "Barba and gsap in a really nice picture."],
+    media4: [
+      "/static/media/images/barba2.jpg",
+      "Barba and gsap in a really nice picture.",
+    ],
     styles: ["#E1CCA4", "#1F6161", "#FFFFF0"],
     type: "casestudy",
   },
@@ -166,7 +175,10 @@ const workContents: Array<Work> = [
       "/static/media/images/hommies1.jpg",
       "They are the best choice and achieve I have made",
     ],
-    media2: ["/static/media/images/hommies2.jpg", "We are pointing to coco mango's logo."],
+    media2: [
+      "/static/media/images/hommies2.jpg",
+      "We are pointing to coco mango's logo.",
+    ],
     p2: `We are not friends because we wanted, it happened by coincidence. 
     But we have a lot on common like the basketball, we are a basketball team called
     Los Pollos(The Chickens), we are bad, and I over all. Althought we still playing 
@@ -231,10 +243,22 @@ const workContents: Array<Work> = [
         </a>
       </>
     ),
-    media1: ["/static/media/native_m/projects.webp", "A blob made with ThreeJS"],
-    media2: ["/static/media/images/bgcomplement.jpg", "The Blog is my blog haha"],
-    media3: ["/static/media/native_m/projects-2.webp", "A telegram bot with puppeteer"],
-    media4: ["/static/media/native_m/projects-3.webp", "My portfolio, my biggest project"],
+    media1: [
+      "/static/media/native_m/projects.webp",
+      "A blob made with ThreeJS",
+    ],
+    media2: [
+      "/static/media/images/bgcomplement.jpg",
+      "The Blog is my blog haha",
+    ],
+    media3: [
+      "/static/media/native_m/projects-2.webp",
+      "A telegram bot with puppeteer",
+    ],
+    media4: [
+      "/static/media/native_m/projects-3.webp",
+      "My portfolio, my biggest project",
+    ],
     p4: (
       <>
         I hope that you&apos;re enjoying my portfolio and don&apos;t forget,
