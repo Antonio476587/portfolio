@@ -38,7 +38,6 @@ function renderSSR(component: JSX.Element): Response {
     );
   }
 }
-console.log("rerrun");
 
 const handler = router({
   "GET@/static/*": async function (req) {
@@ -111,4 +110,5 @@ const handler = router({
   },
 });
 
+console.info("Server Running");
 await serve(handler, { addr: ":10800" });
