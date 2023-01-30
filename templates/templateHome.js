@@ -22,7 +22,7 @@ export default function template(body) {
     
       ${templateCompiler("templates/scripts/scripts.pug")}
       <!-- Home -->
-      <script src="/js/home.js" type="application/javascript"></script>
+      <script src="/static/js/home.js" type="application/javascript"></script>
     </body>
     
     </html>`;
