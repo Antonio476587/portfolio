@@ -124,7 +124,8 @@ const handler = router({
     return resp;
   },
   "GET@/*": (_req) => {
-    const resp = renderSSR(<components.NotFound.component />);
+    const { name } = components.NotFound;
+    const resp = renderSSR(<components.NotFound.component />, name);
     return resp;
   },
   // There is an error that disallows me to use a specific path like "/messages"
