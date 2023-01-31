@@ -30,31 +30,34 @@ function convertToValidPugInsertion(htmlSyntaxToConvert: string): string {
   ));
 }
 
-function createFileFromTemplate(
+async function createFileFromTemplate(
   pathToCreateTheFile: string,
   contentToWrite: string,
-): void {
-  Deno.writeFileSync(
+): Promise<void> {
+  await Deno.writeFile(
     resolve(__root_dirname, pathToCreateTheFile),
     (new TextEncoder()).encode(contentToWrite),
   );
 }
 
-function templateCompiler(
+async function templateCompiler(
   pugTemplate: pugTemplate,
   localContent?: LocalsObject,
   options?: Options,
-): string {
+): Promise<string> {
   const templateOptions: templateOptions = {
     doctype: options?.doctype ?? "html",
     ...options,
   };
-  const compilerPugFunction = typeof pugTemplate === "string"
-    ? pug.compileFile(
-      resolve(__root_dirname, pugTemplate),
-      templateOptions,
-    )
-    : pug.compile(pugTemplate.content, templateOptions);
+
+  let compilerPugFunction;
+
+  if (typeof pugTemplate === "string") {
+    const pugFile = await Deno.readFile(resolve(__root_dirname, pugTemplate));
+    compilerPugFunction = pug.compile((new TextDecoder()).decode(pugFile), templateOptions);
+  } else {
+    compilerPugFunction = pug.compile(pugTemplate.content, templateOptions);;
+  }
 
   return compilerPugFunction({ ...localContent });
 }
@@ -67,7 +70,7 @@ if (argvFlags.help) {
   argvFlags._.length >= 2 &&
   (typeof argvFlags._[0] == "string" && typeof argvFlags._[1] == "string")
 ) {
-  const pugTemplate = templateCompiler(argvFlags._[0], {
+  const pugTemplate = await templateCompiler(argvFlags._[0], {
     headTags: convertToValidPugInsertion(htmlSyntax),
   }, { pretty: "\t" });
   createFileFromTemplate(argvFlags._[1], pugTemplate);
