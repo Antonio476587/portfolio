@@ -109,19 +109,23 @@ function updateComplement() {
 
 // Se activa cuando se está visualizando
 
-ScrollTrigger.create({
-    trigger: ".home",
-    start: "top center",
-    end: "top+=100 top",
-    onToggle: (self) => {
-        if (self.isActive) {
-            animateHome();
-            window.addEventListener("mousemove", onDocumentMouseMove);
-            document.addEventListener("scroll", updateComplement);
-        } else {
-            desAnimateHome();
-            window.removeEventListener("mousemove", onDocumentMouseMove);
-            document.removeEventListener("scroll", updateComplement);
-        }
-    },
-});
+if (location.pathname == "/") {
+    ScrollTrigger.create({
+        trigger: ".home",
+        start: "top center",
+        end: "top+=100 top",
+        onToggle: (self) => {
+            if (self.isActive) {
+                animateHome();
+                window.addEventListener("mousemove", onDocumentMouseMove);
+                document.addEventListener("scroll", updateComplement);
+            } else {
+                desAnimateHome();
+                window.removeEventListener("mousemove", onDocumentMouseMove);
+                document.removeEventListener("scroll", updateComplement);
+            }
+        },
+    });
+} else {
+    document.getElementById("Home").setAttribute("hidden", "");
+}
