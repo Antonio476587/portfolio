@@ -42,7 +42,6 @@ specifiers:
   minimist: ^1.2.7
   nodemon: ^2.0.20
   normalize.css: ^8.0.1
-  prettier: 2.7.1
   pug: ^3.0.2
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -114,7 +113,6 @@ devDependencies:
   jest: 29.1.2_zbszuqcpgvqti4gsbgzr4pxrbm
   jest-environment-jsdom: 29.1.2
   mini-css-extract-plugin: 2.6.1_webpack@5.74.0
-  prettier: 2.7.1
   sass: 1.55.0
   sass-loader: 13.0.2_sass@1.55.0+webpack@5.74.0
   source-map-loader: 4.0.0_webpack@5.74.0
@@ -6521,12 +6519,6 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
-    dev: true
-
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /pretty-format/29.1.2:
