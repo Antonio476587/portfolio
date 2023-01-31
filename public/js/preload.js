@@ -110,7 +110,6 @@ function preloadCharged() {
 }
 
 // Inicio de animation preload
-if (windowLocation.pathname === "/") {
     if (windowLocation.search === "?P=false") {
         preload.setAttribute("hidden", "");
         window.addEventListener("load", () => {
@@ -165,4 +164,3 @@ if (windowLocation.pathname === "/") {
             onComplete: preloadCharged,
         });
     }
-}
