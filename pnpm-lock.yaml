@@ -38,7 +38,6 @@ specifiers:
   gsap: ^3.11.2
   jest: ^29.1.1
   jest-environment-jsdom: ^29.1.1
-  lowdb: ^3.0.0
   mini-css-extract-plugin: ^2.6.1
   minimist: ^1.2.7
   nodemon: ^2.0.20
@@ -75,7 +74,6 @@ dependencies:
   dotenv: 16.0.3
   esbuild: 0.17.5
   gsap: 3.11.2
-  lowdb: 3.0.0
   minimist: 1.2.7
   nodemon: 2.0.20
   normalize.css: 8.0.1
@@ -5706,13 +5704,6 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
-  /lowdb/3.0.0:
-    resolution: {integrity: sha512-9KZRulmIcU8fZuWiaM0d5e2/nPnrFyXkeXVpqT+MJS+vgbgOf1EbtvgQmba8HwUFgDl1oeZR6XqEJnkJmQdKmg==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
-      steno: 2.1.0
-    dev: false
-
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -7282,11 +7273,6 @@ packages:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
     dev: true
-
-  /steno/2.1.0:
-    resolution: {integrity: sha512-mauOsiaqTNGFkWqIfwcm3y/fq+qKKaIWf1vf3ocOuTdco9XoHCO2AGF1gFYXuZFSWuP38Q8LBHBGJv2KnJSXyA==}
-    engines: {node: ^14.13.1 || >=16.0.0}
-    dev: false
 
   /string-length/4.0.2:
     resolution: {integrity: sha512-+l6rNN5fYHNhZZy41RXsYptCjA2Igmq4EG7kZAYFQI1E1VTXarr6ZPXBg6eq7Y6eK4FEhY6AJlyuFIb/v/S0VQ==}
