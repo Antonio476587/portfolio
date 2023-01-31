@@ -65,6 +65,7 @@ const handler = router({
     }
   },
   "GET@/dynamic/*": async function (req) {
+    // This will be converted to useful middleware
     if (req.url.includes("js")) {
       const urlMatch = req.url.match(/\/(?<fileName>\w+).js$/);
       const fileName = urlMatch?.groups?.fileName;
