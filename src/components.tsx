@@ -5,11 +5,27 @@ import WorkWrapper from "./Work/index.ts";
 import { NotFound } from "./Errors/index.ts";
 
 const components = {
-  MainPage,
-  About,
-  Works,
-  WorkWrapper,
-  NotFound,
+  MainPage: {
+    component: MainPage,
+    name: "MainPage",
+  },
+  About: {
+    component: About,
+    name: "About",
+  },
+  Works: {
+    component: Works,
+    name: "Works",
+  },
+  WorkWrapper: {
+    component: WorkWrapper,
+    name: "Work",
+  },
+  NotFound: {
+    component: NotFound,
+    name: "NotFound",
+  },
 };
 
+Object.freeze(components);
 export default components;

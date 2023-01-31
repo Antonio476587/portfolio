@@ -5,7 +5,6 @@ import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
 import { readableStreamFromIterable, readerFromStreamReader, readAll } from "https://deno.land/std@0.175.0/streams/mod.ts";
 
 import "./utils/moduleDeclarations.ts";
-// import React from "https://esm.sh/react@18.2.0";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 
 import { storage, FS } from "./utils/firebaseInitializer.ts";
@@ -17,10 +16,10 @@ import { getContent, addMessage } from "./utils/firebaseUtils.ts";
 import templateHome from "./templates/templateHome.js";
 import components from "./src/components.tsx";
 
-function renderSSR(component: JSX.Element): Response {
+function renderSSR(component: JSX.Element, name: string): Response {
   try {
     const content = ReactDOMServer.renderToString(component);
-    const document = templateHome(content);
+    const document = templateHome(content, name);
 
     const stream = readableStreamFromIterable(document);
 
@@ -65,25 +64,29 @@ const handler = router({
     }
   },
   "GET@/": (_req) => {
-    const resp = renderSSR(<components.MainPage />);
+    const { name } = components.MainPage;
+    const resp = renderSSR(<components.MainPage.component />, name);
     return resp;
   },
   "GET@/about": (_req) => {
-    const resp = renderSSR(<components.About />);
+    const { name } = components.About;
+    const resp = renderSSR(<components.About.component />, name);
     return resp;
   },
   "GET@/works": (_req) => {
-    const resp = renderSSR(<components.Works />);
+    const { name } = components.Works;
+    const resp = renderSSR(<components.Works.component />, name);
     return resp;
   },
   "GET@/work/:id": (req) => {
     const urlSplitted = req.url.split("/");
     const id = urlSplitted[urlSplitted.length - 1];
-    const resp = renderSSR(<components.WorkWrapper id={id} />);
+    const { name } = components.WorkWrapper;
+    const resp = renderSSR(<components.WorkWrapper.component id={id} />, name);
     return resp;
   },
   "GET@/*": (_req) => {
-    const resp = renderSSR(<components.NotFound />);
+    const resp = renderSSR(<components.NotFound.component />);
     return resp;
   },
   // There is an error that disallows me to use a specific path like "/messages"
