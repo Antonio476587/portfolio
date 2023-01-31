@@ -38,6 +38,14 @@ function renderSSR(component: JSX.Element, name: string): Response {
   }
 }
 
+function fileMatcher(url: Request["url"], extension: string): Response | string {
+  const regex = new RegExp(`\/(?<fileName>\\w+).${extension}$`);
+  const urlMatch = url.match(regex);
+  const fileName = urlMatch?.groups?.fileName;
+  if (fileName == undefined) return new Response("Bad URL recourse inquiry", { status: 400 });
+  return fileName;
+}
+
 const handler = router({
   "GET@/static/*": async function (req) {
     const splittedUrl = req.url.split("static/");
@@ -67,9 +75,8 @@ const handler = router({
   "GET@/dynamic/*": async function (req) {
     // This will be converted to useful middleware
     if (req.url.includes("js")) {
-      const urlMatch = req.url.match(/\/(?<fileName>\w+).js$/);
-      const fileName = urlMatch?.groups?.fileName;
-      if (fileName == undefined) return new Response("Bad URL recourse inquiry", { status: 400 });
+      const fileName = fileMatcher(req.url, "js");
+      if (typeof fileName !== "string") return fileName;
       try {
         const file = await Deno.open(Deno.cwd() + "/dist/" + fileName + ".js", { read: true });
         const buf = new Uint8Array((await file.stat()).size);
@@ -80,7 +87,17 @@ const handler = router({
         return new Response("Recourse not found", { status: 404 });
       }
     } else if (req.url.includes("css")) {
-      return new Response("No implemented", { status: 501 });
+      const fileName = fileMatcher(req.url, "css");
+      if (typeof fileName !== "string") return fileName;
+      try {
+        const file = await Deno.open(Deno.cwd() + "/dist/" + fileName + ".css", { read: true });
+        const buf = new Uint8Array((await file.stat()).size);
+        file.read(buf);
+        return new Response((new TextDecoder()).decode(buf), { headers: {"Content-Type": "text/css" }});
+      } catch (error) {
+        console.error(error);
+        return new Response("Recourse not found", { status: 404 });
+      }
     }
     return new Response("Please contact the administrator, error in GET@/dynamic route", { status: 500 });
   },
