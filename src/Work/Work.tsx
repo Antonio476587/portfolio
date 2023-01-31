@@ -1,4 +1,5 @@
 import React, { ReactElement, useEffect } from "https://esm.sh/react@18.2.0";
+import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 import LikeRunes from "./LikeRunes.tsx";
 import HeaderWork from "./HeaderWork.tsx";
@@ -112,3 +113,14 @@ function WorkWrapper(props: { id: string }) {
 
 export default WorkWrapper;
 export { Work };
+
+try {
+  const work = document.getElementById("Work");
+  if (work) {
+    const spplitedActualPathname = location.pathname.split("/");
+    const id = spplitedActualPathname[spplitedActualPathname.length - 1];
+    hydrateRoot(work, <WorkWrapper id={id} />);
+  }
+} catch (e) {
+  console.error(e);
+}

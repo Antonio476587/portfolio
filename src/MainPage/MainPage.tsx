@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
+import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 import Contact from "./Contact.tsx";
 import MainMenuItem from "./MainMenuItem.tsx";
@@ -188,4 +189,13 @@ export default function MainPage() {
       <Menu changeVisibilityMenu={changeVisibilityMenu} />
     </>
   );
+}
+
+try {
+  const mainPage = document.getElementById("MainPage");
+  if (mainPage) {
+    hydrateRoot(mainPage, <MainPage />);
+  }
+} catch (e) {
+  console.error(e);
 }

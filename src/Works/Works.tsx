@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 import anime from "https://esm.sh/animejs@3.2.1";
+import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 import Wall from "./Wall.tsx";
 import { arrowDownCircle } from "../Utils/Svg.tsx";
@@ -181,4 +182,13 @@ export default function Works() {
       </div>
     </div>
   );
+}
+
+try {
+  const works = document.getElementById("Works");
+  if (works) {
+    hydrateRoot(works, <Works />);
+  }
+} catch (e) {
+  console.error(e);
 }

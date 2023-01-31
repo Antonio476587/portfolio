@@ -2,6 +2,7 @@ import anime from "https://esm.sh/animejs@3.2.1";
 import gsap from "https://esm.sh/gsap@3.11.4";
 import ScrollTrigger from "https://esm.sh/gsap@3.11.4/dist/ScrollTrigger";
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
+import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 import HeaderAbout from "./HeaderAbout.tsx";
 import Illustration from "./Illustration.tsx";
@@ -196,4 +197,12 @@ export default function About(): JSX.Element {
   );
 }
 
+try {
+  const about = document.getElementById("About");
+  if (about) {
+    hydrateRoot(about, <About />);
+  }
+} catch (e) {
+  console.error(e);
+}
 export { InfoAbout };

@@ -1,4 +1,5 @@
 import React from "https://esm.sh/react@18.2.0";
+import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 const NotFound = () => {
   return (
@@ -40,3 +41,12 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
+try {
+  const notFound = document.getElementById("NotFound");
+  if (notFound) {
+    hydrateRoot(notFound, <NotFound />);
+  }
+} catch (e) {
+  console.error(e);
+}
