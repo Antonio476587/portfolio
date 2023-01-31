@@ -64,6 +64,12 @@ function createEsbuildBundle() {
     rm $1
 }
 
+# Sass compiler function
+
+function compileSass() {
+    ./node_modules/.bin/sass styles/index.scss dist/index.css
+}
+
 # Bundle creator function
 # It will create the bundles from Deno first
 # and then those bundles with will bundled again with esbuild
@@ -75,6 +81,7 @@ function createBundles() {
     for i in ${!fromDeno[@]}; do
         createEsbuildBundle ${fromDeno[$i]} ${fromEsbuild[$i]}
     done
+    compileSass
 }
 
 createBundles
