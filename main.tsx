@@ -28,6 +28,7 @@ function renderSSR(component: JSX.Element, name: string): Response {
       headers: { "Content-Type": "text/html", "x-content-type-options": "nosniff", },
     });
   } catch (error) {
+    console.error(error);
     return new Response(
       '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>',
       {
