@@ -151,4 +151,4 @@ const handler = router({
 });
 
 console.info("Server Running");
-await serve(handler, { addr: ":" + Deno.env.get("PORT") ?? "10500" });
+await serve(handler);
