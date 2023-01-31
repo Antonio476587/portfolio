@@ -1,20 +1,14 @@
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 
-import gsap from "https://esm.sh/gsap@3.11.4";
-import ScrollTrigger from "https://esm.sh/gsap@3.11.4/dist/ScrollTrigger";
-
 import WorkChild from "./WorkChild.tsx";
 
 import { arrowDownCircle, arrowLeftSquare } from "../Utils/Svg.tsx";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Classic({ work, changeSectionFunctions }: WorkChild) {
   const sectionTitle: React.RefObject<HTMLDivElement> = useRef(null);
   const sectionDescriptor: React.RefObject<HTMLDivElement> = useRef(null);
   const sectionContent: React.RefObject<HTMLDivElement> = useRef(null);
   const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
-  const q: gsap.utils.SelectorFunc = gsap.utils.selector(sectionContent);
 
   const [prevSection, nextSection] = changeSectionFunctions;
 
@@ -37,7 +31,7 @@ function Classic({ work, changeSectionFunctions }: WorkChild) {
   useEffect(() => {
     const animations: gsap.core.Tween[] = new Array(4);
 
-    q("img").forEach((el) => {
+    document.querySelectorAll("img").forEach((el) => {
       const animation = gsap.from(el, {
         autoAlpha: 0,
         translateY: "3rem",
@@ -57,7 +51,7 @@ function Classic({ work, changeSectionFunctions }: WorkChild) {
         animation.kill();
       });
     };
-  }, [sectionContent, q]);
+  }, [sectionContent]);
 
   return (
     <main id="classic-section-wrapper">

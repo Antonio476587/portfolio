@@ -1,15 +1,10 @@
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 
-import gsap from "https://esm.sh/gsap@3.11.4";
-import ScrollTrigger from "https://esm.sh/gsap@3.11.4/dist/ScrollTrigger";
-
 import { arrow, arrowCaret } from "../Utils/Svg.tsx";
 
 import WorkChild from "./WorkChild.tsx";
 
 const regVideo = /mp4/;
-
-gsap.registerPlugin(ScrollTrigger);
 
 function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
   const divitionRefs: React.RefObject<Array<HTMLDivElement>> = useRef([]);
@@ -18,10 +13,6 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
   const sectionRef3: React.RefObject<HTMLElement> = useRef(null);
   const sectionRef4: React.RefObject<HTMLElement> = useRef(null);
   const tl: React.MutableRefObject<gsap.core.Timeline | null> = useRef(null);
-  const q: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef1);
-  const q2: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef2);
-  const q3: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef3);
-  const q4: gsap.utils.SelectorFunc = gsap.utils.selector(sectionRef4);
 
   const [prevSection, nextSection] = changeSectionFunctions;
 
@@ -53,15 +44,18 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
   useEffect(() => {
     let animation4: gsap.core.Tween, animation5: gsap.core.Tween;
 
-    const animation2: gsap.core.Tween = gsap.from(q(".banner-1-img"), {
+    console.log("animating")
+    console.log(ScrollTrigger);
+    const animation2: gsap.core.Tween = gsap.from(document.querySelector(".banner-1-img"), {
       duration: 1,
       autoAlpha: 0,
       xPercent: 100,
       delay: 3.4,
       clearProps: "transform",
       onComplete: () => {
+        console.log("animating on Complete");
         animation2.kill();
-        animation4 = gsap.to(q(".banner-1-img"), {
+        animation4 = gsap.to(document.querySelector(".banner-1-img"), {
           duration: 1,
           autoAlpha: 0,
           xPercent: 100,
@@ -75,14 +69,14 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
         });
       },
     });
-    const animation3: gsap.core.Tween = gsap.from(q(".container"), {
+    const animation3: gsap.core.Tween = gsap.from(document.querySelectorAll(".container")[0], {
       duration: 1,
       autoAlpha: 0,
       xPercent: -100,
       delay: 3.4,
       onComplete: () => {
         animation3.kill();
-        animation5 = gsap.to(q(".container"), {
+        animation5 = gsap.to(document.querySelectorAll(".container")[0], {
           duration: 1,
           autoAlpha: 0,
           xPercent: -100,
@@ -97,7 +91,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
       },
     });
 
-    const animation6: gsap.core.Tween = gsap.to(q(".arrow-span-1"), {
+    const animation6: gsap.core.Tween = gsap.to(".arrow-span-1", {
       duration: 1,
       autoAlpha: 0,
       scrollTrigger: {
@@ -115,10 +109,10 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
       animation5?.kill();
       animation6.kill();
     };
-  }, [q, sectionRef1]);
+  }, [sectionRef1]);
 
   useEffect(() => {
-    const animation1: gsap.core.Tween = gsap.from(q2(".div-img"), {
+    const animation1: gsap.core.Tween = gsap.from(document.querySelectorAll(".div-img")[0], {
       duration: 1,
       autoAlpha: 0.5,
       xPercent: 70,
@@ -130,7 +124,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
         end: "center center+=100",
       },
     });
-    const animation2: gsap.core.Tween = gsap.from(q2(".div-p"), {
+    const animation2: gsap.core.Tween = gsap.from(document.querySelectorAll(".div-p")[0], {
       duration: 1,
       autoAlpha: 0.3,
       scale: 0.3,
@@ -146,10 +140,10 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
       animation1.kill();
       animation2.kill();
     };
-  }, [q2, sectionRef2]);
+  }, [sectionRef2]);
 
   useEffect(() => {
-    const animation1: gsap.core.Tween = gsap.from(q3(".div-img"), {
+    const animation1: gsap.core.Tween = gsap.from(document.querySelectorAll(".div-img")[1], {
       duration: 1,
       autoAlpha: 0.5,
       xPercent: -70,
@@ -161,7 +155,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
         end: "center center+=100",
       },
     });
-    const animation2: gsap.core.Tween = gsap.from(q3(".div-p"), {
+    const animation2: gsap.core.Tween = gsap.from(document.querySelectorAll(".div-p")[1], {
       duration: 1,
       autoAlpha: 0.3,
       scale: 0.3,
@@ -177,10 +171,10 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
       animation1.kill();
       animation2.kill();
     };
-  }, [q3, sectionRef3]);
+  }, [sectionRef3]);
 
   useEffect(() => {
-    const animation1: gsap.core.Tween = gsap.from(q4(".div-p"), {
+    const animation1: gsap.core.Tween = gsap.from(document.querySelectorAll(".div-p")[2], {
       duration: 1,
       autoAlpha: 0,
       xPercent: -100,
@@ -191,7 +185,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
         end: "center center",
       },
     });
-    const animation2: gsap.core.Tween = gsap.from(q4(".main-footer-bottom"), {
+    const animation2: gsap.core.Tween = gsap.from(".main-footer-bottom", {
       duration: 1,
       autoAlpha: 0,
       yPercent: -20,
@@ -208,7 +202,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
       animation1.kill();
       animation2.kill();
     };
-  }, [q4, sectionRef4]);
+  }, [sectionRef4]);
 
   function addRefs(el: HTMLDivElement): void {
     if (divitionRefs.current) {

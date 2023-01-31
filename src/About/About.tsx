@@ -1,14 +1,10 @@
 import anime from "https://esm.sh/animejs@3.2.1";
-import gsap from "https://esm.sh/gsap@3.11.4";
-import ScrollTrigger from "https://esm.sh/gsap@3.11.4/dist/ScrollTrigger";
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
 import HeaderAbout from "./HeaderAbout.tsx";
 import Illustration from "./Illustration.tsx";
 import { arrowLeftSquare, personSvg, workSvg } from "../Utils/Svg.tsx";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const azure = "rgb(240, 255, 255)";
 const black = "rgb(34, 38, 42)";
@@ -48,7 +44,6 @@ export default function About(): JSX.Element {
   const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
   const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
   const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
-  const q: gsap.utils.SelectorFunc = gsap.utils.selector(box);
 
   const boxes: JSX.Element[] = [];
 
@@ -85,21 +80,21 @@ export default function About(): JSX.Element {
       gsap.getProperty(".svg-div", "--gradient-color") === black
         ? (colorBox = azure)
         : (colorBox = black);
-      gsap.to(q(".svg-div"), {
+      gsap.to(".svg-div", {
         duration: 6,
         "--gradient-color": colorBox,
       });
       gsap.getProperty(".svg-div", "--gradient-color-2") === sand
         ? (colorBox2 = orange)
         : (colorBox2 = sand);
-      gsap.to(q(".svg-div"), {
+      gsap.to(".svg-div", {
         duration: 6,
         "--gradient-color-2": colorBox2,
       });
     }
 
     if (location.pathname == "/about") randomValues();
-  }, [q, box]);
+  }, [box]);
 
   useEffect(() => {
     const infoAbout = infoAboutRef.current ?? false;
