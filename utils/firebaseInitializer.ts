@@ -1,5 +1,5 @@
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-config({ path: Deno.cwd() + "/.env", export: true });
+import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
+await configAsync({ path: Deno.cwd() + "/.env", export: true });
 import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
 import {
   getAnalytics,
