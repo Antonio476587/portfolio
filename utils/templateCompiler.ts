@@ -1,4 +1,4 @@
-import { resolve } from "std/path/mod.ts";
+import { resolve } from "https://deno.land/std@0.175.0/path/mod.ts";
 import minimist from "https://esm.sh/minimist@1.2.7";
 
 const argvFlags = minimist(Deno.args);
