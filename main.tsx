@@ -64,6 +64,25 @@ const handler = router({
       return new Response("Not Found", { status: 404 });
     }
   },
+  "GET@/dynamic/*": async function (req) {
+    if (req.url.includes("js")) {
+      const urlMatch = req.url.match(/\/(?<fileName>\w+).js$/);
+      const fileName = urlMatch?.groups?.fileName;
+      if (fileName == undefined) return new Response("Bad URL recourse inquiry", { status: 400 });
+      try {
+        const file = await Deno.open(Deno.cwd() + "/dist/" + fileName + ".js", { read: true });
+        const buf = new Uint8Array((await file.stat()).size);
+        file.read(buf);
+        return new Response((new TextDecoder()).decode(buf), { headers: {"Content-Type": "application/x-javascript" }});
+      } catch (error) {
+        console.error(error);
+        return new Response("Recourse not found", { status: 404 });
+      }
+    } else if (req.url.includes("css")) {
+      return new Response("No implemented", { status: 501 });
+    }
+    return new Response("Please contact the administrator, error in GET@/dynamic route", { status: 500 });
+  },
   "GET@/": (_req) => {
     const { name } = components.MainPage;
     const resp = renderSSR(<components.MainPage.component />, name);
