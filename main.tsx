@@ -60,6 +60,7 @@ const handler = router({
 
       return resp;
     } catch (error) {
+      console.error(error);
       return new Response("Not Found", { status: 404 });
     }
   },
