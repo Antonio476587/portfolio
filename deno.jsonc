@@ -1,6 +1,6 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.173.0/"
+    "std/": "https://deno.land/std@0.175.0/"
   },
   "tasks": {
     "build": "./srcBuilder.bash",
