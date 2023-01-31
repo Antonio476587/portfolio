@@ -124,11 +124,11 @@ function preloadCharged() {
 
 // Inicio de animation preload
 if (windowLocation.search === "?P=false") {
-  preload.setAttribute("hidden", "");
   window.addEventListener("load", () => {
     animateConWelcome();
   }, { once: true });
 } else {
+  preload.removeAttribute("hidden");
   firstQuoteToRender = `url(/img/${imgPrefix}${
     Math.floor(Math.random() * quoteOffset)
   }${imgSufix})`;
