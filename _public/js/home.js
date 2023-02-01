@@ -127,5 +127,5 @@ if (location.pathname == "/") {
         },
     });
 } else {
-    document.getElementById("Home").setAttribute("hidden", "");
+    document.getElementById("home").setAttribute("hidden", "");
 }
