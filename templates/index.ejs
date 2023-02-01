@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #010101">
+	<body allow="fullscreen *">
+            <%= await include ("head/head.ejs") %> 
+        <div class="body" id="body">
+            <%= await include ("elements/preload") %> 
+
+            <%# Contact page %> 
+            <%# Main %>
+            <div class="page"></div>
+            
+            <%# Home page or welcoming page %> 
+            <%= await include ("elements/home.ejs") %> 
+            
+            <%# Scripts %> 
+            <%= await include ("scripts/scripts") %> 
+        </div>
+	</body>
+</html>
