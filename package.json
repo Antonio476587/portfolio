@@ -31,7 +31,9 @@
   },
   "homepage": "https://github.com/Antonio476587/portfolio#readme",
   "dependencies": {
+    "@astrojs/deno": "^4.0.0",
     "@popperjs/core": "^2.11.6",
+    "astro": "^2.0.4",
     "babel-polyfill": "^6.26.0",
     "esbuild": "0.17.5"
   },
