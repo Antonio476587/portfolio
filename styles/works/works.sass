@@ -4,7 +4,7 @@
 
 #state
   position: relative
-  background: url(variables.resolveUrl("img/p1.webp")) 0 0 / 100% 100%
+  background: url(variables.resolveUrl("native_m/p1.webp")) 0 0 / 100% 100%
   height: 300vh
 
   & img
@@ -40,7 +40,7 @@
 
     & #floor
       @include variables.widthAndHeight(100%, 100%)
-      background: url(variables.resolveUrl("img/moon.webp"))
+      background: url(variables.resolveUrl("native_m/moon.webp"))
       background-size: cover
 
 // Place
@@ -62,7 +62,7 @@
   & #roof
     position: absolute
     @include variables.widthAndHeight(60vw, 60vw)
-    background: url(variables.resolveUrl("img/wood.jpg"))
+    background: url(variables.resolveUrl("images/wood.jpg"))
     background-size: 10% 100%
     border: 10px outset lightseagreen
     transform: rotateX(90deg) translateZ(35vw)

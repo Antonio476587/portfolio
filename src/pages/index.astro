@@ -1,0 +1,29 @@
+---
+import Head from "./head/head.astro";
+
+import Preload from "./elements/preload.astro";
+import Home from "./elements/home.astro";
+
+import Scripts from "./scripts/scripts.astro";
+---
+<!DOCTYPE html>
+<html lang="en" style="background-color: #010101">
+    <Head />
+	<body >
+        <!-- <body allow="fullscreen *"> -->
+        <div class="body" id="body">
+            <Preload />
+
+            <!-- Contact page  -->
+            <!-- Main -->
+            <div class="page"></div>
+            
+            <!-- Home page or welcoming page   -->
+            <Home />
+            
+            <!-- Scripts -->
+
+            <Scripts />
+        </div>
+	</body>
+</html>

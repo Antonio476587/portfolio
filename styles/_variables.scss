@@ -3,7 +3,7 @@ $color-shadow: #000;
 $animate-duration: 1400ms;
 
 @function resolveUrl ($fileUrl: string) {
-  @return "../public/" + quote($string: $fileUrl);
+  @return "/static/media/" + quote($string: $fileUrl);
 }
 
 @mixin displayFlexCenterCenter {
