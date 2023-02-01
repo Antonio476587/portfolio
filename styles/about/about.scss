@@ -216,20 +216,20 @@ a.go-work {
 
 .simon-antonio div {
   &:first-child {
-    @include variables.antonioAndSimonImages("img/le-simon-antonio.jpg");
+    @include variables.antonioAndSimonImages("images/le-simon-antonio.jpg");
   }
 
   &:last-child {
-    @include variables.antonioAndSimonImages("img/le-simon.jpg");
+    @include variables.antonioAndSimonImages("images/le-simon.jpg");
   }
 }
 .antonio-simon div {
   &:first-child {
-    @include variables.antonioAndSimonImages("img/le-antonio-simon.jpg");
+    @include variables.antonioAndSimonImages("images/le-antonio-simon.jpg");
   }
 
   &:last-child {
-    @include variables.antonioAndSimonImages("img/le-antonio.jpg");
+    @include variables.antonioAndSimonImages("images/le-antonio.jpg");
   }
 }
 
@@ -336,7 +336,7 @@ a.go-work {
       }
 
       &.note-active {
-        background: url(variables.resolveUrl("img/8.png"));
+        background: url(variables.resolveUrl("images/8.png"));
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;

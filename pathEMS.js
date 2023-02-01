@@ -1,9 +1,7 @@
-import dotenv from "dotenv";
-dotenv.config();
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+import  { dirname } from "https://deno.land/std@0.175.0/path/mod.ts";
+import { fileURLToPath } from "https://deno.land/std@0.175.0/node/url.ts";
 
-const __filename = fileURLToPath(process.env.import_meta_url_root);
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export { __dirname };

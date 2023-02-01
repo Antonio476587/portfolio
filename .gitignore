@@ -1,7 +1,5 @@
 node_modules
 
-dist
-
 ca_bundle.crt
 
 certificate.crt
@@ -15,8 +13,6 @@ dev.env
 *.well-known
 
 package-lock.json
-
-**/*.css.map
 
 **/*.bundle.css
 
@@ -33,8 +29,6 @@ package-lock.json
 **/db.json
 
 assets
-
-**/index.css
 
 coverage
 
