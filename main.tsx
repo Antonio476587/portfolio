@@ -64,7 +64,7 @@ const handler = router({
         status: 200,
         headers: {
           "Content-Type": content[1].contentType?? "application/octet-stream",
-          "cache-control": "public, max-age=0",
+          "cache-control": "public, max-age=172800",
         },
       });
 
@@ -81,7 +81,7 @@ const handler = router({
       if (typeof fileName !== "string") return fileName;
       try {
         const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".js");
-        return new Response(file, { headers: {"Content-Type": "application/x-javascript", "cache-control": "public, max-age=0" }});
+        return new Response(file, { headers: {"Content-Type": "application/x-javascript", "cache-control": "public, max-age=1800" }});
       } catch (error) {
         console.error(error);
         return new Response("Recourse not found", { status: 404 });
@@ -91,7 +91,7 @@ const handler = router({
       if (typeof fileName !== "string") return fileName;
       try {
         const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".css");
-        return new Response(file, { headers: {"Content-Type": "text/css", "cache-control": "public, max-age=0" }});
+        return new Response(file, { headers: {"Content-Type": "text/css", "cache-control": "public, max-age=1800" }});
       } catch (error) {
         console.error(error);
         return new Response("Recourse not found", { status: 404 });
