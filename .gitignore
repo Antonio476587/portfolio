@@ -14,8 +14,6 @@ dev.env
 
 package-lock.json
 
-**/*.css.map
-
 **/*.bundle.css
 
 **/*.js.map
@@ -31,8 +29,6 @@ package-lock.json
 **/db.json
 
 assets
-
-**/index.css
 
 coverage
 
