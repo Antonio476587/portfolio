@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1" type="text/css">
     <!-- Bootstrap-->
     <link href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <script src="https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.min.js" rel="preload"></script>
     <!-- Common Style-->
     <link rel="stylesheet" href="/dynamic/css/index.css" type="text/css">
     <!-- Icon link-->
@@ -40,11 +40,11 @@
     <!-- GSAP -->
     <script src="https://unpkg.com/gsap@3.11.4/dist/gsap.min.js" rel="preload"></script>
     <!-- GSAP Scroll Trigger -->
-    <script src="https://unpkg.com/gsap@3.11.4/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.11.4/dist/ScrollToPlugin.min.js" rel="preload"></script>
     <!-- GSAP Scroll To -->
-    <script src="https://unpkg.com/gsap@3.11.4/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.11.4/dist/ScrollTrigger.min.js" rel="preload"></script>
     <!-- GSAP Register global plugin -->
-    <script>
+    <script is:inline>
         // @ts-ignore
         gsap.registerPlugin(ScrollTrigger);
         // @ts-ignore
