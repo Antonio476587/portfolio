@@ -70,6 +70,12 @@ function compileSass() {
     ./node_modules/.bin/sass styles/index.scss dist/index.css
 }
 
+# Astro compiler function
+
+function compileAstro() {
+    ./node_modules/.bin/astro build
+}
+
 # Bundle creator function
 # It will create the bundles from Deno first
 # and then those bundles with will bundled again with esbuild
@@ -82,6 +88,7 @@ function createBundles() {
         createEsbuildBundle ${fromDeno[$i]} ${fromEsbuild[$i]}
     done
     compileSass
+    compileAstro
 }
 
 createBundles
