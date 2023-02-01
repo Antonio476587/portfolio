@@ -3,8 +3,6 @@ import minimist from "https://esm.sh/minimist@1.2.7";
 
 const argvFlags = minimist(Deno.args);
 
-import ejs, { Options } from "https://esm.sh/ejs@3.1.8";
-
 import { __dirname as __root_dirname } from "../pathEMS.js";
 
 type template = string
@@ -21,18 +19,14 @@ async function createFileFromTemplate(
 
 async function templateCompiler(
   template: template,
-  options?: Options,
 ): Promise<string> {
-  const templateOptions: Options = {
-    ...options,
-    async: true,
-    cache: true,
-    rmWhitespace: true,
-  };
-
-  const data = await ejs.renderFile(resolve(__root_dirname, template), {}, templateOptions);
-  
-  return data;
+  try {
+    const file = await Deno.readFile(resolve(__root_dirname, template));
+    return (new TextDecoder("utf-8")).decode(file);
+  } catch (e) {
+    console.error(e);
+    return "Loading...";
+  }
 }
 
 if (argvFlags.help) {
