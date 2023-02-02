@@ -51,6 +51,7 @@ const handler = router({
   "GET@/static/*": async function (req) {
     const splittedUrl = req.url.split("static/");
     const staticContentToFetch = splittedUrl.at(splittedUrl.length - 1);
+    const cacheControl = req.headers.get("Cache-Control");
 
     try {
       const staticRef = ref(storage, staticContentToFetch);
@@ -64,7 +65,7 @@ const handler = router({
         status: 200,
         headers: {
           "Content-Type": content[1].contentType?? "application/octet-stream",
-          "cache-control": "public, max-age=172800",
+          "Cache-Control": cacheControl?.includes("no-cache") ? "public, max-age=172800" : "no-cache",
         },
       });
 
@@ -74,14 +75,16 @@ const handler = router({
       return new Response("Not Found", { status: 404 });
     }
   },
+  // This will be converted to useful middleware
   "GET@/dynamic/*": async function (req) {
-    // This will be converted to useful middleware
+    const cacheControl = req.headers.get("Cache-Control");
+
     if (req.url.includes("js")) {
       const fileName = fileMatcher(req.url, "js");
       if (typeof fileName !== "string") return fileName;
       try {
         const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".js");
-        return new Response(file, { headers: {"Content-Type": "application/x-javascript", "cache-control": "public, max-age=1800" }});
+        return new Response(file, { headers: {"Content-Type": "application/x-javascript", "Cache-Control": cacheControl?.includes("no-cache") ? "public, max-age=1800" : "no-cache" }});
       } catch (error) {
         console.error(error);
         return new Response("Recourse not found", { status: 404 });
@@ -91,7 +94,7 @@ const handler = router({
       if (typeof fileName !== "string") return fileName;
       try {
         const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".css");
-        return new Response(file, { headers: {"Content-Type": "text/css", "cache-control": "public, max-age=1800" }});
+        return new Response(file, { headers: {"Content-Type": "text/css", "Cache-Control": cacheControl?.includes("no-cache") ? "public, max-age=1800" : "no-cache" }});
       } catch (error) {
         console.error(error);
         return new Response("Recourse not found", { status: 404 });
