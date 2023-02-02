@@ -129,7 +129,7 @@ if (windowLocation.search === "?P=false") {
   }, { once: true });
 } else {
   preload.removeAttribute("hidden");
-  firstQuoteToRender = `url(/img/${imgPrefix}${
+  firstQuoteToRender = `url(/static/media/native_m/${imgPrefix}${
     Math.floor(Math.random() * quoteOffset)
   }${imgSufix})`;
   quoteImageQuickSetter(firstQuoteToRender);
