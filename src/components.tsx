@@ -7,23 +7,28 @@ import { NotFound } from "./Errors/index.ts";
 const components = {
   MainPage: {
     component: MainPage,
-    name: "MainPage",
+    name: MainPage.name,
+    path: "/",
   },
   About: {
     component: About,
-    name: "About",
+    name: About.name,
+    path: "/about",
   },
   Works: {
     component: Works,
-    name: "Works",
+    name: Works.name,
+    path: "/works",
   },
   WorkWrapper: {
     component: WorkWrapper,
-    name: "Work",
+    name: WorkWrapper.name,
+    path: "/work/:id",
   },
   NotFound: {
     component: NotFound,
-    name: "NotFound",
+    name: NotFound.name,
+    path: "*"
   },
 };
 
