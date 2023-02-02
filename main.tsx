@@ -105,7 +105,6 @@ const handler = router({
   },
   "GET@/*": async (req) => {
     const { Component, name } = componentFactory(req.url);
-    console.log(Component, name);
     const resp = await renderSSR(<Component />, name);
     return resp;
   },
