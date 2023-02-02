@@ -89,7 +89,7 @@ function animatePreload() {
 
   // While the page is charging we are going to show further quotes, so we have to load them slowly
   prequoteImageQuickSetter(
-    `url(/img/${imgPrefix}${quoteOffset + 1}${imgSufix})`,
+    `url(/static/media/native_m/${imgPrefix}${quoteOffset + 1}${imgSufix})`,
   );
   quoteOffset++;
 
