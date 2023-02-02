@@ -12,9 +12,10 @@ const { ref } = FS;
 
 import { getContent, addMessage } from "./utils/firebaseUtils.ts";
 
+import componentFactory from "./utils/componentFactory.ts";
+
 // import template from "./templates/template.js";
 import templateHome from "./templates/templateHome.js";
-import components from "./src/components.tsx";
 
 async function renderSSR(component: JSX.Element, name: string): Promise<Response> {
   try {
@@ -102,31 +103,10 @@ const handler = router({
     }
     return new Response("Please contact the administrator, error in GET@/dynamic route", { status: 500 });
   },
-  "GET@/": async (_req) => {
-    const { name } = components.MainPage;
-    const resp = await renderSSR(<components.MainPage.component />, name);
-    return resp;
-  },
-  "GET@/about": async (_req) => {
-    const { name } = components.About;
-    const resp = await renderSSR(<components.About.component />, name);
-    return resp;
-  },
-  "GET@/works": async (_req) => {
-    const { name } = components.Works;
-    const resp = await renderSSR(<components.Works.component />, name);
-    return resp;
-  },
-  "GET@/work/:id": async (req) => {
-    const urlSplitted = req.url.split("/");
-    const id = urlSplitted[urlSplitted.length - 1];
-    const { name } = components.WorkWrapper;
-    const resp = await renderSSR(<components.WorkWrapper.component id={id} />, name);
-    return resp;
-  },
-  "GET@/*": async (_req) => {
-    const { name } = components.NotFound;
-    const resp = await renderSSR(<components.NotFound.component />, name);
+  "GET@/*": async (req) => {
+    const { Component, name } = componentFactory(req.url);
+    console.log(Component, name);
+    const resp = await renderSSR(<Component />, name);
     return resp;
   },
   // There is an error that disallows me to use a specific path like "/messages"
