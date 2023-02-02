@@ -99,7 +99,7 @@ function animatePreload() {
     ease: "power2.out",
     onComplete: () => {
       quoteImageQuickSetter(
-        `url(/img/${imgPrefix}${
+        `url(/static/media/native_m/${imgPrefix}${
           Math.floor(Math.random() * quoteOffset)
         }${imgSufix})`,
       );
