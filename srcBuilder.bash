@@ -2,7 +2,7 @@
 
 toDeno=("src/About/About.tsx" "src/Errors/NotFound.tsx" "src/MainPage/MainPage.tsx" "src/Work/Work.tsx" "src/Works/Works.tsx")
 fromDeno=("dist/DenoAbout.js" "dist/DenoNotFound.js" "dist/DenoMainPage.js" "dist/DenoWork.js" "dist/DenoWorks.js")
-fromEsbuild=("dist/About.js" "dist/NotFound.js" "dist/MainPage.js" "dist/Work.js" "dist/Works.js")
+fromEsbuild=("dist/About.js" "dist/NotFound.js" "dist/MainPage.js" "dist/WorkWrapper.js" "dist/Works.js")
 
 # Deno Bundle functions
 function _createDenoBundle() {

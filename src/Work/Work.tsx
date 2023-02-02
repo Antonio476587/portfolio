@@ -115,7 +115,7 @@ export default WorkWrapper;
 export { Work };
 
 try {
-  const work = document.getElementById("Work");
+  const work = document.getElementById("WorkWrapper");
   if (work) {
     const spplitedActualPathname = location.pathname.split("/");
     const id = spplitedActualPathname[spplitedActualPathname.length - 1];
