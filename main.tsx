@@ -11,6 +11,7 @@ import { storage, FS } from "./utils/firebaseInitializer.ts";
 const { ref } = FS;
 
 import { getContent, addMessage } from "./utils/firebaseUtils.ts";
+import dynamicServer from "./utils/dynamicServer.ts";
 
 import componentFactory from "./utils/componentFactory.ts";
 
@@ -38,14 +39,6 @@ async function renderSSR(component: JSX.Element, name: string): Promise<Response
       },
     );
   }
-}
-
-function fileMatcher(url: Request["url"], extension: string): Response | string {
-  const regex = new RegExp(`\/(?<fileName>\\w+).${extension}$`);
-  const urlMatch = url.match(regex);
-  const fileName = urlMatch?.groups?.fileName;
-  if (fileName == undefined) return new Response("Bad URL recourse inquiry", { status: 400 });
-  return fileName;
 }
 
 const handler = router({
@@ -78,29 +71,11 @@ const handler = router({
   },
   // This will be converted to useful middleware
   "GET@/dynamic/*": async function (req) {
-    const cacheControl = req.headers.get("Cache-Control");
-
     if (req.url.includes("js")) {
-      const fileName = fileMatcher(req.url, "js");
-      if (typeof fileName !== "string") return fileName;
-      try {
-        const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".js");
-        return new Response(file, { headers: {"Content-Type": "application/x-javascript", "Cache-Control": cacheControl?.includes("no-cache") ? "public, max-age=1800" : "no-cache" }});
-      } catch (error) {
-        console.error(error);
-        return new Response("Recourse not found", { status: 404 });
-      }
+      return dynamicServer("js", "application/x-javascript", { req });
     } else if (req.url.includes("css")) {
-      const fileName = fileMatcher(req.url, "css");
-      if (typeof fileName !== "string") return fileName;
-      try {
-        const file = await Deno.readFile(Deno.cwd() + "/dist/" + fileName + ".css");
-        return new Response(file, { headers: {"Content-Type": "text/css", "Cache-Control": cacheControl?.includes("no-cache") ? "public, max-age=1800" : "no-cache" }});
-      } catch (error) {
-        console.error(error);
-        return new Response("Recourse not found", { status: 404 });
+      return dynamicServer("css", "text/css", { req });
       }
-    }
     return new Response("Please contact the administrator, error in GET@/dynamic route", { status: 500 });
   },
   "GET@/*": async (req) => {
