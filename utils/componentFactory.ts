@@ -1,3 +1,7 @@
+/**
+ * @module componentFactory
+ * @author Felix Cabello <https://github.com/Antonio476587> */
+
 import components from "../src/components.tsx";
 
 type Component = {
@@ -5,6 +9,10 @@ type Component = {
   name: string;
 };
 
+/** componentFactory
+ * @param {Request["url"]} url
+ * @return {Component} Represents the concrete Component to create
+ */
 function componentFactory(url: Request["url"]): Component {
   for (const componentObject of Object.values(components)) {
     if (
