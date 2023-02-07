@@ -64,7 +64,7 @@ function AbilitiesRow({ ab }: AbilitiesRowProps) {
 const AbilitiesTable = React.forwardRef(
   function AbilitiesTable(
     { id, ability, abs }: abilities,
-    ref: React.RefObject<HTMLTableElement>,
+    ref: React.ForwardedRef<HTMLTableElement>,
   ) {
     const abilityRow = abs.map((abs) => (
       <AbilitiesRow
