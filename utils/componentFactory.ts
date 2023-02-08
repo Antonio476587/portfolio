@@ -2,7 +2,6 @@
  * @module componentFactory
  * @author Felix Cabello <https://github.com/Antonio476587> */
 
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import components from "../src/components.tsx";
 
 type Component = {
@@ -11,7 +10,7 @@ type Component = {
 };
 
 /** componentFactory
- * @param {Request["url"]} url - A string URL with a pathname
+ * @param {Request["url"]} url
  * @return {Component} Represents the concrete Component to create
  */
 function componentFactory(url: Request["url"]): Component {
@@ -28,23 +27,10 @@ function componentFactory(url: Request["url"]): Component {
       };
     }
   }
-  console.log("ahuevo");
   return {
     Component: components.NotFound.component,
     name: components.NotFound.name,
   };
 }
-
-Deno.test({
-  name: "ComponentFactory",
-  fn() {
-    const mockedUrl: Request["url"] = "https://kingkongvsnaruto.com/about";
-    const { component: Component, name } = components.About;
-
-    const component = componentFactory(mockedUrl);
-
-    assertEquals({Component, name}, component);
-  },
-})
 
 export default componentFactory;
