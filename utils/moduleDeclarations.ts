@@ -1,7 +1,7 @@
 declare global {
   type email = `${string}@${string}.${string}`;
   interface EventListenerOptions {
-    once: boolean;
+    once?: boolean;
   }
   interface EventTarget {
     value: string | number | null | email;
