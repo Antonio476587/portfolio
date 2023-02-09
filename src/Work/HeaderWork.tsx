@@ -34,11 +34,11 @@ export default function HeaderWork() {
     target.classList.add("active");
 
     if (bookmarkRef.current) {
-      if (bookmarkRef.current.childNodes[0]) {
-        bookmarkRef.current.childNodes[0].style.height = `${
+      if (bookmarkRef.current.firstElementChild) {
+        bookmarkRef.current.firstElementChild.style.height = `${
           clientHeight + 10
         }px`;
-        bookmarkRef.current.childNodes[0].style.width = `${clientWidth + 10}px`;
+        bookmarkRef.current.firstElementChild.style.width = `${clientWidth + 10}px`;
         bookmarkRef.current.style.left = `${left - 5}px`;
       }
     }
@@ -46,8 +46,8 @@ export default function HeaderWork() {
 
   function addMouseLeaveEvent(event: MouseEvent): void {
     event.target?.classList.toggle("active");
-    if (bookmarkRef.current?.childNodes[0]) {
-      bookmarkRef.current.childNodes[0].style.height = "0px";
+    if (bookmarkRef.current?.firstElementChild) {
+      bookmarkRef.current.firstElementChild.style.height = "0px";
     }
   }
 
