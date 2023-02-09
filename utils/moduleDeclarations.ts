@@ -10,7 +10,7 @@ declare global {
     clientHeight: string | number;
     offsetLeft: string | number;
     classList: DOMTokenList;
-    style: React.CSSProperties;
+    // style: React.CSSProperties;
     toggleAttribute(qualifiedName: string, force?: boolean): boolean;
   }
   interface Element {
