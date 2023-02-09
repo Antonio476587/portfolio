@@ -1,3 +1,5 @@
+import type { gsap } from "https://esm.sh/gsap@3.11.4";
+
 declare global {
   type email = `${string}@${string}.${string}`;
   interface EventListenerOptions {
