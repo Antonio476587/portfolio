@@ -82,7 +82,7 @@ function BlockquouteDate({ cite, content, autor }: BlockquouteDate) {
 const Contact = React.forwardRef(
   function Contact(
     { changeVisibilityMenu }: ContactProps,
-    ref: React.RefObject<HTMLDivElement>,
+    ref: React.ForwardedRef<HTMLDivElement>,
   ) {
     return (
       <div className="contact d-flex flex-column" id="Contact" ref={ref}>
