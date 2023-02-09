@@ -17,6 +17,7 @@ declare global {
   }
   interface Element {
     offsetHeight: string | number;
+    style: CSSStyleDeclaration
   }
   interface Properties {
     [key: `--${string}`]: string | number;
