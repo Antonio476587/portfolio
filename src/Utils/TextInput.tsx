@@ -1,3 +1,5 @@
+/// <reference path="../../utils/moduleDeclarations.ts"/>
+
 import React, {
   ChangeEvent,
   useEffect,
