@@ -175,6 +175,7 @@ export default function MainPage() {
 
   return (
     <>
+      {/* @ts-ignore */}
       <Contact changeVisibilityMenu={changeVisibilityMenu} ref={contactRef} />
       <main id="main" ref={mainRef}>
         <div className="main-menu">
