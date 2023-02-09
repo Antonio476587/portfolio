@@ -1,8 +1,10 @@
+import "../../utils/moduleDeclarations.ts";
+
 import React, { useRef } from "https://esm.sh/react@18.2.0";
 import abilities from "./abilities.tsx";
 import AbilitiesTable from "./AbilitiesTable.tsx";
 
-function handleAnimationEnd(event: AnimationEvent) {
+function handleAnimationEnd(event: Event) {
   event.stopPropagation();
   const { target: ab } = event;
   if (ab?.classList[3] && ab?.classList[4]) {
@@ -11,10 +13,9 @@ function handleAnimationEnd(event: AnimationEvent) {
   ab?.removeEventListener("animationend", handleAnimationEnd, {
     once: true,
   });
-  return true;
 }
 
-function handleAnimationEndOut(event: AnimationEvent) {
+function handleAnimationEndOut(event: Event) {
   event.stopPropagation();
   const { target: ab } = event;
   if (ab?.classList[3] && ab?.classList[4]) {
@@ -24,11 +25,10 @@ function handleAnimationEndOut(event: AnimationEvent) {
     once: true,
   });
   ab?.toggleAttribute("hidden");
-  return true;
 }
 
 const Illustration = React.forwardRef(
-  function Illustration(_props, ref: React.RefObject<HTMLDivElement>) {
+  function Illustration(_props, ref: React.ForwardedRef<HTMLDivElement>) {
     const Abs: React.RefObject<HTMLTableElement[]> = useRef([]);
     const Notes: React.RefObject<HTMLLIElement[]> = useRef([]);
     let hiddenTablesState: boolean[] = [true, true, true, true];
@@ -110,7 +110,7 @@ const Illustration = React.forwardRef(
               // We get it out.
               abOut.classList.add("animate__animated", "animate__fadeOut");
               abOut.addEventListener("animationend", handleAnimationEndOut, {
-                once: true,
+                "once": true,
               });
               setHiddenValues(falseExitsAt, true);
               hTS = getHiddenValues();
@@ -132,7 +132,7 @@ const Illustration = React.forwardRef(
               abIn.classList.add("animate__animated", "animate__fadeIn");
               // When it ends we pass the handler it.
               abIn.addEventListener("animationend", handleAnimationEnd, {
-                once: true,
+                "once": true,
               });
             }
           } //  If the table is not hidden then we must dissapear it.
