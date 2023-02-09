@@ -15,7 +15,7 @@ let colorBox2;
 
 const InfoAbout = React.forwardRef(function InfoAbout(
   _props,
-  ref: React.RefObject<HTMLDivElement>,
+  ref: React.ForwardedRef<HTMLDivElement>,
 ): JSX.Element {
   return (
     <div className="container mb-5 about-me cajita" ref={ref}>
