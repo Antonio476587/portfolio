@@ -7,7 +7,7 @@ interface NavProps {
 const Nav = React.forwardRef(
   function Nav(
     { typeLink }: NavProps,
-    ref: React.RefObject<HTMLAnchorElement>,
+    ref: React.ForwardedRef<HTMLAnchorElement>,
   ) {
     if (typeLink === "LinkFirst") {
       return (
