@@ -20,10 +20,11 @@ interface Message {
 
 function ContactForm({ active }: ContactForm) {
   const [nameMessage, setNameMessage] = useState("");
+  const emailMocked: email = "mibebitofiufiu@fantonix.space";
   const [email, setEmail]: [
     email,
     React.Dispatch<React.SetStateAction<email>>,
-  ] = useState("mibebitofiufiu@fantonix.space");
+  ] = useState(emailMocked);
   const [message, setMessage] = useState("");
   const [toastTitle, setToastTitle] = useState("Error");
   const [toastContent, setToastContent] = useState("Si");
