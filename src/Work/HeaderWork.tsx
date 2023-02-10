@@ -1,3 +1,5 @@
+/// <reference path="../../utils/moduleDeclarations.ts"/>
+
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 
 import Nav from "./HeaderWorkNav.tsx";
