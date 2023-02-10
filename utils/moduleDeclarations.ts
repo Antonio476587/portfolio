@@ -15,9 +15,8 @@ declare global {
     // style: React.CSSProperties;
     toggleAttribute(qualifiedName: string, force?: boolean): boolean;
   }
-  interface Element {
+  interface Element extends ElementCSSInlineStyle {
     offsetHeight: string | number;
-    style: CSSStyleDeclaration
   }
   interface Properties {
     [key: `--${string}`]: string | number;
