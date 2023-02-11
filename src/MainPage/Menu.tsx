@@ -23,7 +23,7 @@ export default function Menu({ changeVisibilityMenu }: Menu) {
         </div>
         <div className="menu-items-parent">
           <div className="menu-item">
-            <a href="#Home" onClick={() => changeVisibilityMenu()}>
+            <a href="#home" onClick={() => changeVisibilityMenu()}>
               <div>
                 <img src="/static/media/images/home.jpg" alt="" />
               </div>
