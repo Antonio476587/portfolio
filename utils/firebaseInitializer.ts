@@ -1,4 +1,4 @@
-import { configAsync } from "https://deno.land/x/dotenv/mod.ts";
+import { configAsync } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 await configAsync({ path: Deno.cwd() + "/.env", export: true });
 import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
 import {
