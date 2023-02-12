@@ -14,10 +14,12 @@ import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
 import { FS, storage } from "./utils/firebaseInitializer.ts";
 const { ref } = FS;
 
-import { addMessage, getContent } from "./utils/firebaseUtils.ts";
+import { addMessage, getContent, getDownloadURL } from "./utils/firebaseUtils.ts";
 import dynamicServer from "./utils/dynamicServer.ts";
 
 import componentFactory from "./utils/componentFactory.ts";
+
+import memoizer from "https://deno.land/x/memoizy@1.0.0/mod.ts";
 
 // import template from "./templates/template.js";
 import templateHome from "./templates/templateHome.js";
@@ -51,6 +53,16 @@ async function renderSSR(
   }
 }
 
+const getGlobalHandler = async (req: Request): Promise<Response> => {
+  const { Component, name } = componentFactory(req.url);
+  const resp = await renderSSR(<Component />, name);
+  return resp;
+};
+
+// Memoizer functions
+const memoStatic = memoizer(getContent, { maxAge: 86400 });
+const memoGetGlobalHandler = memoizer(getGlobalHandler, { maxAge: 14400 });
+
 const handler = router({
   "GET@/static/*": async function (req) {
     const splittedUrl = req.url.split("static/");
@@ -59,11 +71,13 @@ const handler = router({
 
     try {
       const staticRef = ref(storage, staticContentToFetch);
+      // If the resource doesn't exist wiill throw an Error
+      await getDownloadURL(staticRef);
       const typeOfContent = splittedUrl.some((v) => v.includes("media"))
         ? "media"
         : "text";
 
-      const content = await getContent(staticRef, typeOfContent);
+      const content = await memoStatic(staticRef, typeOfContent);
 
       const resp = new Response(content[0], {
         status: 200,
@@ -94,9 +108,14 @@ const handler = router({
     );
   },
   "GET@/*": async (req) => {
-    const { Component, name } = componentFactory(req.url);
-    const resp = await renderSSR(<Component />, name);
-    return resp;
+    // console.time();
+    // const res = memoGetGlobalHandler(req);
+    return memoGetGlobalHandler(req);
+    // console.timeEnd();
+    // return res;
+    // const { Component, name } = componentFactory(req.url);
+    // const resp = await renderSSR(<Component />, name);
+    // return resp;
   },
   // There is an error that disallows me to use a specific path like "/messages"
   "POST@/*": async (req) => {
