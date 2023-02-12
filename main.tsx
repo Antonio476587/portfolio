@@ -113,6 +113,18 @@ const handler = router({
       { status: 500 },
     );
   },
+  "GET@/robots.txt": function (req) {
+    const robotsTxt = `
+-User-agent: *
+-Disallow: /idontknow
+`;
+    return new Response(robotsTxt, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain"
+      }
+    });
+  },
   "GET@/*": async (req) => {
     return await getGlobalHandlerServerSide(req);
   },
