@@ -4,6 +4,7 @@ import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
 import {
   getAnalytics,
   logEvent,
+  isSupported,
 } from "https://esm.sh/firebase@9.16.0/analytics";
 import { getStorage } from "https://esm.sh/firebase@9.16.0/storage";
 import { getFirestore } from "https://esm.sh/firebase@9.16.0/firestore";
@@ -22,8 +23,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Analytics
-const analytics = getAnalytics(app);
-logEvent(analytics, "notification_received");
+let analytics;
+if (await isSupported()) {
+  console.log("supported");
+  analytics = getAnalytics(app);
+  logEvent(analytics, "notification_received");
+} else {
+  console.warn("not supported");
+  analytics = null
+}
 
 // Storage
 const storage = getStorage(app);
