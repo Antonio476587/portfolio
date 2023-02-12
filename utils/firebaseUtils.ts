@@ -1,6 +1,6 @@
 import { db, FF, FS } from "./firebaseInitializer.ts";
 
-const { getBlob, getBytes, getMetadata } = FS;
+const { getBlob, getBytes, getMetadata, getDownloadURL } = FS;
 const { addDoc, collection, Timestamp } = FF;
 
 type message = {
@@ -36,4 +36,4 @@ async function addMessage(message: message): Promise<string> {
   }
 }
 
-export { addMessage, getContent };
+export { addMessage, getContent, getDownloadURL };
