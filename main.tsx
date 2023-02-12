@@ -21,7 +21,6 @@ import componentFactory from "./utils/componentFactory.ts";
 
 import memoizer from "https://deno.land/x/memoizy@1.0.0/mod.ts";
 
-// import template from "./templates/template.js";
 import templateHome from "./templates/templateHome.js";
 
 async function templateCreator(
