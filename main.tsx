@@ -104,9 +104,9 @@ const handler = router({
   // This will be converted to useful middleware
   "GET@/dynamic/*": async function (req) {
     if (req.url.includes("js")) {
-      return dynamicServer("js", "application/x-javascript", { req });
+      return await dynamicServer("js", "application/x-javascript", { req });
     } else if (req.url.includes("css")) {
-      return dynamicServer("css", "text/css", { req });
+      return await dynamicServer("css", "text/css", { req });
     }
     return new Response(
       "Please contact the administrator, error in GET@/dynamic route",
