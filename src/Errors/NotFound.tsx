@@ -31,7 +31,7 @@ const NotFound = () => {
         <div className="not-found-link">
           <h3>Maybe you would like to play a game -{">"}</h3>
           <button type="button" role="link">
-            <a href="tic-tac-toe.html">Launch Game</a>
+            <a href="/static/h5/tic-tac-toe.html">Launch Game</a>
           </button>
           <h3>:( == :)&macr;&sup1;</h3>
         </div>

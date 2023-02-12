@@ -79,7 +79,7 @@ const workContents: Array<Work> = [
       <>
         But I will be creating more games, maybe small, but I feel exactly the
         same when I&apos;m creating a game as I&apos;m playing a game.{" "}
-        <a href="/tic-tac-toe.html">Click here if you would like to play it</a>.
+        <a href="/static/h5/tic-tac-toe.html">Click here if you would like to play it</a>.
       </>
     ),
     media1: [
@@ -232,7 +232,7 @@ const workContents: Array<Work> = [
           This is a blob with ThreeJS.
         </a>
         <hr />
-        <em>&#35;</em>&nbsp;&#32;<a href="/bgcomplement.html">
+        <em>&#35;</em>&nbsp;&#32;<a href="/static/h5/bgcomplement.html">
           This is the animation that is in the home of the web.
         </a>
         <hr />
