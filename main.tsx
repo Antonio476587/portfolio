@@ -24,15 +24,32 @@ import memoizer from "https://deno.land/x/memoizy@1.0.0/mod.ts";
 // import template from "./templates/template.js";
 import templateHome from "./templates/templateHome.js";
 
-async function renderSSR(
+async function templateCreator(
   component: JSX.Element,
   name: string,
-): Promise<Response> {
-  try {
+): Promise<string> {
     const content = ReactDOMServer.renderToString(component);
     const document = await templateHome(content, name);
 
-    const stream = readableStreamFromIterable(document);
+    return document;
+}
+
+const getGlobalHandlerAuxiliar = async (url: Request["url"]): Promise<string> => {
+  const { Component, name } = componentFactory(url);
+  const documentTemplate = await templateCreator(<Component />, name);
+
+  return documentTemplate;
+};
+
+// Memoizer functions
+const memoStatic = memoizer(getContent, { maxAge: 86400 });
+const memoGetGlobalHandlerAuxiliar = memoizer(getGlobalHandlerAuxiliar, { maxAge: 14400 });
+
+async function getGlobalHandlerServerSide (req: Request): Promise<Response> {
+  try {
+    const documentTemplate = memoGetGlobalHandlerAuxiliar(req.url);
+
+    const stream = readableStreamFromIterable((await documentTemplate));
 
     return new Response(stream.pipeThrough(new TextEncoderStream()), {
       status: 200,
@@ -44,24 +61,14 @@ async function renderSSR(
   } catch (error) {
     console.error(error);
     return new Response(
-      '<!doctype html><p>Loading...</p><script src="clientrender.js"></script>',
+      "<!doctype html><p>See you soon...</p>",
       {
         status: 500,
         headers: { "Content-Type": "text/html" },
       },
     );
   }
-}
-
-const getGlobalHandler = async (req: Request): Promise<Response> => {
-  const { Component, name } = componentFactory(req.url);
-  const resp = await renderSSR(<Component />, name);
-  return resp;
 };
-
-// Memoizer functions
-const memoStatic = memoizer(getContent, { maxAge: 86400 });
-const memoGetGlobalHandler = memoizer(getGlobalHandler, { maxAge: 14400 });
 
 const handler = router({
   "GET@/static/*": async function (req) {
@@ -108,14 +115,7 @@ const handler = router({
     );
   },
   "GET@/*": async (req) => {
-    // console.time();
-    // const res = memoGetGlobalHandler(req);
-    return memoGetGlobalHandler(req);
-    // console.timeEnd();
-    // return res;
-    // const { Component, name } = componentFactory(req.url);
-    // const resp = await renderSSR(<Component />, name);
-    // return resp;
+    return await getGlobalHandlerServerSide(req);
   },
   // There is an error that disallows me to use a specific path like "/messages"
   "POST@/*": async (req) => {
