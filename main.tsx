@@ -1,13 +1,18 @@
-const subP = Deno.run({
-  cmd: ["deno", "task", "turbo-build"],
-  cwd: Deno.cwd(),
-})
+import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
-if (!(await subP.status()).success) {
-  Deno.exit(1);
+if (Deno.env.get("development")) {
+  if (Deno.run) {
+    const subP = Deno.run({
+      cmd: ["deno", "task", "turbo-build"],
+      cwd: Deno.cwd(),
+    })
+    
+    if (!(await subP.status()).success) {
+      Deno.exit(1);
+    }
+  }
 }
 
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { router } from "https://deno.land/x/rutt@0.0.14/mod.ts";
