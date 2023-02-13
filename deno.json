@@ -3,8 +3,9 @@
     "std/": "https://deno.land/std@0.175.0/"
   },
   "tasks": {
-    "build": "./srcBuilder.bash",
-    "dev": "deno task build; deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx"
+    "build": "deno run -A srcBuilder.ts",
+    "dev": "deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx",
+    "turbo-build": "deno run -A npm:turbo build"
   },
   "lint": {
     "files": {
