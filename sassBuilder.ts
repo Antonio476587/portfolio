@@ -8,4 +8,5 @@ if (import.meta.main) {
 
     await Deno.writeFile(Deno.args[1], new TextEncoder().encode(css), { create: true });
     await Deno.writeFile(Deno.args[1] + ".map", new TextEncoder().encode(sourceMap), { create: true });
+    console.info("Sass compiled");
 }
