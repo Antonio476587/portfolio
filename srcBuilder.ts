@@ -119,8 +119,9 @@ async function createBundles() {
     const installSassProcess = Deno.run({
         cmd: ["deno", "install", "npm:sass-embedded"]
     });
-    await installSassProcess.status();
-    compileSass();
+    installSassProcess.status().then((_val) => {
+        compileSass();
+    })
     // compileAstro();
 }
 
