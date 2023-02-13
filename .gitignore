@@ -33,3 +33,5 @@ assets
 coverage
 
 **/*.log
+
+dist/*.*
