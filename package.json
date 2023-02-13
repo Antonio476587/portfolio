@@ -11,11 +11,11 @@
     "preinstall": "npx only-allow pnpm",
     "start": "deno run main.tsx",
     "pretest": "node createImportMetaURL",
-    "test": "jest",
+    "test": "deno test",
     "server": "deno task dev",
     "lint": "deno lint",
     "prebuild": "rm -r -f dist",
-    "build": "./srcBuilder.bash"
+    "build": "deno task build"
   },
   "repository": {
     "type": "git",

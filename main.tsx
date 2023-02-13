@@ -1,3 +1,12 @@
+const subP = Deno.run({
+  cmd: ["deno", "task", "turbo-build"],
+  cwd: Deno.cwd(),
+})
+
+if (!(await subP.status()).success) {
+  Deno.exit(1);
+}
+
 import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
