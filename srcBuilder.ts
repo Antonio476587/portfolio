@@ -40,7 +40,7 @@ async function createDenoBundle() {
     for (const filePath in toDeno) {
         _createDenoBundle(toDeno[filePath], fromDeno[filePath]).then(success => {
             if (!success) {
-                console.error("There was an error! Something wasn't bundled correctly");
+                console.error("There was an error! Something wasn't bundled correctly on _createDenoBundle function");
             } else {
                 count++;
             }
@@ -70,7 +70,7 @@ async function _createEsbuildBundle(from: string, to: string) {
 function createEsbuildBundle(from: string, to: string) {
     _createEsbuildBundle(from, to).then(success => {
         if (!success) {
-            console.error("There was an error! Something wasn't bundled correctly")
+            console.error("There was an error! Something wasn't bundled correctly on _createEsbuildBundle function")
         } else {
             Deno.removeSync(from);
         }
@@ -85,7 +85,7 @@ async function compileSass() {
         cwd: Deno.cwd(),
     });
 
-    await sassBuildProcess.status();
+    return (await sassBuildProcess.status());
 }
 
 // Astro compiler function
@@ -119,10 +119,10 @@ async function createBundles() {
     const installSassProcess = Deno.run({
         cmd: ["deno", "install", "npm:sass-embedded"]
     });
-    installSassProcess.status().then((_val) => {
-        compileSass();
-    })
+    installSassProcess.status().then(async (_val) => {
+        await compileSass();
+    });
     // compileAstro();
 }
 
-createBundles(); 
+await createBundles(); 
