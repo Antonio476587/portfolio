@@ -136,9 +136,9 @@ const Contact = React.forwardRef(
           <div className="container header-foot">
             <div className="row bq-container container text-center mx-auto justify-content-center">
               <BlockquouteDate
-                cite="instagram/soydalto.com"
-                content="No programes para solucionar problemas, programa para crear soluciones."
-                autor="Soy Dalto"
+                cite="_"
+                content="Reservado para Wilker."
+                autor="Wilker"
               />
               <BlockquouteDate
                 cite="twitter/elon-musk.com"
