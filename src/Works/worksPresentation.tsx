@@ -1,5 +1,3 @@
-const wallMaxLength = 8;
-
 export interface worksPresentationObject {
   img: `/${string}/${string}.${string}`;
   squaredImg: `/${string}/${string}.${string}`;
@@ -61,42 +59,5 @@ const worksPresentation: worksPresentationObject[] = [
   },
 ];
 
-const NA: worksPresentationObject = {
-  img: "/static/media/native_m/NA.webp",
-  squaredImg: "/static/media/native_m/NA-squared.webp",
-  alternativeText: "It's a building's window, there's no work there already",
-  workUrlId: "/",
-};
-
-function getWorksForWall(
-  wallID: string,
-): worksPresentationObject[] | undefined {
-  const wallIDNumber = parseInt(wallID);
-
-  if (wallIDNumber == 0 || isNaN(wallIDNumber)) return;
-
-  let windowsArray;
-
-  const newIndexForSearch = wallMaxLength * (wallIDNumber - 1);
-  const newLimitForSearch = wallMaxLength * wallIDNumber;
-
-  if (newLimitForSearch == wallMaxLength && newIndexForSearch == 0) {
-    windowsArray = worksPresentation.slice(0, newLimitForSearch);
-  } else {
-    windowsArray = worksPresentation.slice(
-      newIndexForSearch,
-      newLimitForSearch,
-    );
-
-    if (windowsArray.length < wallMaxLength) {
-      for (let i = windowsArray.length; i < wallMaxLength; i++) {
-        windowsArray[i] = NA;
-      }
-    }
-  }
-
-  return windowsArray;
-}
-
 export default worksPresentation;
-export { getWorksForWall, worksPresentation as worksPresentationObject };
+export { worksPresentation as worksPresentationObject };
