@@ -81,7 +81,7 @@ async function getGlobalHandlerServerSide (req: Request): Promise<Response> {
       },
     );
   }
-};
+}
 
 const handler = router({
   "GET@/static/*": async function (req) {
