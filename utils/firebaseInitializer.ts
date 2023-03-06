@@ -1,13 +1,13 @@
 import { configAsync } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 await configAsync({ path: Deno.cwd() + "/.env", export: true });
-import { initializeApp } from "https://esm.sh/firebase@9.16.0/app";
+import { initializeApp } from "npm:firebase@9.16.0/app";
 import {
   getAnalytics,
   logEvent,
   isSupported,
-} from "https://esm.sh/firebase@9.16.0/analytics";
-import { getStorage } from "https://esm.sh/firebase@9.16.0/storage";
-import { getFirestore } from "https://esm.sh/firebase@9.16.0/firestore";
+} from "npm:firebase@9.16.0/analytics";
+import { getStorage } from "npm:firebase@9.16.0/storage";
+import { getFirestore } from "npm:firebase@9.16.0/firestore";
 
 // Initialize Firebase
 const firebaseConfig = {
