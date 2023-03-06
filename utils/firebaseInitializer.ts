@@ -1,16 +1,16 @@
 import { configAsync } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 await configAsync({ path: Deno.cwd() + "/.env", export: true });
-import { initializeApp } from "npm:firebase@9.16.0/app";
+import { initializeApp } from "https://esm.sh/v106/firebase@9.16.0/deno/app.js";
 import {
   getAnalytics,
   logEvent,
   isSupported,
-} from "npm:firebase@9.16.0/analytics";
-import { getStorage } from "npm:firebase@9.16.0/storage";
-import { getFirestore } from "npm:firebase@9.16.0/firestore";
+} from "https://esm.sh/v106/firebase@9.16.0/deno/analytics.js";
+import { getStorage } from "https://esm.sh/v106/firebase@9.16.0/deno/storage.js";
+import { getFirestore } from "https://esm.sh/v106/firebase@9.16.0/deno/firestore.js";
 
 // Initialize Firebase
-const firebaseConfig = {
+const firebaseConfig = { 
   apiKey: Deno.env.get("FIREBASE_API_KEY"),
   authDomain: Deno.env.get("FIREBASE_AUTH_DOMAIN"),
   projectId: Deno.env.get("FIREBASE_PROJECT_ID"),
@@ -40,7 +40,7 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 export { analytics, app, db, storage };
-export * as F from "https://esm.sh/firebase@9.16.0/app";
-export * as FA from "https://esm.sh/firebase@9.16.0/analytics";
-export * as FS from "https://esm.sh/firebase@9.16.0/storage";
-export * as FF from "https://esm.sh/firebase@9.16.0/firestore";
+export * as F from "https://esm.sh/v106/firebase@9.16.0/deno/app.js";
+export * as FA from "https://esm.sh/v106/firebase@9.16.0/deno/analytics.js";
+export * as FS from "https://esm.sh/v106/firebase@9.16.0/deno/storage.js";
+export * as FF from "https://esm.sh/v106/firebase@9.16.0/deno/firestore.js";
