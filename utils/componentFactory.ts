@@ -4,9 +4,12 @@
 
 import components from "../src/components.tsx";
 
+import { type DefineComponent } from "npm:vue";
+
 type Component = {
-  Component: (props?: any) => JSX.Element;
+  Component: ((props?: any) => JSX.Element) | DefineComponent<any, any, any>;
   name: string;
+  type: "react" | "vue";
 };
 
 /** componentFactory
@@ -20,16 +23,18 @@ function componentFactory(url: Request["url"]): Component {
         pathname: new URL(url).pathname,
       })
     ) {
-      const { component, name } = componentObject;
+      const { component, name, type } = componentObject;
       return {
         Component: component,
         name,
+        type
       };
     }
   }
   return {
     Component: components.NotFound.component,
     name: components.NotFound.name,
+    type: "react",
   };
 }
 

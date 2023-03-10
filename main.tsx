@@ -24,6 +24,8 @@ import {
 
 import "./utils/moduleDeclarations.ts";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+import { createSSRApp, type DefineComponent } from "npm:vue";
+import { renderToString as vueRenderToString } from "npm:vue/server-renderer";
 
 import { FS, storage } from "./utils/firebaseInitializer.ts";
 const { ref } = FS;
@@ -38,18 +40,39 @@ import memoizer from "https://deno.land/x/memoizy@1.0.0/mod.ts";
 import templateHome from "./templates/templateHome.js";
 
 async function templateCreator(
-  component: JSX.Element,
+  component: JSX.Element | DefineComponent,
   name: string,
+  type: "react" | "vue",
 ): Promise<string> {
-    const content = ReactDOMServer.renderToString(component);
-    const document = await templateHome(content, name);
-
-    return document;
+  switch (type) {
+    case "react": {
+      const content = ReactDOMServer.renderToString(component as React.ReactElement);
+      const document = await templateHome(content, name);
+      return document;
+    }
+    case "vue": {
+      const vueApp = createSSRApp(component);
+      return vueRenderToString(vueApp).then(async (html) => {
+        return await templateHome(html, name);
+      })
+    }
+  }
 }
 
 const getGlobalHandlerAuxiliar = async (url: Request["url"]): Promise<string> => {
-  const { Component, name } = componentFactory(url);
-  const documentTemplate = await templateCreator(<Component />, name);
+  const { Component, name, type } = componentFactory(url);
+  let documentTemplate;
+
+  switch (type) {
+    case "react": {
+      documentTemplate = await templateCreator(<Component/> as JSX.Element, name, type);
+      break;
+    }
+    case "vue": {
+      documentTemplate = await templateCreator(Component as DefineComponent, name, type);
+      break;
+    }
+  }
 
   return documentTemplate;
 };
