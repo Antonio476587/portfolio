@@ -104,7 +104,7 @@ function compileAstro() {
 // It's pretty fast everything
 async function createBundles() {
     const installEsbuildProcess = Deno.run({
-        cmd: ["deno", "install", "npm:esbuild"]
+        cmd: ["deno", "cache", "npm:esbuild"]
     });
     await installEsbuildProcess.status();
 
@@ -117,7 +117,7 @@ async function createBundles() {
     }
 
     const installSassProcess = Deno.run({
-        cmd: ["deno", "install", "npm:sass-embedded"]
+        cmd: ["deno", "cache", "npm:sass-embedded"]
     });
     installSassProcess.status().then(async (_val) => {
         await compileSass();
