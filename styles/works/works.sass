@@ -1,98 +1,18 @@
 @use "../variables.scss"
 
-// State
+body 
+  height: 100vh;
+  background: white;
 
-#state
-  position: relative
-  background: url(variables.resolveUrl("native_m/p1.webp")) 0 0 / 100% 100%
-  height: 300vh
 
-  & img
-    object-fit: fill
+#Works 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 1rem;
 
-  & #scroll-down-tip
-    @include variables.displayFlexCenterCenter
-    @include variables.widthAndHeight(90vw, 2.5rem)
-    background-color: rgba($color: #fffffa, $alpha: 0.9)
-    position: absolute
-    top: 3%
-    left: 5vw
-    margin: auto
-    z-index: 100000
-    border-radius: 4px
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px
-
-// City
-
-#city
-  @include variables.displayFlexCenterCenter
-  @include variables.widthAndHeight(95vw, 100vh)
-  overflow: hidden
-  margin: auto
-
-  & #street
-    opacity: 0
-    @include variables.widthAndHeight(95vw, 95vw)
-    top: 1%
-    position: absolute
-    overflow: hidden
-    transition: 1s
-
-    & #floor
-      @include variables.widthAndHeight(100%, 100%)
-      background: url(variables.resolveUrl("native_m/moon.webp"))
-      background-size: cover
-
-// Place
-
-#place
-  position: relative
-  z-index: 10000
-  @include variables.widthAndHeight(50%, 95%)
-  transform-style: preserve-3d
-  transform: rotateX(-30deg) rotateY(235deg) scale(0.9)
-  transform-origin: bottom
-
-// Building
-
-#building
-  @include variables.widthAndHeight(100%, 100%)
-  transform-style: preserve-3d
-
-  & #roof
-    position: absolute
-    @include variables.widthAndHeight(60vw, 60vw)
-    background: url(variables.resolveUrl("images/wood.jpg"))
-    background-size: 10% 100%
-    border: 10px outset lightseagreen
-    transform: rotateX(90deg) translateZ(35vw)
-
-  & .wall
-    position: absolute
-    display: flex
-    @include variables.widthAndHeight(100%, 100%)
-    flex-wrap: wrap
-    gap: 10px
-    transform: variables.transformWall() !important
-
-    & div
-      box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3)
-
-      &.img
-        flex-basis: calc(65% - 5px)
-
-      &.img-squared
-        flex-basis: calc(35% - 5px)
-
-      &:hover
-        background-color: white !important
-        box-shadow: 0 0 14px 0px rgba(0, 0, 0, 0.5)
-        filter: contrast(110%)
-
-  & #foundations
-    position: absolute
-    @include variables.widthAndHeight(60vw, 60vw)
-    background: #000
-    transform: rotateX(90deg) translateZ(-85vh)
-    opacity: 0
-    filter: blur(15px)
+  a
+    min-width: 30vw;
+    width: 20rem;
+    border: 2px solid black;
