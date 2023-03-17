@@ -60,12 +60,12 @@ async function templateCreator(
 }
 
 const getGlobalHandlerAuxiliar = async (url: Request["url"]): Promise<string> => {
-  const { Component, name, type } = componentFactory(url);
+  const { Component, name, type, groups } = componentFactory(url);
   let documentTemplate;
 
   switch (type) {
     case "react": {
-      documentTemplate = await templateCreator(<Component/> as JSX.Element, name, type);
+      documentTemplate = await templateCreator(<Component {...groups} /> as JSX.Element, name, type);
       break;
     }
     case "vue": {

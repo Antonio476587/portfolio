@@ -10,6 +10,7 @@ type Component = {
   Component: ((props?: any) => JSX.Element) | DefineComponent<any, any, any>;
   name: string;
   type: "react" | "vue";
+  groups: Record<string, string> | undefined
 };
 
 /** componentFactory
@@ -24,10 +25,13 @@ function componentFactory(url: Request["url"]): Component {
       })
     ) {
       const { component, name, type } = componentObject;
+      const groups = new URLPattern({ pathname: componentObject.path }).exec({ pathname: new URL(url).pathname })?.pathname?.groups;
+
       return {
         Component: component,
         name,
-        type
+        type,
+        groups
       };
     }
   }
@@ -35,6 +39,7 @@ function componentFactory(url: Request["url"]): Component {
     Component: components.NotFound.component,
     name: components.NotFound.name,
     type: "react",
+    groups: undefined
   };
 }
 
