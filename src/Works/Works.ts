@@ -1,4 +1,4 @@
-import { defineComponent} from "npm:vue";
+import { defineComponent} from "https://esm.sh/vue@3.2.47";
 import worksPresentation from "./worksPresentation.ts";
 
 export default defineComponent ({
