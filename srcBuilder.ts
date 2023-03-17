@@ -5,7 +5,7 @@ const toDeno = [
   "src/Errors/NotFound.tsx",
   "src/MainPage/MainPage.tsx",
   "src/Work/Work.tsx",
-  "src/Works/Works.tsx",
+  "src/Works/Works.ts",
 ];
 const fromDeno = [
   "dist/DenoAbout.js",
