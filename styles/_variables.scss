@@ -44,6 +44,28 @@ $airscooter-air-2: rgba(0, 0, 0, 0);
 
 // Works
 
-@function transformWall ($Zvalue: 25.5vw) {
-  @return rotateY(calc(90deg * var(--i))) translateZ($Zvalue);
+@mixin anchor-pseudo-elements($type) {
+  content: "";
+  position: absolute;
+  transition: 1s;
+  @if $type == before {
+    inset: 0 -2px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+  } @else {
+    inset: -2px 0;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+  }
+}
+
+@mixin hover-anchor-pseudo-elements($type) {
+  @if $type == before {
+    inset: 0 -15px;
+    transform: skewY(10deg);
+  } @else {
+    inset: -15px 0;
+    transform: skewX(10deg);
+  }
+  border-color: var(--bs-white);
 }
