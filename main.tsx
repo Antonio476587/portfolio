@@ -24,8 +24,8 @@ import {
 
 import "./utils/moduleDeclarations.ts";
 import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
-import { createSSRApp, type DefineComponent } from "npm:vue";
-import { renderToString as vueRenderToString } from "npm:vue/server-renderer";
+import { createSSRApp, type DefineComponent } from "https://esm.sh/vue@3.2.47";
+import { renderToString as vueRenderToString } from "https://esm.sh/vue@3.2.47/server-renderer";
 
 import { FS, storage } from "./utils/firebaseInitializer.ts";
 const { ref } = FS;

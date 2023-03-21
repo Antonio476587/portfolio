@@ -4,7 +4,7 @@ import Works from "./Works/index.ts";
 import WorkWrapper from "./Work/index.ts";
 import { NotFound } from "./Errors/index.ts";
 
-import { type DefineComponent } from "npm:vue";
+import { type DefineComponent } from "https://esm.sh/vue@3.2.47";
 
 interface component {
   component: ((props: any) => JSX.Element) | DefineComponent<any, any, any>,

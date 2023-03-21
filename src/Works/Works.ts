@@ -1,7 +1,7 @@
-import { defineComponent} from "https://esm.sh/vue@3.2.47";
+import { defineComponent, createSSRApp } from "../../ext_modules/vue/dist/vue.esm-browser.js";
 import worksPresentation from "./worksPresentation.ts";
 
-export default defineComponent ({
+const Works = defineComponent ({
     components: {},
     data() {
         return {
@@ -15,4 +15,16 @@ export default defineComponent ({
     </a>
     `,
     name: "Works",
-})
+});
+
+try {
+  const works = document.getElementById("Works");
+  const app = createSSRApp(Works);
+  if (works) {
+    app.mount("#Works");
+  }
+} catch (e) {
+  console.error(e);
+}
+
+export default Works;

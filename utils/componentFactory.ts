@@ -4,7 +4,7 @@
 
 import components from "../src/components.tsx";
 
-import { type DefineComponent } from "npm:vue";
+import { type DefineComponent } from "https://esm.sh/vue@3.2.47";
 
 type Component = {
   Component: ((props?: any) => JSX.Element) | DefineComponent<any, any, any>;
