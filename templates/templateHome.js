@@ -2,7 +2,7 @@ import templateCompiler from "../utils/templateCompiler.ts";
 
 export default async function template(body, rootNodeName) {
     return `<!DOCTYPE html>
-    <html lang="en" style="background-color: #010101;">
+    <html lang="en" style="background-color: #010101;" prefix="og: https://ogp.me/ns#">
     ${await templateCompiler("dist/astro/head/head/index.html")}
   
   <body allow="fullscreen *">
