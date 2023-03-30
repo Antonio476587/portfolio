@@ -17,22 +17,6 @@
   }
 }
 
-.lightDiv#lightDiv {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(
-    circle at var(--x) var(--y),
-    transparent 40%,
-    rgba(255, 255, 255, 0.50) 70%,
-    rgba(255, 255, 255, 0.95) 90%
-  );
-  pointer-events: none;
-  z-index: 100000;
-}
-
 button {
   width: fit-content;
   height: fit-content;
@@ -349,6 +333,22 @@ img {
 
 /* Desktops */
 @media screen and (min-width: 992px) {
+  .lightDiv#lightDiv {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+      circle at var(--x) var(--y),
+      transparent 40%,
+      rgba(255, 255, 255, 0.50) 70%,
+      rgba(255, 255, 255, 0.95) 90%
+    );
+    pointer-events: none;
+    z-index: 100000;
+  }
+  
   /* Home page */
   .bg-complement {
     width: 200px;
