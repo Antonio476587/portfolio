@@ -1,4 +1,6 @@
 import { sleep } from "https://deno.land/x/sleep@v1.2.1/mod.ts";
+import { bundle } from "https://deno.land/x/emit@0.17.0/mod.ts";
+import { green } from "https://deno.land/std@0.179.0/fmt/colors.ts";
 
 const toDeno = [
   "src/About/About.tsx",
@@ -23,13 +25,17 @@ const fromEsbuild = [
 ];
 
 //  Deno Bundle functions
-async function _createDenoBundle(from: string, to: string) {
-    const denoBuildProcess = Deno.run({
-        cmd: ["deno", "bundle", "--no-check", from, to],
-        cwd: Deno.cwd(),
-    })
-    
-    return (await denoBuildProcess.status()).success;
+async function _createDenoBundle(from: string, to: string): Promise<boolean> {
+    try {
+        const result = await bundle(from);
+        console.log(green("Bundle "), from);
+        await Deno.writeFile(to, new TextEncoder().encode(result.code), { create: true });
+        console.log(green("Emit "), to);
+        return true;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
 }
 
 async function createDenoBundle() {
@@ -121,6 +127,7 @@ async function createBundles() {
     });
     installSassProcess.status().then(async (_val) => {
         await compileSass();
+        console.info(green("Sass compiled"));
     });
     // compileAstro();
 }
