@@ -7,35 +7,37 @@ body
 #Works 
   background: var(--bs-gray-900)
   background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-around
-  gap: 2rem
   padding: 3rem 1rem
 
-  a
-    position: relative
-    min-width: 30vw
-    width: 20rem
-    box-shadow: rgba(232, 54, 54, 0.4) 0px 5px,rgba(240,46,170,.3) 0px 10px,rgba(46, 240, 149, 0.2) 0px 15px,rgba(240,46,170,.1) 0px 20px,rgba(240,46,170,.05) 0px 25px
-    border-radius: 15px
-    border: 2px solid transparent
-    transition: 1s
+  div
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    gap: 2rem
 
-    &:hover
-      border: 2px solid var(--bs-white)
+    a
+      position: relative
+      min-width: 30vw
+      width: 20rem
+      box-shadow: rgba(232, 54, 54, 0.4) 0px 5px,rgba(240,46,170,.3) 0px 10px,rgba(46, 240, 149, 0.2) 0px 15px,rgba(240,46,170,.1) 0px 20px,rgba(240,46,170,.05) 0px 25px
+      border-radius: 15px
+      border: 2px solid transparent
+      transition: 1s
+
+      &:hover
+        border: 2px solid var(--bs-white)
+
+        &::before
+          @include variables.hover-anchor-pseudo-elements(before)
+
+        &::after
+          @include variables.hover-anchor-pseudo-elements(after)
 
       &::before
-        @include variables.hover-anchor-pseudo-elements(before)
+        @include variables.anchor-pseudo-elements(before)
 
       &::after
-        @include variables.hover-anchor-pseudo-elements(after)
-  
-    &::before
-      @include variables.anchor-pseudo-elements(before)
+        @include variables.anchor-pseudo-elements(after)
 
-    &::after
-      @include variables.anchor-pseudo-elements(after)
-
-    img
-      border-radius: 12px
+      img
+        border-radius: 12px

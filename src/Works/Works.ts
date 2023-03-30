@@ -1,4 +1,4 @@
-import { defineComponent, createSSRApp } from "../../ext_modules/vue/dist/vue.esm-browser.js";
+import { defineComponent, createSSRApp, h } from "https://esm.sh/vue@3.2.47";
 import worksPresentation from "./worksPresentation.ts";
 
 const Works = defineComponent ({
@@ -9,12 +9,27 @@ const Works = defineComponent ({
             worksPresentation,
         }
     },
-    template: `
-    <a v-for="work in worksPresentation" :href="'/work/' + work.workUrlId">
-        <img :src="work.img" :alt="work.alternativeText">
-    </a>
-    `,
     name: "Works",
+    render() {
+      return h(
+        "div",
+        worksPresentation.map(work => {
+          return h(
+            "a",
+            { "href": `/work/${work.workUrlId}` },
+            h(
+              "img",
+              { "src": work.img, "alt": work.alternativeText }
+            )
+          )
+        })
+      )
+    },
+    // template: `
+    // <a v-for="work in worksPresentation" :href="'/work/' + work.workUrlId">
+    //     <img :src="work.img" :alt="work.alternativeText">
+    // </a>
+    // `,
 });
 
 try {
