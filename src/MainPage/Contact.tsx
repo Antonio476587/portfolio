@@ -137,7 +137,7 @@ const Contact = React.forwardRef(
             <div className="row bq-container container text-center mx-auto justify-content-center">
               <BlockquouteDate
                 cite="_"
-                content="Reservado para Wilker."
+                content="Sonríe, aunque sientas que nadie te apoya, esfuerzáte más."
                 autor="Wilker"
               />
               <BlockquouteDate
