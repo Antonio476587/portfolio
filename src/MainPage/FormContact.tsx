@@ -111,6 +111,7 @@ function ContactForm({ active }: ContactForm) {
         body: JSON.stringify(data),
       });
       const body: string = await response.text();
+      if (response.status !== 200) throw new Error(body);
       /*       const result = JSON.parse(body); */
       return body;
     } catch (error) {

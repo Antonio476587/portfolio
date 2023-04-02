@@ -174,7 +174,7 @@ const handler = router({
       const message = JSON.parse((new TextDecoder()).decode(buffer));
 
       if (
-        !("name" in message) || !("email" in message) || !("message" in message)
+        !("nameMessage" in message) || !("email" in message) || !("message" in message)
       ) {
         return new Response("Bad input from the user", { status: 400 });
       }
