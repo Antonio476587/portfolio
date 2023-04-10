@@ -2,8 +2,6 @@ import anime from "https://esm.sh/animejs@3.2.1";
 import React, { useEffect, useRef } from "https://esm.sh/react@18.2.0";
 import { hydrateRoot } from "https://esm.sh/react-dom@18.2.0/client";
 
-import HeaderAbout from "./HeaderAbout.tsx";
-import Illustration from "./Illustration.tsx";
 import { arrowLeftSquare, personSvg, workSvg } from "../Utils/Svg.tsx";
 
 const azure = "rgb(240, 255, 255)";
@@ -42,8 +40,6 @@ const InfoAbout = React.forwardRef(function InfoAbout(
 export default function About(): JSX.Element {
   const box: React.RefObject<HTMLDivElement> = useRef(null);
   const infoAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
-  const headerAboutRef: React.RefObject<HTMLDivElement> = useRef(null);
-  const illustrationRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   const boxes: JSX.Element[] = [];
 
@@ -98,13 +94,9 @@ export default function About(): JSX.Element {
 
   useEffect(() => {
     const infoAbout = infoAboutRef.current ?? false;
-    const headerAbout = headerAboutRef.current ?? false;
-    const illustration = illustrationRef.current ?? false;
 
     let animationInfoAbout: gsap.core.Tween;
     let animationInfoAboutCallback: gsap.core.Tween;
-    let animationHeaderAbout: gsap.core.Tween;
-    let animationIllustration: gsap.core.Tween;
 
     if (infoAbout) {
       animationInfoAbout = gsap.to(infoAbout, {
@@ -131,44 +123,11 @@ export default function About(): JSX.Element {
       });
     }
 
-    if (headerAbout && illustration) {
-      animationHeaderAbout = gsap.to(headerAbout, {
-        autoAlpha: 1,
-        scale: 1,
-        xPercent: 3,
-        scrollTrigger: {
-          id: "section1",
-          trigger: headerAbout,
-          start: "bottom bottom",
-          end: "center center",
-          scrub: true,
-          once: true,
-        },
-      });
-      animationIllustration = gsap.from(illustration, {
-        opacity: 0,
-        scrollTrigger: {
-          id: "section3",
-          trigger: illustration,
-          start: "top bottom",
-          end: "center bottom",
-          toggleActions: "play none none reverse",
-          scrub: true,
-        },
-      });
-    }
-
     return () => {
       animationInfoAbout?.kill();
       animationInfoAboutCallback?.kill();
-      animationHeaderAbout?.kill();
-      animationIllustration?.kill();
     };
   }, [
-    illustrationRef,
-    illustrationRef.current,
-    headerAboutRef,
-    headerAboutRef.current,
   ]);
 
   return (
@@ -180,10 +139,6 @@ export default function About(): JSX.Element {
       <div ref={box}>{boxes}</div>
 
       <InfoAbout ref={infoAboutRef} />
-
-      <HeaderAbout ref={headerAboutRef} />
-
-      <Illustration ref={illustrationRef} />
 
       <a href="/works" className="go-work">
         <span className="container">{workSvg}</span>
