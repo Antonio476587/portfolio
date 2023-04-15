@@ -32,8 +32,16 @@
   "homepage": "https://github.com/Antonio476587/portfolio#readme",
   "dependencies": {
     "@astrojs/deno": "^4.0.0",
+    "@astrojs/react": "^2.1.1",
+    "@astrojs/vue": "^2.1.1",
     "@popperjs/core": "^2.11.6",
-    "astro": "^2.0.4"
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^2.2.3",
+    "gsap": "^3.11.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@types/node": "^18.11.8"

@@ -1,8 +1,23 @@
 import { defineConfig } from 'astro/config';
-import deno from "@astrojs/deno";
+import react from "@astrojs/react";
+import vue from "@astrojs/vue";
 
+
+// https://astro.build/config
 export default defineConfig({
   outDir: "./dist/astro",
-//   output: "server",
-//   adapter: deno()
+  build: {
+    out: "dist" // css: {
+    //   postcss: {
+    //     plugins: [import("tailwindcss"), import("autoprefixer")]
+    //   }
+    // }
+
+  },
+  srcDir: "src",
+  plugins: [{
+    // Handle React components
+    package: "@astrojs/renderer-react"
+  }],
+  integrations: [react(), vue()]
 });

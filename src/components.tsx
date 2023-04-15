@@ -1,9 +1,3 @@
-import MainPage from "./MainPage/index.ts";
-import About from "./About/index.ts";
-import Works from "./Works/index.ts";
-import WorkWrapper from "./Work/index.ts";
-import { NotFound } from "./Errors/index.ts";
-
 import { type DefineComponent } from "https://esm.sh/vue@3.2.47";
 
 interface component {
@@ -19,33 +13,9 @@ type Components = {
 
 const components: Components = {
   MainPage: {
-    component: MainPage,
-    name: MainPage.name,
+    component: (props: any) => <div>hola</div>,
+    name: "MainPage",
     path: "/",
-    type: "react",
-  },
-  About: {
-    component: About,
-    name: About.name,
-    path: "/about",
-    type: "react",
-  },
-  Works: {
-    component: Works,
-    name: Works.name,
-    path: "/works",
-    type: "vue",
-  },
-  WorkWrapper: {
-    component: WorkWrapper,
-    name: WorkWrapper.name,
-    path: "/work/:id",
-    type: "react",
-  },
-  NotFound: {
-    component: NotFound,
-    name: NotFound.name,
-    path: "*",
     type: "react",
   },
 };
