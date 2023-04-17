@@ -238,60 +238,9 @@ img {
 
   /* About page */
 
-  .flexing.cajita {
-    .me {
-      position: relative;
-      min-width: 40vw;
-      min-height: 40vh;
-      height: initial;
-      aspect-ratio: 3/4 !important;
-      border-right: 2px solid var(--bs-orange);
-    }
-  }
-
   .about-me {
     .text {
       font-size: 120%;
-    }
-  }
-
-  .container-illustration {
-    .ability {
-      font-size: 120%;
-      font-family: var(--bs-font-monospace);
-    }
-
-    .level {
-      font-size: 0.8em;
-    }
-
-    ul.notes {
-      li {
-        &#note1 {
-          width: 80px;
-          height: 80px;
-          top: 156px;
-          left: 54px;
-        }
-        &#note2 {
-          width: 80px;
-          height: 80px;
-          top: 148px;
-          left: 665px;
-        }
-        &#note3 {
-          width: 50px;
-          height: 50px;
-          top: 25px;
-          left: 351px;
-        }
-        &#note4 {
-          width: 110px;
-          height: 70px;
-          top: 505px;
-          left: 355px;
-        }
-      }
     }
   }
 
@@ -397,30 +346,6 @@ img {
 
   /* About page */
 
-  /* svgs forms */
-
-  .svg-div {
-    display: block;
-  }
-
-  /* absolute btn-change-img */
-
-  .bbtn:last-child {
-    transform: rotateY(180deg);
-  }
-
-  /* Photoshop Simón Bolivar with me */
-
-  .flexing {
-    display: flex;
-
-    .me {
-      width: 35vw;
-    }
-  }
-
-  /* Antonio Simon */
-
   /* About me */
 
   .about-me {
@@ -435,32 +360,6 @@ img {
         width: 2.5em;
         height: 2.5em;
       }
-    }
-  }
-
-  /* Abilities */
-
-  .div-abilities {
-    width: 30vw;
-
-    &.graphic__design {
-      top: 60%;
-      left: 60%;
-    }
-
-    &.langs {
-      top: 10%;
-      left: 55%;
-    }
-
-    &.programming {
-      top: 10%;
-      left: -5%;
-    }
-
-    &.attrs {
-      top: 5%;
-      left: 0%;
     }
   }
 
