@@ -1,15 +1,30 @@
 @use "../variables.scss"
 
 div#works-div
-  background: var(--bs-gray-900)
-  background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+  background-color: var(--bs-gray-900)
+  background: url("/static/media/native_m/background.webp") bottom no-repeat
+  background-size: cover
   padding: 3rem 1rem
+  position: relative
 
   display: flex
   flex-wrap: wrap
   justify-content: space-around
   gap: 2rem
 
+  &::before, &::after
+    position: absolute
+    content: ""
+    width: 100%
+    aspect-ratio: 16/9
+    left: 0
+    top: 0
+    background: url(https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/media%2Fimages%2Fclouds.png?alt=media&token=f5ecec7d-b835-44a8-bd4d-22263015d648) no-repeat bottom
+    transform: rotate(180deg)
+
+  &::after
+    filter: blur(10px)
+  
   a
     position: relative
     min-width: 30vw
@@ -18,6 +33,7 @@ div#works-div
     border-radius: 15px
     border: 2px solid transparent
     transition: 1s
+    z-index: 1000
 
     &:hover
       border: 2px solid var(--bs-white)
