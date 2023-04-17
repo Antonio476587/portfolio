@@ -1,4 +1,4 @@
-import { arrowLeftSquare, personSvg, workSvg } from "../Utils/Svg.tsx";
+import { personSvg } from "../Utils/Svg.tsx";
 
 function InfoAbout() {
   return (
@@ -26,15 +26,11 @@ function InfoAbout() {
 export default function About(): JSX.Element {
   return (
     <div className="about" id="About" role="main" aria-roledescription="about">
-      <a href="/?P=false" className="back-about">
-        <span className="container">{arrowLeftSquare}</span>
-      </a>
 
       <InfoAbout />
 
-      <a href="/works" className="go-work">
-        <span className="container">{workSvg}</span>
-      </a>
+      <div className="floating-img" />
+
     </div>
   );
 }
