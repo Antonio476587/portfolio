@@ -3,9 +3,9 @@ import gsap from "gsap";
 
 function LikeRunes() {
   const likeRunesRef: React.RefObject<HTMLDivElement> = useRef(null);
-  const qRunes: gsap.utils.SelectorFunc = gsap.utils.selector(likeRunesRef);
-
+  
   useEffect(() => {
+    const qRunes: gsap.utils.SelectorFunc = gsap.utils.selector(likeRunesRef);
     const animation1: gsap.core.Tween = gsap.from(qRunes(".div"), {
       duration: 2,
       width: "50%",
@@ -18,7 +18,7 @@ function LikeRunes() {
     return () => {
       animation1.kill();
     };
-  }, [likeRunesRef, qRunes]);
+  }, [likeRunesRef]);
 
   return (
     <div className="like-runes" ref={likeRunesRef}>
