@@ -202,6 +202,7 @@ button.contact-body-button {
     max-height: 230px;
     aspect-ratio: 1/1;
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border: medium solid #fff;
     border-radius: 3px;
 
@@ -305,27 +306,26 @@ button.contact-body-button {
 }
 
 .contact-button-submit-div {
-  position: absolute;
-}
-
-.contact-button-submit-div button {
-  width: 3.5em;
-  height: 2.5em;
-  background: var(--bs-red);
-  color: #fff;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-  border-radius: 4px;
-  appearance: button;
-  overflow: visible;
-  white-space: nowrap;
-  vertical-align: middle;
-
-  svg {
-    width: 2em;
-    height: 2em;
-    transform: rotate(45deg);
+  button {
+    width: 3.5em;
+    height: 2.5em;
+    background: var(--bs-red);
+    color: #fff;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    border-radius: 4px;
+    appearance: button;
+    overflow: visible;
+    white-space: nowrap;
+    vertical-align: middle;
+  
+    svg {
+      width: 2em;
+      height: 2em;
+      transform: rotate(45deg);
+    }
   }
 }
+
 /* Hidden NFTs Menu */
 
 /* There is a problem with the Z-Index because the nft-items
