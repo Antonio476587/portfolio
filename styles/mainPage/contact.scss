@@ -203,6 +203,7 @@ button.contact-body-button {
     aspect-ratio: 1/1;
     margin-top: 0.5em;
     border: medium solid #fff;
+    border-radius: 3px;
 
     &-hover-1,
     &-hover-2 {
@@ -238,10 +239,16 @@ button.contact-body-button {
   button {
     width: 3.5em;
     height: 3.5em;
-    background: none;
+    background: var(--bs-red);
     border: none;
     cursor: pointer;
     margin-bottom: auto;
+    color: #fff;
+    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+    border-radius: 4px;
+    appearance: button;
+    overflow: visible;
+    white-space: nowrap;
 
     svg {
       color: white;
@@ -293,8 +300,8 @@ button.contact-body-button {
   margin: 3%;
   border: none;
   outline: none;
-  resize: none;
-  background: linear-gradient(to top, var(--bs-dark) 5%, #fff 10%);
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 3px 6px, rgba(255, 255, 255, 0.23) 0px 3px 6px;
+  border-radius: 10px;
 }
 
 .contact-button-submit-div {
@@ -302,16 +309,20 @@ button.contact-body-button {
 }
 
 .contact-button-submit-div button {
-  width: 3em;
-  height: 3em;
-  background: none;
-  border: none;
-  cursor: pointer;
+  width: 3.5em;
+  height: 2.5em;
+  background: var(--bs-red);
   color: #fff;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  border-radius: 4px;
+  appearance: button;
+  overflow: visible;
+  white-space: nowrap;
+  vertical-align: middle;
 
   svg {
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    height: 2em;
     transform: rotate(45deg);
   }
 }
