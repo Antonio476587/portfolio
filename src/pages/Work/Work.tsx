@@ -1,10 +1,10 @@
 import { ReactElement, useEffect } from "react";
 
-import LikeRunes from "./LikeRunes.tsx";
-import HeaderWork from "./HeaderWork.tsx";
-import CaseStudy from "./CaseStudy.tsx";
-import Classic from "./Classic.tsx";
-import Gallery from "./Gallery.tsx";
+import LikeRunes from "../../components/Work/LikeRunes.tsx";
+import HeaderWork from "../../components/Work/HeaderWork.tsx";
+import CaseStudy from "../../components/Work/CaseStudy.tsx";
+import Classic from "../../components/Work/Classic.tsx";
+import Gallery from "../../components/Work/Gallery.tsx";
 import NotFound from "../Errors/NotFound.tsx";
 
 import workContents from "./workContents.tsx";
@@ -96,8 +96,10 @@ function Work({ work, index }: WorkProps): JSX.Element {
   } else return <NotFound />;
 }
 
-function WorkWrapper(props: { id: string }) {
-  const { id } = props;
+function WorkWrapper() {
+  const splittedUrl = globalThis.location?.pathname.split("/") ?? ["1"];
+
+  const id = splittedUrl[splittedUrl.length - 1];
 
   if (typeof id === "string") {
     const workID = parseInt(id);
