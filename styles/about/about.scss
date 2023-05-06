@@ -7,7 +7,7 @@
   background-size: cover;
   background-color: var(--bs-dark);
   min-height: 100vh;
-  height: 100%;
+  height: 100vh;
   padding: 50px 0;
   overflow: hidden;
   padding-bottom: 115px;
@@ -60,7 +60,7 @@
   background-position: center;
   width: 600px;
   aspect-ratio: 1/1;
-  opacity: 0.5;
+  opacity: 0.9;
   box-shadow: rgb(255, 255, 255) 0px 0px 60px -12px inset, rgb(244, 244, 244) 0px 0px 36px -18px inset;
   margin: auto;
   border-radius: 40px;
