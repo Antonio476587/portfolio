@@ -1,5 +1,3 @@
-import React from "react";
-
 import { type Work } from "./Work.tsx";
 
 const workContents: Array<Work> = [
