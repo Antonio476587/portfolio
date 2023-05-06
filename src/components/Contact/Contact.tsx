@@ -80,6 +80,50 @@ function BlockquouteDate({ cite, content, autor }: BlockquouteDate) {
 }
 
 const Contact = ({ changeVisibilityMenu }: ContactProps) => {
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#Contact",
+        toggleActions: "play none none reverse",
+        start: "center top",
+      }      
+    });
+    tl.to(".footer", { translateX: "-4%", translateY: "10%", rotate: -1, duration: 0.5, ease: "power4.out" }, ">")
+    tl.to(".footer", { translateX: "3%", rotate: 2, duration: 0.350, ease: "power2.in" }, ">")
+    tl.to(".footer", { translateX: "0", translateY: "0", rotate: 0, duration: 0.425, ease: "power1.out" }, ">")
+
+    return () => {
+      tl.kill();
+    }
+  }, [])
+
+  useEffect(() => {
+    const animation = gsap.to(".linkedIN", {
+      height: "110%",
+      scrollTrigger: {
+        trigger: "#Contact",
+        toggleActions: "play none none reverse",
+        start: "top+=100 top",
+        end: "center top",
+      }
+    });
+
+    const animation2 = gsap.to(".github", {
+      height: "110%",
+      scrollTrigger: {
+        trigger: "#Contact",
+        toggleActions: "play none none reverse",
+        start: "top+=100 top",
+        end: "center top",
+      }
+    });
+
+    return () => {
+      animation.kill();
+      animation2.kill();
+    }
+  })
+
   return (
     <div className="contact d-flex flex-column" id="Contact">
       <MenuNFT />

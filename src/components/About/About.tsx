@@ -1,6 +1,27 @@
+import { useEffect } from "react";
+
 import { personSvg } from "../Utils/Svg.tsx";
 
 function InfoAbout() {
+
+  useEffect(() => {
+    const animation = gsap.to(".about-me", {
+      autoAlpha: 0,
+      translateX: -50,
+      scrollTrigger: {
+        trigger: ".about",
+        scrub: true,
+        toggleActions: "play none none reverse",
+        start: "top+=100 top",
+        end: "center top",
+      },
+    });
+  
+    return () => {
+      animation.kill(); 
+    }
+  }, [])
+
   return (
     <div className="container mb-5 about-me cajita">
       <div className="container title-me d-flex">
@@ -24,6 +45,26 @@ function InfoAbout() {
 }
 
 export default function About(): JSX.Element {
+  useEffect(() => {
+    const animation = gsap.to(".floating-img", {
+      translateY: "100%",
+      autoAlpha: 0,
+      duration: 2,
+      delay: 2,
+      scrollTrigger: {
+        trigger: ".about",
+        scrub: true,
+        toggleActions: "play none none reverse",
+        start: "center top",
+        end: "bottom top",
+      },
+    });
+
+    return () => {
+      animation.kill();
+    }
+  }, [])
+
   return (
     <div className="about" id="About" role="main" aria-roledescription="about">
 
