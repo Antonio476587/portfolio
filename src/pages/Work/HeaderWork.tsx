@@ -1,5 +1,3 @@
-/// <reference path="../../../utils/moduleDeclarations.ts"/>
-
 import React, { useEffect, useRef } from "react";
 
 import Nav from "./HeaderWorkNav.tsx";
