@@ -66,7 +66,7 @@ export default function About(): JSX.Element {
   }, [])
 
   return (
-    <div className="about" id="About" role="main" aria-roledescription="about">
+    <div className="about" id="about" role="main" aria-roledescription="about">
 
       <InfoAbout />
 
