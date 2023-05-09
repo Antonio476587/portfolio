@@ -10,7 +10,7 @@
   "lint": {
     "files": {
       "include": ["./"],
-      "exclude": ["node_modules", "_public", "dist"]
+      "exclude": ["node_modules", "_public", "dist", "src"]
     },
     "rules": {
       "tags": ["recommended"],
