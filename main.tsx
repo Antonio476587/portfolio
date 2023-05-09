@@ -34,6 +34,7 @@ import memoizer from "https://deno.land/x/memoizy@1.0.0/mod.ts";
 
 // Memoizer functions
 const memoStatic = memoizer(getContent, { maxAge: 86400 });
+const memoDenoReadFile = memoizer(Deno.readFile, { maxAge: 124000 });
 
 const handler = router({
   "GET@/static/*": async function (req) {
@@ -102,8 +103,18 @@ const handler = router({
     }});
   },
   "GET@/*": async (req) => {
-    const index = await Deno.readFile(Deno.cwd() + "/dist/astro/index.html");
 
+    const urlPattern = new URLPattern({ pathname: "/:page/:id"});
+    const match = urlPattern.exec(req.url);
+    let index;
+
+    if (match == null) {
+      index = new URL(req.url).pathname == '/' ? await memoDenoReadFile(Deno.cwd() + "/dist/astro/index.html") : await memoDenoReadFile(Deno.cwd() + "/dist/astro/Errors/NotFound/index.html");
+    }
+    else { 
+      const { pathname: { groups: { page }}} = match;
+      index = await memoDenoReadFile(Deno.cwd() + "/dist/astro/" + page[0].toUpperCase() + page.slice(1).toLowerCase() + "/index.html");
+    }
 
     return new Response(index, {
       status: 200,
@@ -112,7 +123,6 @@ const handler = router({
         "x-content-type-options": "nosniff",
       },
     });
-    // return await getGlobalHandlerServerSide(req);
   },
   // There is an error that disallows me to use a specific path like "/messages"
   "POST@/*": async (req) => {
