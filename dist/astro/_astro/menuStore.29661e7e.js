@@ -1,0 +1,9 @@
+import{r as d}from"./index.03be2d59.js";function S(t,n,i){let r=new Set([...n,void 0]);return t.listen((e,s)=>{r.has(s)&&i(e,s)})}let l=[],h=(t,n)=>{let i,r=[],e={lc:0,l:n||0,value:t,set(s){e.value=s,e.notify()},get(){return e.lc||e.listen(()=>{})(),e.value},notify(s){i=r;let o=!l.length;for(let u=0;u<i.length;u+=2)l.push(i[u],e.value,s,i[u+1]);if(o){for(let u=0;u<l.length;u+=4){let p=!1;for(let c=u+7;c<l.length;c+=4)if(l[c]<l[u+3]){p=!0;break}p?l.push(l[u],l[u+1],l[u+2],l[u+3]):l[u](l[u+1],l[u+2])}l.length=0}},listen(s,o){return r===i&&(r=r.slice()),e.lc=r.push(s,o||e.l)/2,()=>{r===i&&(r=r.slice());let u=r.indexOf(s);~u&&(r.splice(u,2),e.lc--,e.lc||e.off())}},subscribe(s,o){let u=e.listen(s,o);return s(e.value),u},off(){}};return e};var v={exports:{}},y={};/**
+ * @license React
+ * use-sync-external-store-shim.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var f=d;function x(t,n){return t===n&&(t!==0||1/t===1/n)||t!==t&&n!==n}var g=typeof Object.is=="function"?Object.is:x,m=f.useState,E=f.useEffect,k=f.useLayoutEffect,w=f.useDebugValue;function b(t,n){var i=n(),r=m({inst:{value:i,getSnapshot:n}}),e=r[0].inst,s=r[1];return k(function(){e.value=i,e.getSnapshot=n,a(e)&&s({inst:e})},[t,i,n]),E(function(){return a(e)&&s({inst:e}),t(function(){a(e)&&s({inst:e})})},[t]),w(i),i}function a(t){var n=t.getSnapshot;t=t.value;try{var i=n();return!g(t,i)}catch{return!0}}function O(t,n){return n()}var L=typeof window>"u"||typeof window.document>"u"||typeof window.document.createElement>"u"?O:b;y.useSyncExternalStore=f.useSyncExternalStore!==void 0?f.useSyncExternalStore:L;v.exports=y;var j=v.exports;function _(t,n={}){let i=d.useCallback(e=>n.keys?S(t,n.keys,e):t.listen(e),[n.keys,t]),r=t.get.bind(t);return j.useSyncExternalStore(i,r,r)}const M=h(!1);globalThis.isMenuOpen=M;export{M as i,_ as u};

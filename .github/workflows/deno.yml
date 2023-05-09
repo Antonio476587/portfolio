@@ -27,8 +27,8 @@ jobs:
         with:
           deno-version: v1.x
   
-      - name: Build dist files
-        run: DENO_NO_PACKAGE_JSON=1 deno task build
+      # - name: Build dist files
+      #   run: DENO_NO_PACKAGE_JSON=1 deno task build
         
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
