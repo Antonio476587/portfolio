@@ -1,5 +1,5 @@
 <template>
-  <div id="works-div">
+  <div id="works">
     <a v-for="work in worksPresentation" :href="'/work/' + work.workUrlId">
       <img :src="work.img" :alt="work.alternativeText">
     </a>
@@ -14,11 +14,11 @@
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#works-div",
+        trigger: "#works",
         toggleActions: "play none none reverse",
         start: "center top",
       }      
     });
-    document.querySelectorAll("#works-div a").forEach((el, i) => tl.to(el, { autoAlpha: 0, duration: 0.25 }, ">"))
+    document.querySelectorAll("#works a").forEach((el, i) => tl.to(el, { autoAlpha: 0, duration: 0.25 }, ">"))
   });
 </script> 
