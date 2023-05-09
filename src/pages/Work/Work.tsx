@@ -97,7 +97,7 @@ function Work({ work, index }: WorkProps): JSX.Element {
 }
 
 function WorkWrapper() {
-  const splittedUrl = globalThis.location?.pathname.split("/") ?? ["1"];
+  const splittedUrl = globalThis.location?.pathname.split("/") ?? [0];
 
   const id = splittedUrl[splittedUrl.length - 1];
 
@@ -109,7 +109,7 @@ function WorkWrapper() {
       return <Work work={workContents[0]} index={1} />;
     }
   }
-  return <NotFound />;
+  return <div class="vw-100 vh-100 d-flex justify-content-center align-items-center"></div>;
 }
 
 export default WorkWrapper;
