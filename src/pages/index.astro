@@ -4,6 +4,7 @@
 import Head from "../components/Utils/head.astro";
 
 import Home from "../components/Home/home.astro";
+import Menu from "../components/Menu";
 import Preload from "../components/Utils/preload.astro";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
@@ -18,23 +19,25 @@ import Scripts from "../components/Utils/scripts.astro";
         <!-- <body allow="fullscreen *"> -->
         <div class="body" id="body">
             <Preload />
+            <Menu client:load />
 
             <!-- Contact page  -->
             <!-- Main -->
             <div class="page">
-                <Contact client:load changeVisibilityMenu={() => {}} />
+                <Contact client:load />
                 <Works client:load />
                 <About client:load />
 
             </div>
             
+            
             <!-- Home page or welcoming page   -->
             <Home />
-            
-            <!-- Scripts -->
-
-            <Scripts />
-            <script src="/static/js/home.js" type="application/javascript"></script>
         </div>
+                    
+        <!-- Scripts -->
+
+        <Scripts />
+        <script src="/static/js/home.js" type="application/javascript"></script>
 	</body>
 </html>
