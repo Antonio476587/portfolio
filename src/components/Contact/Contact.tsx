@@ -9,6 +9,7 @@ import {
 } from "../Utils/Svg.tsx";
 import FormContact from "./FormContact.tsx";
 import MenuNFT from "./MenuNFT.tsx";
+import MenuButtton from "../Utils/MenuButton.tsx";
 
 interface ContactLink {
   title: string;
@@ -20,10 +21,6 @@ interface BlockquouteDate {
   cite: string;
   content: string;
   autor: string;
-}
-
-interface ContactProps {
-  changeVisibilityMenu: () => void;
 }
 
 function ContactLink({ title, svg, link }: ContactLink) {
@@ -79,11 +76,11 @@ function BlockquouteDate({ cite, content, autor }: BlockquouteDate) {
   );
 }
 
-const Contact = ({ changeVisibilityMenu }: ContactProps) => {
+const Contact = () => {
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#Contact",
+        trigger: "#contact",
         toggleActions: "play none none reverse",
         start: "center top",
       }      
@@ -101,7 +98,7 @@ const Contact = ({ changeVisibilityMenu }: ContactProps) => {
     const animation = gsap.to(".linkedIN", {
       height: "110%",
       scrollTrigger: {
-        trigger: "#Contact",
+        trigger: "#contact",
         toggleActions: "play none none reverse",
         start: "top+=100 top",
         end: "center top",
@@ -111,7 +108,7 @@ const Contact = ({ changeVisibilityMenu }: ContactProps) => {
     const animation2 = gsap.to(".github", {
       height: "110%",
       scrollTrigger: {
-        trigger: "#Contact",
+        trigger: "#contact",
         toggleActions: "play none none reverse",
         start: "top+=100 top",
         end: "center top",
@@ -125,7 +122,7 @@ const Contact = ({ changeVisibilityMenu }: ContactProps) => {
   })
 
   return (
-    <div className="contact d-flex flex-column" id="Contact">
+    <div className="contact d-flex flex-column" id="contact">
       <MenuNFT />
       <div className="d-flex flex-shrink-0 bg-light align-items-center">
         <span className="container nav-contact-icon-span py-1 border-bottom">
@@ -133,15 +130,7 @@ const Contact = ({ changeVisibilityMenu }: ContactProps) => {
         </span>
 
         <div className="container-sm py-3 abrir text-end">
-          <button
-            className="btn btn-secondary"
-            aria-label="Click here to open the menu"
-            aria-roledescription="button"
-            tabIndex={0}
-            onClick={() => changeVisibilityMenu()}
-          >
-            {textRight}
-          </button>
+          <MenuButtton />
         </div>
       </div>
 
