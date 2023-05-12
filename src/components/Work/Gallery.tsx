@@ -132,7 +132,7 @@ function Gallery({ work, changeSectionFunctions }: WorkChild) {
             </button>
           </div>
           <div style={{ "transform": "rotate(180deg)" }}>
-            <button aria-label="Previous Section" onClick={nextSection}>
+            <button aria-label="Next Section" onClick={nextSection}>
               {arrowLeftSquare}
             </button>
           </div>

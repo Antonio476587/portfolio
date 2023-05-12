@@ -123,7 +123,7 @@ function Classic({ work, changeSectionFunctions }: WorkChild) {
             >
               <button
                 id="next-section-button"
-                aria-label="Previous Section"
+                aria-label="Next Section"
                 onClick={nextSection}
               >
                 {arrowLeftSquare}
