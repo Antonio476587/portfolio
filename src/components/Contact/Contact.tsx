@@ -24,33 +24,16 @@ interface BlockquouteDate {
 }
 
 function ContactLink({ title, svg, link }: ContactLink) {
-  const contactLinkRef: React.RefObject<HTMLDivElement> = useRef(null);
-
-  useEffect(() => {
-    const { current: contactRef } = contactLinkRef;
-    if (contactRef) {
-      contactRef.addEventListener("click", () => {
-        location.assign(link);
-      });
-    }
-    return () => {
-      if (contactRef) {
-        contactRef.removeEventListener("click", () => {
-          location.assign(link);
-        });
-      }
-    };
-  }, [link]);
-
   return (
-    <div
+    <a
       className="container contacts col-6 d-flex flex-column align-items-center justify-content-center contact__link"
       title={title}
-      ref={contactLinkRef}
+      href={link}
+      target="_blank"
     >
       {svg}
       <div className={title} />
-    </div>
+    </a>
   );
 }
 
