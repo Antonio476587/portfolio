@@ -178,17 +178,20 @@ section.section-3 div.div-img
   column-gap: 1%
 
 .main-footer-span
-  width: 4.5em
-  height: 4.5em
   align-self: flex-end
-  justify-self: flex-end
-  border: none
-  background: none
+  transition: 0.5s
 
-  &:first-child
-    justify-self: flex-start
-    transform: rotate(180deg)
+  &:last-child
+    justify-self: flex-end
+    rotate: 180deg
 
+  &:hover
+    scale: 1.3
+  
+    svg
+      color: var(--color-foreground-2)
+    
   svg
-    width: 100%
-    height: 100%
+    color: var(--color-foreground)
+    width: 2rem
+    height: 2rem

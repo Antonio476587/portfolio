@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import { arrow, arrowCaret } from "../../components/Utils/Svg.tsx";
+import { arrowLeftSquare, arrowCaret } from "../../components/Utils/Svg.tsx";
 
 import WorkChild from "./WorkChild.tsx";
 
@@ -278,7 +278,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
             onClick={prevSection}
             aria-label="Previous Section"
           >
-            {arrow}
+            {arrowLeftSquare}
           </button>
           <div>
             {work.media4[0]?.match(regVideo)
@@ -291,7 +291,7 @@ function CaseStudy({ work, changeSectionFunctions }: WorkChild): JSX.Element {
             onClick={nextSection}
             aria-label="Next Section"
           >
-            {arrow}
+            {arrowLeftSquare}
           </button>
         </div>
       </footer>
