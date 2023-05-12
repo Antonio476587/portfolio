@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
 import {
   briefcaseSvg,
   github,
   linkedin,
-  textRight,
   twitter,
 } from "../Utils/Svg.tsx";
 import FormContact from "./FormContact.tsx";
