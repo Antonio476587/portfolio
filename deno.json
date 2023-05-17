@@ -1,6 +1,7 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.175.0/"
+    "std/": "https://deno.land/std@0.175.0/",
+    "firebase/": "https://esm.sh/v106/firebase@9.16.0/deno/"
   },
   "tasks": {
     "build": "deno run -A srcBuilder.ts",
