@@ -1,13 +1,13 @@
 import { configAsync } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 await configAsync({ path: Deno.cwd() + "/.env", export: true });
-import { initializeApp } from "https://esm.sh/firebase/app";
 import {
   getAnalytics,
   logEvent,
   isSupported,
-} from "https://esm.sh/firebase/analytics";
-import { getStorage } from "https://esm.sh/firebase/storage";
-import { getFirestore } from "https://esm.sh/firebase/firestore";
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
 
 // Initialize Firebase
 const firebaseConfig = { 
@@ -40,7 +40,7 @@ const storage = getStorage(app);
 const db = getFirestore(app);
 
 export { analytics, app, db, storage };
-export * as F from "https://esm.sh/firebase/app";
-export * as FA from "https://esm.sh/firebase/analytics";
-export * as FS from "https://esm.sh/firebase/storage";
-export * as FF from "https://esm.sh/firebase/firestore";
+export * as F from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+export * as FA from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+export * as FS from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+export * as FF from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
