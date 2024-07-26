@@ -3,14 +3,13 @@
 
 .about {
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 70% 30%;
   position: relative;
   background: url("/static/media/images/Second-middle-background-page.jpg") bottom no-repeat;
   background-size: cover;
   background-color: var(--bs-dark);
   min-height: 100vh;
-  height: 110vh;
+  // height: 110vh;
   padding: 50px 0;
   overflow: hidden;
   padding-bottom: 115px;
@@ -24,7 +23,7 @@
   z-index: 50;
   color: var(--bs-gray-700);
   margin: auto;
-  width: 80%;
+  width: 90%;
   padding: 1rem;
   border-radius: 10px;
   background: rgb(235 228 228 / 24%);
@@ -58,11 +57,11 @@
 }
 
 .floating-img {
-  background: url(https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/media%2Fimages%2FFriends-squared.jpg?alt=media&token=193cfbd5-24df-4a30-95db-e1b5d1afbf75);
+  background: url(https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/media%2Fimages%2FMeself.jpeg?alt=media&token=29950cec-43d2-4e5f-99ed-95888730beae);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  height: 100%;
+  width: 80%;
   max-width: 600px;
   aspect-ratio: 1/1;
   opacity: 0.9;

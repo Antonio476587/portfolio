@@ -33,11 +33,13 @@ function InfoAbout() {
 
       <div className="container text-container">
         <p className="text m-1 pr p-about-me">
-          I always want to give my best, help who need it and grow as a person.
-          I would like to provide a great programming experience by working with
-          you, I don’t consider any project too big or small. I always try to be
-          updated and consider me responsible and constant, and if I got errors,
-          I try to learn from them as much as I can, ¡Thanks for visit me!
+        I am a young Full Stack developer, mainly based on JavaScript/TypeScript. I have learned self-taught, constantly, willing to improve to achieve my dreams. "Perfection does not exist, but it is no excuse for not trying to achieve it."
+        <br />
+        I had started a career in Biology at the UCV, but I stopped because it was not the career I wanted and in Venezuela it is difficult to choose and be able to study the career you want to pursue, I hope to have the opportunity to obtain my degree in Computer Science, I would like to specialize in Neurocomputing.
+        <br />
+        I have knowledge in Design Patterns, Data Structures, Algorithms and Software Version Control (Git), as well as multiparadigm languages ​​(JavaScript, Python), low level (C, Rust) and in-demand frameworks/libraries (React, Deno, Sass ). Focusing on Full Stack development (Frontend and Backend).
+        <br />
+        I also have knowledge as a Professional Bartender and Graphic Designer, I like basketball and martial arts and reading books and articles that make me grow as a person or professional.
         </p>
       </div>
     </div>
@@ -55,7 +57,7 @@ export default function About(): JSX.Element {
         trigger: ".about",
         scrub: true,
         toggleActions: "play none none reverse",
-        start: "center top",
+        start: "centre top",
         end: "bottom top",
       },
     });

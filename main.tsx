@@ -94,7 +94,7 @@ const handler = router({
   },
   "GET@/_astro/*": async function (req) {
     const url = new URL(req.url);
-    const file = await Deno.readFile(Deno.cwd() + "/dist/astro" + url.pathname);
+    const file = await Deno.readFile(Deno.cwd() + "/frontend/dist/astro" + url.pathname);
 
     return new Response(file, { status: 200,
     headers: {
@@ -109,11 +109,11 @@ const handler = router({
     let index;
 
     if (match == null) {
-      index = new URL(req.url).pathname == '/' ? await memoDenoReadFile(Deno.cwd() + "/dist/astro/index.html") : await memoDenoReadFile(Deno.cwd() + "/dist/astro/Errors/NotFound/index.html");
+      index = new URL(req.url).pathname == '/' ? await memoDenoReadFile(Deno.cwd() + "/frontend/dist/astro/index.html") : await memoDenoReadFile(Deno.cwd() + "/frontend/dist/astro/Errors/NotFound/index.html");
     }
     else { 
       const { pathname: { groups: { page }}} = match;
-      index = await memoDenoReadFile(Deno.cwd() + "/dist/astro/" + page[0].toUpperCase() + page.slice(1).toLowerCase() + "/index.html");
+      index = await memoDenoReadFile(Deno.cwd() + "/frontend/dist/astro/" + page[0].toUpperCase() + page.slice(1).toLowerCase() + "/index.html");
     }
 
     return new Response(index, {

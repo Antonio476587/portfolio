@@ -164,7 +164,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="container goodbye text-center">
-          <h3 className="h3-gb">Goodbye‼</h3>
+          <h3 className="h3-gb">From Venezuela With Love!!!</h3>
           <h6 className="h6">2021☺</h6>
           <h6 className="h6">Towards the future</h6>
         </div>

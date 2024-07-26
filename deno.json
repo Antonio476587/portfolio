@@ -4,9 +4,7 @@
     "firebase/": "https://esm.sh/v106/firebase@9.16.0/deno/"
   },
   "tasks": {
-    "build": "deno run -A srcBuilder.ts",
-    "dev": "deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx",
-    "turbo-build": "deno run -A npm:turbo build"
+    "dev": "deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx"
   },
   "lint": {
     "files": {

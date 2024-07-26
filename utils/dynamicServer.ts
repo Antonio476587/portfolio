@@ -29,7 +29,7 @@ async function dynamicServer(
   if (typeof fileName !== "string") return fileName;
   try {
     const file = await Deno.readFile(
-      Deno.cwd() + "/dist/" + fileName + "." + extension,
+      Deno.cwd() + "/frontend/dist/" + fileName + "." + extension,
     );
     return new Response(file, {
       headers: {
