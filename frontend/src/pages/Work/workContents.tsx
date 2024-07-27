@@ -162,34 +162,33 @@ const workContents: Array<Work> = [
     type: "classic",
   },
   {
-    h2: "My friends",
+    h2: "CODICON",
     p1:
-      `They are my friends and they are the best work I ever made. They are the best work I ever made, not 
-    because they were difficult to find nor because they are difficult to mantain like friends, it's 
-    because they will be with me the rest of my life, there's no work that can do that.
-    it's because they make my life better. It's because we are family.
+      `It was my first Hackathon, we had a team called 'Canaimeros' composed by
+      4 members, one of our teammates couldn't participate because of his work,
+      so we were working with 3 members including me, the others members decided
+      to made me the leader of the team because of my initiative.
     `,
     media1: [
-      "/static/media/images/hommies1.jpg",
-      "They are the best choice and achieve I have made",
+      "/static/media/images/boxus1.png",
+      "Codicon!!",
     ],
     media2: [
-      "/static/media/images/hommies2.jpg",
-      "We are pointing to coco mango's logo.",
+      "/static/media/images/boxus2.png",
+      "Boxus web app look",
     ],
-    p2: `We are not friends because we wanted, it happened by coincidence. 
-    But we have a lot on common like the basketball, we are a basketball team called
-    Los Pollos(The Chickens), we are bad, and I over all. Althought we still playing 
-    basket because we love it and we don't care about if we are bad, we enjoy playing basket and
-    we will still playing basket.`,
-    p3: `All we have dreams and we're going to achieve all those dreams.
-    Each one of us is doing something to improve like a person, we're getting experiences 
-    and great moments. We have a lot of stories and remembers that will be with us forever.
-    It's awesome how your friends can improve your life, it seems false.`,
-    media3: ["/static/media/images/hommies3.jpg", "We are family"],
+    p2: `In 48 hours we had to create a software relationated with the word 'box',
+    we voted and the winner idea was to create a web application where you can store your secrets in a box,
+    then someone else will be able to open it.`,
+    p3: (
+      <>
+      <p>If you wanna look up the code source you can view it in <a href="https://github.com/Antonio476587/Boxus">my GitHub Boxus repo</a></p>
+      </>
+    ),
+    media3: ["/static/media/images/boxus3.png", "GitHub boxus repo"],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/hommies4.jpg", "A collage of my friends."],
+    media4: ["/static/media/images/boxus4.jpeg", "Canaimeros logo"],
     styles: ["#fffff0", "#fd7e14", "#212529"],
     type: "gallery",
   },

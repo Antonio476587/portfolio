@@ -39,9 +39,9 @@ const worksPresentation: worksPresentationObject[] = [
     workUrlId: "5",
   },
   {
-    img: "/static/media/native_m/Friends.webp",
-    squaredImg: "/static/media/native_m/Friends-squared.webp",
-    alternativeText: "They are the best choice and achieve I have made",
+    img: "/static/media/native_m/Codicon.webp",
+    squaredImg: "/static/media/native_m/Codicon-squared.webp",
+    alternativeText: "My first hackathon",
     workUrlId: "6",
   },
   {
