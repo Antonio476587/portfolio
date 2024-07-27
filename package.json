@@ -10,7 +10,6 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "deno run main.tsx",
-    "pretest": "node createImportMetaURL",
     "test": "deno test",
     "server": "deno task dev",
     "lint": "deno lint",
@@ -30,12 +29,7 @@
     "url": "https://github.com/Antonio476587/portfolio/issues"
   },
   "homepage": "https://github.com/Antonio476587/portfolio#readme",
-  "dependencies": {
-    "@astrojs/deno": "^4.0.0",
-    "@popperjs/core": "^2.11.6",
-    "astro": "^2.0.4"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.8"
+  "workspaces": {
+    "packages": ["./frontend"]
   }
 }

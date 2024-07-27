@@ -1,0 +1,26 @@
+---
+import Head from "../../components/Utils/head.astro";
+
+import Scripts from "../../components/Utils/scripts.astro";
+
+import NotFound from "./NotFound"
+---
+
+
+<!DOCTYPE html>
+<html lang="en" style="background-color: #010101" prefix="og: https://ogp.me/ns#">
+    <Head />
+	<body >
+        <!-- <body allow="fullscreen *"> -->
+        <div class="body" id="body">
+
+            <!-- Work -->
+            <div class="page">
+                <NotFound client:load />
+            </div>
+            
+            <!-- Scripts -->
+            <Scripts />
+        </div>
+	</body>
+</html>
