@@ -3,8 +3,8 @@
  */
 
 // For functionality purpose
-import anime from "animejs";
-import gsap from "gsap";
+// import anime from "animejs";
+// import gsap from "gsap";
 
 jest.mock("gsap");
 jest.mock("animejs", () => {

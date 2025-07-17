@@ -3,17 +3,12 @@
  */
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { act } from "react-dom/test-utils";
+import React from "npm:react";
+import { createRoot } from "npm:react-dom/client";
+import { BrowserRouter } from "npm:react-router-dom";
+import { act } from "npm:react-dom/test-utils";
 
-import About, { InfoAbout } from "../../../src/About/About";
-
-
-jest.mock("../../../src/About/HeaderAbout");
-
-jest.mock("../../../src/About/Illustration");
+import About, { InfoAbout } from "../../../frontend/src/components/About/About.tsx";
 
 function BrowserRouterWrapper(props) {
     return (

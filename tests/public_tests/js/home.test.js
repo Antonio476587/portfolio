@@ -3,8 +3,8 @@
  */
 
 // For functionality purpose
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import gsap from "npm:gsap";
+import ScrollTrigger from "npm:gsap/dist/ScrollTrigger";
 
 jest.mock("gsap");
 jest.mock("gsap/dist/ScrollTrigger");
