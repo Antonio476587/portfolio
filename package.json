@@ -11,14 +11,10 @@
     "preinstall": "npx only-allow pnpm",
     "start": "deno run main.tsx",
     "test": "deno test",
-    "dev": "astro dev --port 8085",
-    "https-proxy": "deno run --allow-net --allow-read https-proxy.ts",
-    "dev:https": "echo '🚀 Starting Astro dev server and HTTPS proxy...' && (pnpm dev & pnpm https-proxy)",
     "server": "deno task dev",
     "lint": "deno lint",
     "prebuild": "rm -r -f dist",
-    "build": "astro build",
-    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs"
+    "build": "deno task build"
   },
   "repository": {
     "type": "git",
@@ -27,31 +23,6 @@
   "keywords": [
     "Portfolio"
   ],
-  "dependencies": {
-    "@astrojs/deno": "^5.0.1",
-    "@astrojs/react": "^4.3.0",
-    "@astrojs/vue": "^5.1.0",
-    "@nanostores/react": "^1.0.0",
-    "@storyblok/astro": "^7.2.1",
-    "@storyblok/js": "^4.2.1",
-    "astro": "^5.12.0",
-    "firebase": "^12.0.0",
-    "firebase-admin": "^13.4.0",
-    "gsap": "^3.13.0",
-    "nanostores": "^1.0.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "sass": "^1.89.2",
-    "vite": "^7.0.6",
-    "vue": "^3.5.17",
-    "xmlhttprequest": "^1.8.0"
-  },
-  "devDependencies": {
-    "@types/node": "^24.0.14",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "vite-plugin-mkcert": "^1.17.8"
-  },
   "author": "Felix Antonio",
   "license": "ISC",
   "bugs": {
@@ -59,8 +30,6 @@
   },
   "homepage": "https://github.com/Antonio476587/portfolio#readme",
   "workspaces": {
-    "packages": [
-      "./frontend"
-    ]
+    "packages": ["./frontend"]
   }
 }
