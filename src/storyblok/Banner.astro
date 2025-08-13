@@ -1,0 +1,11 @@
+---
+const { blok } = Astro.props;
+---
+
+<div class="banner">
+    <div>
+        <img src={blok.banner_image.filename} alt={blok.banner_image.alt} />
+    </div>
+    <h2>{blok.headline}</h2>
+    <p>{blok.content}</p>
+</div>

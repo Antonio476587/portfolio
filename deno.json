@@ -3,9 +3,6 @@
     "std/": "https://deno.land/std@0.175.0/",
     "firebase/": "https://esm.sh/v106/firebase@9.16.0/deno/"
   },
-  "tasks": {
-    "dev": "deno run --watch --lock=deno.lock --cached-only --allow-all main.tsx"
-  },
   "lint": {
     "files": {
       "include": ["./"],
@@ -25,9 +22,5 @@
       "semiColons": true
     }
   },
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "https://esm.sh/react@18.2.0"
-  }
+  "nodeModulesDir": "auto"
 }
