@@ -34,8 +34,18 @@ export default defineConfig({
         feature: "storyblok/Feature",
         teaser: "storyblok/Teaser",
         banner: "storyblok/Banner",
+        gallery: "storyblok/Gallery",
+        caseStudy: "storyblok/CaseStudy",
+        classic: "storyblok/Classic",
       },
     }),
   ],
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@assets": new URL("./assets", import.meta.url).pathname,
+      },
+    },
+  },
 });
