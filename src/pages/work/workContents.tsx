@@ -12,9 +12,9 @@ const workContents: Array<Work> = [
     'The Clean Architecture' I actually realized that almost nothing has changed
     in the programming, and the principles are the same yet.
     `,
-    media1: ["/static/media/images/tracker1.jpg", "How I create the NFTs."],
+    media1: ["@assets/media/images/tracker1.jpg", "How I create the NFTs."],
     media2: [
-      "/static/media/images/tracker2.jpg",
+      "@assets/media/images/tracker2.jpg",
       "Each NFT has unique things.",
     ],
     p2: `When I started the book, I had a little idea about React,
@@ -30,12 +30,12 @@ const workContents: Array<Work> = [
     make my portfolio with React to apply all the learned.
       `,
     media3: [
-      "/static/media/images/tracker3.jpg",
+      "@assets/media/images/tracker3.jpg",
       "A img representing a NFT in the digital world.",
     ],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/tracker4.jpg", "A lot of NFTs gathered."],
+    media4: ["@assets/media/images/tracker4.jpg", "A lot of NFTs gathered."],
     styles: ["#EBEBFF", "#0C043E", "#111"],
     type: "casestudy",
   },
@@ -45,25 +45,25 @@ const workContents: Array<Work> = [
         They are things like art, or whatever that is unique at the world, but inside
         the technology world.
     `,
-    media1: ["/static/media/images/NFT2.png", "How I create the NFTs."],
+    media1: ["@assets/media/images/NFT2.png", "How I create the NFTs."],
     p2: `Yes, they still being unique althought someone copy it
         or have a similar one. If you ask to the best painter of the world to 
         replicate the Salvador Mundi, it will be exactly the same. but it's no the 
         Da Vinci's Salvador Mundi, another example can be the Steve Jobs' iPhone, 
         there're a lot of the same, but only one was Steve Jobs'. They have 
         information, features and data that make them uniques.`,
-    media2: ["/static/media/images/NFT3.jpg", "Each NFT has unique things."],
+    media2: ["@assets/media/images/NFT3.jpg", "Each NFT has unique things."],
     p3: `I made my own NFTs, it's a collection of 10 NFTs. Until now
         I have only showed 8, but I will show the other 2 soon. Their names are numbers,
         that go since 1 to 10, it's very simple to remember.`,
     media3: [
-      "/static/media/images/NFT1.jpeg",
+      "@assets/media/images/NFT1.jpeg",
       "A img representing a NFT in the digital world.",
     ],
     p4: ` If you want see every one. I let them on the contact page, 
         you will see my way to think and my creative on them. 
         I hope that you're enjoying my portfolio and don't forget, Towards the future!!!`,
-    media4: ["/static/media/images/NFT4.jpg", "A lot of NFTs gathered."],
+    media4: ["@assets/media/images/NFT4.jpg", "A lot of NFTs gathered."],
     styles: ["#DEE2E6", "#6F42C1", "#023580"],
     type: "gallery",
   },
@@ -77,24 +77,24 @@ const workContents: Array<Work> = [
       <>
         But I will be creating more games, maybe small, but I feel exactly the
         same when I&apos;m creating a game as I&apos;m playing a game.{" "}
-        <a href="/static/h5/tic-tac-toe.html">Click here if you would like to play it</a>.
+        <a href="@assets/h5/tic-tac-toe.html">Click here if you would like to play it</a>.
       </>
     ),
     media1: [
-      "/static/media/images/three1.jpg",
+      "@assets/media/images/three1.jpg",
       "The game of three on a ray that I made",
     ],
     media2: [
-      "/static/media/images/three2.jpg",
+      "@assets/media/images/three2.jpg",
       "The code of the AI and the HTML code with Pug template.",
     ],
     media3: [
-      "/static/media/images/three3.jpg",
+      "@assets/media/images/three3.jpg",
       "The game of three on a ray that I made with different colors.",
     ],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/three4.png", "X and O of three on a line."],
+    media4: ["@assets/media/images/three4.png", "X and O of three on a line."],
     styles: ["#FFE0E0", "#591C1C", "#000"],
     type: "classic",
   },
@@ -106,8 +106,8 @@ const workContents: Array<Work> = [
     to that page barba join the two pages in one to make a transition between them,
     It give to you a lot of cool things that you can do to make the transitions beatiful. 
     `,
-    media1: ["/static/media/images/barba1.jpg", "BarbaJS logo."],
-    media2: ["/static/media/videos/barbacss.mp4", "A video of barbacss"],
+    media1: ["@assets/media/images/barba1.jpg", "BarbaJS logo."],
+    media2: ["@assets/media/videos/barbacss.mp4", "A video of barbacss"],
     p2:
       `I found barba thanks to Petr Tichy and his channel Ihatetomatoes. With a great tutorial 
     made by him, I really liked BarbaJS and I made the tutorial in his channel. It was
@@ -120,11 +120,11 @@ const workContents: Array<Work> = [
     can make a simple app and make it look like a SPA. It's really useful, I
     can't use it with React in my portfolio because it was very dificult, but I'm going
     to keep trying join React and BarbaJS.`,
-    media3: ["/static/media/videos/barbagsap.mp4", "A video of barbagsap"],
+    media3: ["@assets/media/videos/barbagsap.mp4", "A video of barbagsap"],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
     media4: [
-      "/static/media/images/barba2.jpg",
+      "@assets/media/images/barba2.jpg",
       "Barba and gsap in a really nice picture.",
     ],
     styles: ["#E1CCA4", "#1F6161", "#FFFFF0"],
@@ -141,8 +141,8 @@ const workContents: Array<Work> = [
     videos of programmers and the begin of a languague or program. Those things helped me 
     a lot. 
     `,
-    media1: ["/static/media/images/bonsai1.jpg", "BonsAI my first loved page."],
-    media2: ["/static/media/images/bonsai2.jpg", "BonsAI my first loved page."],
+    media1: ["@assets/media/images/bonsai1.jpg", "BonsAI my first loved page."],
+    media2: ["@assets/media/images/bonsai2.jpg", "BonsAI my first loved page."],
     p2: `I was learning only about JavaScript when I made this page. I made it
     beacause I have made a shop, it was a techonology shop, I used to sell
     wires, chargers, phones and further. But I couldn't manage it by myself, 
@@ -154,10 +154,10 @@ const workContents: Array<Work> = [
     I learned more about bussiness, I only couldn't start again without a plan. That was
     the purpose of my BonsAI page. I gave it all my dedication and knowledge in that time. 
     It showed me in that moment, that I gave my all, everything could be great.`,
-    media3: ["/static/media/images/bonsai3.jpg", "BonsAI my first loved page."],
+    media3: ["@assets/media/images/bonsai3.jpg", "BonsAI my first loved page."],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/bonsai4.jpg", "BonsAI my first loved page."],
+    media4: ["@assets/media/images/bonsai4.jpg", "BonsAI my first loved page."],
     styles: ["#FFEDED", "#A51818", "#800202"],
     type: "classic",
   },
@@ -170,11 +170,11 @@ const workContents: Array<Work> = [
       to made me the leader of the team because of my initiative.
     `,
     media1: [
-      "/static/media/images/boxus1.png",
+      "@assets/media/images/boxus1.png",
       "Codicon!!",
     ],
     media2: [
-      "/static/media/images/boxus2.png",
+      "@assets/media/images/boxus2.png",
       "Boxus web app look",
     ],
     p2: `In 48 hours we had to create a software relationated with the word 'box',
@@ -185,10 +185,10 @@ const workContents: Array<Work> = [
       <p>If you wanna look up the code source you can view it in <a href="https://github.com/Antonio476587/Boxus">my GitHub Boxus repo</a></p>
       </>
     ),
-    media3: ["/static/media/images/boxus3.png", "GitHub boxus repo"],
+    media3: ["@assets/media/images/boxus3.png", "GitHub boxus repo"],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
     Towards the future!!!`,
-    media4: ["/static/media/images/boxus4.jpeg", "Canaimeros logo"],
+    media4: ["@assets/media/images/boxus4.jpeg", "Canaimeros logo"],
     styles: ["#fffff0", "#fd7e14", "#212529"],
     type: "gallery",
   },
@@ -200,16 +200,16 @@ const workContents: Array<Work> = [
         programming, life and histories. It's my blog.`,
     p3:
       "There's some stuff that I need to take care of first. But I will make it.",
-    media1: ["/static/media/native_m/Blog.webp", "The Blog is my blog haha"],
+    media1: ["@assets/media/native_m/Blog.webp", "The Blog is my blog haha"],
     media2: [
-      "/static/media/native_m/bloger.webp",
+      "@assets/media/native_m/bloger.webp",
       "A mockup of a case study template of my friends",
     ],
     media3: [
-      "/static/media/native_m/bloger-2.webp",
+      "@assets/media/native_m/bloger-2.webp",
       "My and my brother working out a few years ago",
     ],
-    media4: ["/static/media/native_m/bloger-3.webp", "Towards the future"],
+    media4: ["@assets/media/native_m/bloger-3.webp", "Towards the future"],
     p4: `I hope that you're enjoying my portfolio and don't forget, 
         Towards the future!!!`,
     styles: ["#DAFDFF", "#0E2219", "#537B6A"],
@@ -229,7 +229,7 @@ const workContents: Array<Work> = [
           This is a blob with ThreeJS.
         </a>
         <hr />
-        <em>&#35;</em>&nbsp;&#32;<a href="/static/h5/bgcomplement.html">
+        <em>&#35;</em>&nbsp;&#32;<a href="@assets/h5/bgcomplement.html">
           This is the animation that is in the home of the web.
         </a>
         <hr />
@@ -241,19 +241,19 @@ const workContents: Array<Work> = [
       </>
     ),
     media1: [
-      "/static/media/native_m/projects.webp",
+      "@assets/media/native_m/projects.webp",
       "A blob made with ThreeJS",
     ],
     media2: [
-      "/static/media/images/bgcomplement.jpg",
+      "@assets/media/images/bgcomplement.jpg",
       "The Blog is my blog haha",
     ],
     media3: [
-      "/static/media/native_m/projects-2.webp",
+      "@assets/media/native_m/projects-2.webp",
       "A telegram bot with puppeteer",
     ],
     media4: [
-      "/static/media/native_m/projects-3.webp",
+      "@assets/media/native_m/projects-3.webp",
       "My portfolio, my biggest project",
     ],
     p4: (

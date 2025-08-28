@@ -1,46 +1,30 @@
 ---
-import Head from "../components/Utils/head.astro";
-
 import Home from "../components/Home/home.astro";
-import Menu from "../components/Menu";
 import Preload from "../components/Utils/preload.astro";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Works from "../components/Works/Works.vue";
 
-import Scripts from "../components/Utils/scripts.astro";
-
 import "../../styles/index.scss";
+import "aos/dist/aos.css";
+
+import BlogLayout from "../layouts/BlogLayout.astro";
 ---
 
-<!doctype html>
-<html
-    lang="en"
-    style="background-color: #010101"
-    prefix="og: https://ogp.me/ns#"
->
-    <Head />
-    <body>
-        <!-- <body allow="fullscreen *"> -->
-        <div class="body" id="body">
-            <Preload />
-            <Menu client:load />
+<BlogLayout>
+    <!-- <body allow="fullscreen *"> -->
+    <div class="body" id="body">
+        <Preload />
 
-            <!-- Contact page  -->
-            <!-- Main -->
-            <div class="page">
-                <Contact client:load />
-                <Works client:load />
-                <About client:load />
-            </div>
-
-            <!-- Home page or welcoming page   -->
-            <Home />
+        <!-- Contact page  -->
+        <!-- Main -->
+        <div class="page">
+            <Contact client:load />
+            <Works client:load />
+            <About client:load />
         </div>
 
-        <!-- Scripts -->
-
-        <Scripts />
-        <script src="/static/js/home.js" type="application/javascript"></script>
-    </body>
-</html>
+        <!-- Home page or welcoming page   -->
+        <Home />
+    </div>
+</BlogLayout>

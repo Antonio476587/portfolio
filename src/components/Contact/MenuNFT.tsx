@@ -70,28 +70,28 @@ export default function MenuNFT() {
         </svg>
       </button>
       <div className="menu-nft-div">
-        <MenuNFTItem price="5$" img="/static/media/images/1.png" name="1">
+        <MenuNFTItem price="5$" img="@assets/media/images/1.png" name="1">
           It&apos;s a flower, but it&apos;s like a minecraft flower.
         </MenuNFTItem>
-        <MenuNFTItem price="15$" img="/static/media/images/2.jpg" name="2">
+        <MenuNFTItem price="15$" img="@assets/media/images/2.jpg" name="2">
           Two mountains, they are a big tiny pair.
         </MenuNFTItem>
-        <MenuNFTItem price="40$" img="/static/media/images/3.jpg" name="3">
+        <MenuNFTItem price="40$" img="@assets/media/images/3.jpg" name="3">
           The ocean is mistery, but beatiful.
         </MenuNFTItem>
-        <MenuNFTItem price="100$" img="/static/media/images/4.jpg" name="4">
+        <MenuNFTItem price="100$" img="@assets/media/images/4.jpg" name="4">
           BonsAI, such a pretty tree.
         </MenuNFTItem>
-        <MenuNFTItem price="200$" img="/static/media/images/5.jpg" name="5">
+        <MenuNFTItem price="200$" img="@assets/media/images/5.jpg" name="5">
           No one knows.
         </MenuNFTItem>
-        <MenuNFTItem price="1000$" img="/static/media/images/6.jpg" name="6">
+        <MenuNFTItem price="1000$" img="@assets/media/images/6.jpg" name="6">
           I can feel it.
         </MenuNFTItem>
-        <MenuNFTItem price="2500$" img="/static/media/images/7.jpg" name="7">
+        <MenuNFTItem price="2500$" img="@assets/media/images/7.jpg" name="7">
           Lebron, the choose one from quite height.
         </MenuNFTItem>
-        <MenuNFTItem price="5000$" img="/static/media/images/8.png" name="8">
+        <MenuNFTItem price="5000$" img="@assets/media/images/8.png" name="8">
           Mars or Elon Mars?
         </MenuNFTItem>
       </div>

@@ -1,9 +1,5 @@
 ---
 import Head from "../../components/Utils/head.astro";
-
-import Scripts from "../../components/Utils/scripts.astro";
-
-import NotFound from "./notfound";
 ---
 
 <!doctype html>
@@ -53,7 +49,7 @@ import NotFound from "./notfound";
                         <div class="not-found-link">
                             <h3>Maybe you would like to play a game -{">"}</h3>
                             <button type="button" role="link">
-                                <a href="/static/h5/tic-tac-toe.html"
+                                <a href="@assets/h5/tic-tac-toe.html"
                                     >Launch Game</a
                                 >
                             </button>
@@ -62,9 +58,6 @@ import NotFound from "./notfound";
                     </div>
                 </div>
             </div>
-
-            <!-- Scripts -->
-            <Scripts />
         </div>
     </body>
 </html>

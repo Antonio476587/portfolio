@@ -1,8 +1,6 @@
 ---
 import Head from "../components/Utils/head.astro";
 
-import Scripts from "../components/Utils/scripts.astro";
-
 import "../../styles/index.scss";
 ---
 
@@ -53,7 +51,7 @@ import "../../styles/index.scss";
                         <div class="not-found-link">
                             <h3>Maybe you would like to play a game -{">"}</h3>
                             <button type="button" role="link">
-                                <a href="/static/h5/tic-tac-toe.html"
+                                <a href="@assets/h5/tic-tac-toe.html"
                                     >Launch Game</a
                                 >
                             </button>
@@ -62,9 +60,6 @@ import "../../styles/index.scss";
                     </div>
                 </div>
             </div>
-
-            <!-- Scripts -->
-            <Scripts />
         </div>
     </body>
 </html>
