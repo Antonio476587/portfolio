@@ -5,17 +5,30 @@
     "jsr:@deno/graph@~0.69.7": "0.69.10",
     "jsr:@std/assert@~0.218.2": "0.218.2",
     "jsr:@std/bytes@~0.218.2": "0.218.2",
+    "jsr:@std/cli@^1.0.21": "1.0.22",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@std/fmt@^1.0.8": "1.0.8",
     "jsr:@std/fmt@~0.218.2": "0.218.2",
+    "jsr:@std/fs@^1.0.19": "1.0.19",
     "jsr:@std/fs@~0.218.2": "0.218.2",
+    "jsr:@std/html@^1.0.4": "1.0.4",
+    "jsr:@std/http@1.0": "1.0.20",
+    "jsr:@std/internal@^1.0.10": "1.0.10",
     "jsr:@std/io@~0.218.2": "0.218.2",
+    "jsr:@std/media-types@^1.1.0": "1.1.0",
+    "jsr:@std/net@^1.0.4": "1.0.6",
+    "jsr:@std/path@1.0": "1.0.9",
+    "jsr:@std/path@^1.1.1": "1.1.2",
     "jsr:@std/path@~0.218.2": "0.218.2",
+    "jsr:@std/streams@^1.0.10": "1.0.10",
     "npm:@astrojs/check@~0.9.4": "0.9.4_typescript@5.9.2",
     "npm:@astrojs/deno@^5.0.1": "5.0.1_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1",
     "npm:@astrojs/mdx@^4.3.3": "4.3.5_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1",
-    "npm:@astrojs/react@^4.3.0": "4.3.1_@types+react@19.1.13_@types+react-dom@19.1.9__@types+react@19.1.13_react@19.1.0_react-dom@19.1.1__react@19.1.0_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_@types+node@24.4.0_sass@1.92.1",
+    "npm:@astrojs/react@^4.3.0": "4.3.1_@types+react@19.1.13_@types+react-dom@19.1.9__@types+react@19.1.13_react@19.1.1_react-dom@19.1.1__react@19.1.1_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_@types+node@24.4.0_sass@1.92.1",
     "npm:@astrojs/tailwind@^6.0.2": "6.0.2_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_tailwindcss@4.1.13_postcss@8.5.6_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1",
     "npm:@astrojs/vue@^5.1.0": "5.1.1_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_vue@3.5.21__typescript@5.9.2_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_@types+node@24.4.0_sass@1.92.1_typescript@5.9.2",
-    "npm:@nanostores/react@1": "1.0.0_nanostores@1.0.1_react@19.1.0",
+    "npm:@deno/astro-adapter@~0.3.1": "0.3.1_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1",
+    "npm:@nanostores/react@1": "1.0.0_nanostores@1.0.1_react@19.1.1",
     "npm:@storyblok/astro@^7.2.1": "7.2.8_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1",
     "npm:@storyblok/js@^4.2.1": "4.2.8",
     "npm:@storyblok/richtext@^3.6.1": "3.8.0",
@@ -25,7 +38,7 @@
     "npm:@types/react-dom@^19.1.6": "19.1.9_@types+react@19.1.13",
     "npm:@types/react@^19.1.8": "19.1.13",
     "npm:aos@^2.3.4": "2.3.4",
-    "npm:astro@^5.12.0": "5.13.7_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_zod@3.25.76",
+    "npm:astro@^5.13.7": "5.13.7_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_zod@3.25.76",
     "npm:autoprefixer@^10.4.21": "10.4.21_postcss@8.5.6",
     "npm:firebase-admin@^13.4.0": "13.5.0",
     "npm:firebase@12": "12.2.1_@firebase+app@0.14.2_@firebase+app-types@0.9.3_@firebase+app-compat@0.5.2",
@@ -36,8 +49,8 @@
     "npm:postcss-import@^16.1.1": "16.1.1_postcss@8.5.6",
     "npm:postcss-nesting@^13.0.2": "13.0.2_postcss@8.5.6_postcss-selector-parser@7.1.0",
     "npm:postcss@^8.5.6": "8.5.6",
-    "npm:react-dom@^19.1.0": "19.1.1_react@19.1.0",
-    "npm:react@^19.1.0": "19.1.0",
+    "npm:react-dom@^19.1.1": "19.1.1_react@19.1.1",
+    "npm:react@^19.1.1": "19.1.1",
     "npm:sass@^1.89.2": "1.92.1",
     "npm:tailwindcss@^4.1.11": "4.1.13",
     "npm:turbo@*": "2.0.9",
@@ -52,10 +65,10 @@
       "integrity": "e87e80a404958f6350d903e6238b72afb92468378b0b32111f7a1e4916ac7fe7",
       "dependencies": [
         "jsr:@deno/graph",
-        "jsr:@std/fmt",
-        "jsr:@std/fs",
+        "jsr:@std/fmt@~0.218.2",
+        "jsr:@std/fs@~0.218.2",
         "jsr:@std/io",
-        "jsr:@std/path"
+        "jsr:@std/path@~0.218.2"
       ]
     },
     "@deno/graph@0.69.10": {
@@ -67,11 +80,43 @@
     "@std/bytes@0.218.2": {
       "integrity": "91fe54b232dcca73856b79a817247f4a651dbb60d51baafafb6408c137241670"
     },
+    "@std/cli@1.0.22": {
+      "integrity": "50d1e4f87887cb8a8afa29b88505ab5081188f5cad3985460c3b471fa49ff21a"
+    },
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
+    },
     "@std/fmt@0.218.2": {
       "integrity": "99526449d2505aa758b6cbef81e7dd471d8b28ec0dcb1491d122b284c548788a"
     },
+    "@std/fmt@1.0.8": {
+      "integrity": "71e1fc498787e4434d213647a6e43e794af4fd393ef8f52062246e06f7e372b7"
+    },
     "@std/fs@0.218.2": {
       "integrity": "dd9431453f7282e8c577cc22c9e6d036055a9a980b5549f887d6012969fabcca"
+    },
+    "@std/fs@1.0.19": {
+      "integrity": "051968c2b1eae4d2ea9f79a08a3845740ef6af10356aff43d3e2ef11ed09fb06"
+    },
+    "@std/html@1.0.4": {
+      "integrity": "eff3497c08164e6ada49b7f81a28b5108087033823153d065e3f89467dd3d50e"
+    },
+    "@std/http@1.0.20": {
+      "integrity": "b5cc33fc001bccce65ed4c51815668c9891c69ccd908295997e983d8f56070a1",
+      "dependencies": [
+        "jsr:@std/cli",
+        "jsr:@std/encoding",
+        "jsr:@std/fmt@^1.0.8",
+        "jsr:@std/fs@^1.0.19",
+        "jsr:@std/html",
+        "jsr:@std/media-types",
+        "jsr:@std/net",
+        "jsr:@std/path@^1.1.1",
+        "jsr:@std/streams"
+      ]
+    },
+    "@std/internal@1.0.10": {
+      "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     },
     "@std/io@0.218.2": {
       "integrity": "c64fbfa087b7c9d4d386c5672f291f607d88cb7d44fc299c20c713e345f2785f",
@@ -80,11 +125,29 @@
         "jsr:@std/bytes"
       ]
     },
+    "@std/media-types@1.1.0": {
+      "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
+    },
+    "@std/net@1.0.6": {
+      "integrity": "110735f93e95bb9feb95790a8b1d1bf69ec0dc74f3f97a00a76ea5efea25500c"
+    },
     "@std/path@0.218.2": {
       "integrity": "b568fd923d9e53ad76d17c513e7310bda8e755a3e825e6289a0ce536404e2662",
       "dependencies": [
         "jsr:@std/assert"
       ]
+    },
+    "@std/path@1.0.9": {
+      "integrity": "260a49f11edd3db93dd38350bf9cd1b4d1366afa98e81b86167b4e3dd750129e"
+    },
+    "@std/path@1.1.2": {
+      "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/streams@1.0.10": {
+      "integrity": "75c0b1431873cd0d8b3d679015220204d36d3c7420d93b60acfc379eb0dc30af"
     }
   },
   "npm": {
@@ -193,7 +256,7 @@
         "prismjs"
       ]
     },
-    "@astrojs/react@4.3.1_@types+react@19.1.13_@types+react-dom@19.1.9__@types+react@19.1.13_react@19.1.0_react-dom@19.1.1__react@19.1.0_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_@types+node@24.4.0_sass@1.92.1": {
+    "@astrojs/react@4.3.1_@types+react@19.1.13_@types+react-dom@19.1.9__@types+react@19.1.13_react@19.1.1_react-dom@19.1.1__react@19.1.1_vite@6.3.6__@types+node@24.4.0__sass@1.92.1__picomatch@4.0.3_@types+node@24.4.0_sass@1.92.1": {
       "integrity": "sha512-Jhv35TsDHuQLvwof2z10P3g1s9wIR4UN9jE7O4NZBJNXOt/+qk+L0rY9th4SX7VzccKmRltUGxAhI1cXH52gXw==",
       "dependencies": [
         "@types/react",
@@ -503,6 +566,12 @@
       "integrity": "sha512-PCqQV3c4CoVm3kdPhyeZ07VmBRdH2EpMFA/pd9OASpOEC3aXNGoqPDAZ80D0cLpMBxnmk0+yNhGsEx31hq7Gtw==",
       "dependencies": [
         "postcss-selector-parser"
+      ]
+    },
+    "@deno/astro-adapter@0.3.1_astro@5.13.7__typescript@5.9.2__@types+node@24.4.0__sass@1.92.1__vite@6.3.6___@types+node@24.4.0___sass@1.92.1___picomatch@4.0.3__zod@3.25.76_typescript@5.9.2_@types+node@24.4.0_sass@1.92.1": {
+      "integrity": "sha512-r7/5vz8G4UHK5bA/+GpB64584bTHPqih9eVdJdabMhwfQdbkgjHNjPV0rZzpfDB6WBoGSByTO8Z9Iz+BP8Y1Nw==",
+      "dependencies": [
+        "astro"
       ]
     },
     "@emmetio/abbreviation@2.3.3": {
@@ -1450,7 +1519,7 @@
         "vfile"
       ]
     },
-    "@nanostores/react@1.0.0_nanostores@1.0.1_react@19.1.0": {
+    "@nanostores/react@1.0.0_nanostores@1.0.1_react@19.1.1": {
       "integrity": "sha512-eDduyNy+lbQJMg6XxZ/YssQqF6b4OXMFEZMYKPJCCmBevp1lg0g+4ZRi94qGHirMtsNfAWKNwsjOhC+q1gvC+A==",
       "dependencies": [
         "nanostores",
@@ -4921,7 +4990,7 @@
     "radix3@1.1.2": {
       "integrity": "sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA=="
     },
-    "react-dom@19.1.1_react@19.1.0": {
+    "react-dom@19.1.1_react@19.1.1": {
       "integrity": "sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==",
       "dependencies": [
         "react",
@@ -4931,8 +5000,8 @@
     "react-refresh@0.17.0": {
       "integrity": "sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ=="
     },
-    "react@19.1.0": {
-      "integrity": "sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg=="
+    "react@19.1.1": {
+      "integrity": "sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ=="
     },
     "read-cache@1.0.0": {
       "integrity": "sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==",
@@ -6448,6 +6517,7 @@
         "npm:@astrojs/react@^4.3.0",
         "npm:@astrojs/tailwind@^6.0.2",
         "npm:@astrojs/vue@^5.1.0",
+        "npm:@deno/astro-adapter@~0.3.1",
         "npm:@nanostores/react@1",
         "npm:@storyblok/astro@^7.2.1",
         "npm:@storyblok/js@^4.2.1",
@@ -6458,7 +6528,7 @@
         "npm:@types/react-dom@^19.1.6",
         "npm:@types/react@^19.1.8",
         "npm:aos@^2.3.4",
-        "npm:astro@^5.12.0",
+        "npm:astro@^5.13.7",
         "npm:autoprefixer@^10.4.21",
         "npm:firebase-admin@^13.4.0",
         "npm:firebase@12",
@@ -6467,8 +6537,8 @@
         "npm:postcss-import@^16.1.1",
         "npm:postcss-nesting@^13.0.2",
         "npm:postcss@^8.5.6",
-        "npm:react-dom@^19.1.0",
-        "npm:react@^19.1.0",
+        "npm:react-dom@^19.1.1",
+        "npm:react@^19.1.1",
         "npm:sass@^1.89.2",
         "npm:tailwindcss@^4.1.11",
         "npm:typescript@^5.9.2",

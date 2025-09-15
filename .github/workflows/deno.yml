@@ -6,45 +6,41 @@
 # This workflow will install Deno then run `deno lint` and `deno test`.
 # For more information see: https://github.com/denoland/setup-deno
 
-# name: Deno
+name: Deno
 
-# on: push
+on: push
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     permissions:
-#       id-token: write
-#       contents: read
+    permissions:
+      id-token: write
+      contents: read
 
-#     steps:
-#       - name: Clone repository
-#         uses: actions/checkout@v4
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
 
-#       - name: Setup Deno environment
-#         uses: denoland/setup-deno@v1
-#         with:
-#           deno-version: v1.x
+      - name: Setup Deno environment
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
 
-#       - name: Install pnpm
-#         uses: pnpm/action-setup@v4
-#         with:
-#           version: 9
-#           run_install: false
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
-#       - name: Build dist files
-#         run: cd frontend && pnpm install && pnpm astro build && cd ..
+      - name: Build dist files
+        run: pnpm install && pnpm run build
 
-#       - name: Build style files
-#         run: deno run -A ./sassBuilder.ts ./frontend/styles/index.scss ./frontend/dist/style.css
-
-#       - name: Deploy to Deno Deploy
-#         uses: denoland/deployctl@v1
-#         with:
-#           project: ntonio476587-portfolio-dev
-#           entrypoint: main.tsx
-
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: ntonio476587-portfolio-dev
+          entrypoint: dist/server/entry.mjs
 # - name: Verify formatting
 #   run: deno fmt --check
 

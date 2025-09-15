@@ -1,7 +1,7 @@
 {
   "imports": {
     "std/": "https://deno.land/std@0.175.0/",
-    "firebase/": "https://esm.sh/v106/firebase@9.16.0/deno/"
+    "firebase/": "https://esm.sh/v106/firebase@9.16.0/"
   },
   "lint": {
     "files": {

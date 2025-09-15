@@ -44,7 +44,7 @@ const { stickyHeader } = Astro.props;
             </svg>
         </button>
         <nav
-            class="md:w-3/12 relative text-gray-900 dark:text-gray-100 font-sans
+            class="md:w-4/12 relative text-gray-900 dark:text-gray-100 font-sans
  rounded-4xl border-1 border-gray-300 dark:border-gray-700"
             id="navigation-menu"
             aria-labelledby="navigation-title"
@@ -157,18 +157,27 @@ const { stickyHeader } = Astro.props;
             });
 
             function setInActiveLink() {
-                const navigationMenuLinkActive =
-                    navigationMenu.querySelectorAll(".navigation-menu-link");
+                const navigationMenuLink = navigationMenu.querySelectorAll(
+                    ".navigation-menu-link",
+                );
+                const navigationMenuLinkActive = navigationMenu.querySelector(
+                    ".navigation-menu-link.active",
+                );
                 let activeLink = null;
 
-                navigationMenuLinkActive.forEach((link) => {
-                    if (link.href.includes(window.location.pathname)) {
-                        link.classList.add("active");
-                        activeLink = link;
-                    } else {
-                        link.classList.remove("active");
-                    }
-                });
+                if (navigationMenuLinkActive !== null)
+                    navigationMenuLink.forEach((link) => {
+                        if (
+                            link.href.includes(
+                                window.location.pathname.split("/")[1],
+                            )
+                        ) {
+                            link.classList.add("active");
+                            activeLink = link;
+                        } else {
+                            link.classList.remove("active");
+                        }
+                    });
 
                 gsap.to(navigationMenuBackground, {
                     duration: 0.5,
