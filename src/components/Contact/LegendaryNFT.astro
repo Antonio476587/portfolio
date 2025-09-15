@@ -1,0 +1,76 @@
+---
+import NFT1 from "@assets/media/images/1.png";
+import NFT2 from "@assets/media/images/2.jpg";
+import NFT3 from "@assets/media/images/3.jpg";
+import NFT4 from "@assets/media/images/4.jpg";
+import NFT5 from "@assets/media/images/5.jpg";
+import NFT6 from "@assets/media/images/6.jpg";
+import NFT7 from "@assets/media/images/7.jpg";
+import NFT8 from "@assets/media/images/8.png";
+
+const images = [NFT1, NFT2, NFT3, NFT4, NFT5, NFT6, NFT7, NFT8];
+---
+
+<>
+    <style>
+        :root {
+            --bg: #0f1724;
+            --accent: #ffd166;
+        }
+        /* Legendary reveal container */
+        .reveal-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .card-glow {
+            position: absolute;
+            width: 300px;
+            height: 420px;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #fff, #ddd);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 80px 40px rgba(255, 221, 85, 0.3);
+            opacity: 0;
+            transform: scale(0.2);
+        }
+        .card-glow img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+        }
+        .card-glow .meta {
+            padding: 16px;
+            color: #000;
+            text-align: center;
+        }
+        .flash {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            opacity: 0;
+        }
+    </style>
+    <div class="reveal-overlay" id="reveal">
+        <div class="flash" id="flash"></div>
+        <div class="card-glow" id="legendaryCard">
+            <img
+                id="legendaryImg"
+                src={images[Math.floor(Math.random() * images.length)].src}
+                alt="NFT"
+            />
+            <div class="meta font-bold">
+                <h3>NFT for you!</h3><p class="opacity-70">
+                    Note: It's not the original one.
+                </p>
+            </div>
+        </div>
+    </div>
+</>

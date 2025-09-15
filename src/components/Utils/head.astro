@@ -11,6 +11,7 @@
     <meta name="robots" />
     <meta name="user-scalable" content="no" />
     <link rel="canonical" href="https://fantonix.space/" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- animate.css-->
     <link
         rel="stylesheet"
@@ -49,7 +50,13 @@
         content="It's a nice red F with smooth lines and hard corners"
     />
     <meta property="og:site_name" content="Fantonix" />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet"
+    />
     <!-- Josefin Sans Google Fonts-->
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap"
@@ -62,24 +69,25 @@
         type="image/x-icon"
     />
     <!-- GSAP -->
-    <script src="https://unpkg.com/gsap@3.11.4/dist/gsap.min.js" rel="preload"
-    ></script>
-    <!-- GSAP Scroll Trigger -->
     <script
-        src="https://unpkg.com/gsap@3.11.4/dist/ScrollToPlugin.min.js"
+        src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"
         rel="preload"></script>
-    <!-- GSAP Scroll To -->
     <script
-        src="https://unpkg.com/gsap@3.11.4/dist/ScrollTrigger.min.js"
+        src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"
+        rel="preload"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"
+        rel="preload"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/gsap@3/dist/TextPlugin.min.js"
         rel="preload"></script>
     <!-- GSAP Register global plugin -->
-    <script is:inline>
+    <script is:client>
         // @ts-ignore
         gsap.registerPlugin(ScrollTrigger);
         // @ts-ignore
         gsap.registerPlugin(ScrollToPlugin);
+        // @ts-ignore
+        gsap.registerPlugin(TextPlugin);
     </script>
-    <!-- AnimeJS-->
-    <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" rel="preload"
-    ></script>
 </head>

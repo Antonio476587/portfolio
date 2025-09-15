@@ -1,7 +1,7 @@
 <template>
     <div id="works">
-        <a v-for="work in worksPresentation" :href="'/work/' + work.workUrlId">
-            <img :src="work.img" :alt="work.alternativeText" />
+        <a v-for="work in worksPresentation" :href="work.workUrlId">
+            <img :src="work.img.src" :alt="work.alternativeText" />
         </a>
     </div>
 </template>
@@ -15,7 +15,7 @@ onMounted(() => {
         scrollTrigger: {
             trigger: "#works",
             toggleActions: "play none none reverse",
-            start: "center top",
+            start: "bottom top-=10%",
         },
     });
     document

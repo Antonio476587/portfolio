@@ -1,6 +1,16 @@
 import React, { useRef, useState } from "react";
 import Image from "../../shared/utilities/Image.tsx";
 
+// Import all NFT images
+import nft1 from "@assets/media/images/1.png";
+import nft2 from "@assets/media/images/2.jpg";
+import nft3 from "@assets/media/images/3.jpg";
+import nft4 from "@assets/media/images/4.jpg";
+import nft5 from "@assets/media/images/5.jpg";
+import nft6 from "@assets/media/images/6.jpg";
+import nft7 from "@assets/media/images/7.jpg";
+import nft8 from "@assets/media/images/8.png";
+
 interface MenuNFTItem {
   price: string;
   img: string;
@@ -32,7 +42,7 @@ function MenuNFTItem({ price, img, name, children }: MenuNFTItem) {
         <div className="nft-item-price-div" ref={nftPriceRef}>
           <h3>{price}</h3>
         </div>
-        <Image src={img} alt="" />
+        <Image src={img.src} alt="" />
       </div>
       <div className="nft-item-detail-div" ref={nftDetailRef}>
         <h3>{name}</h3>
@@ -63,35 +73,37 @@ export default function MenuNFT() {
           width="16"
           height="16"
           fill="currentColor"
-          className="bi bi-arrow-left-circle-fill"
           viewBox="0 0 16 16"
+          className={`transition-transform duration-600 ${
+            active === "active" ? "rotate-180" : ""
+          }`}
         >
           <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
         </svg>
       </button>
       <div className="menu-nft-div">
-        <MenuNFTItem price="5$" img="@assets/media/images/1.png" name="1">
+        <MenuNFTItem price="5$" img={nft1} name="1">
           It&apos;s a flower, but it&apos;s like a minecraft flower.
         </MenuNFTItem>
-        <MenuNFTItem price="15$" img="@assets/media/images/2.jpg" name="2">
+        <MenuNFTItem price="15$" img={nft2} name="2">
           Two mountains, they are a big tiny pair.
         </MenuNFTItem>
-        <MenuNFTItem price="40$" img="@assets/media/images/3.jpg" name="3">
+        <MenuNFTItem price="40$" img={nft3} name="3">
           The ocean is mistery, but beatiful.
         </MenuNFTItem>
-        <MenuNFTItem price="100$" img="@assets/media/images/4.jpg" name="4">
+        <MenuNFTItem price="100$" img={nft4} name="4">
           BonsAI, such a pretty tree.
         </MenuNFTItem>
-        <MenuNFTItem price="200$" img="@assets/media/images/5.jpg" name="5">
+        <MenuNFTItem price="200$" img={nft5} name="5">
           No one knows.
         </MenuNFTItem>
-        <MenuNFTItem price="1000$" img="@assets/media/images/6.jpg" name="6">
+        <MenuNFTItem price="1000$" img={nft6} name="6">
           I can feel it.
         </MenuNFTItem>
-        <MenuNFTItem price="2500$" img="@assets/media/images/7.jpg" name="7">
+        <MenuNFTItem price="2500$" img={nft7} name="7">
           Lebron, the choose one from quite height.
         </MenuNFTItem>
-        <MenuNFTItem price="5000$" img="@assets/media/images/8.png" name="8">
+        <MenuNFTItem price="5000$" img={nft8} name="8">
           Mars or Elon Mars?
         </MenuNFTItem>
       </div>

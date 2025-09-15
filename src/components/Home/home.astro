@@ -1,5 +1,5 @@
 ---
-import Nav from "../../components/Nav.astro";
+
 ---
 
 <div class="home" id="home">
@@ -14,45 +14,103 @@ import Nav from "../../components/Nav.astro";
         </div>
     </div>
 
-    <div class="container-fluid con-up">
-        <div class="row">
-            <div class="container col-4 d-flex justify-content-center">
-                <div class="figure"></div>
-            </div>
-            <span class="container py-3 mb-5 col-4 text-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-arrow-up animate__animated animate__shakeY any-infinite"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
-                    ></path>
-                </svg>
-            </span>
-            <div class="container col-4 d-flex justify-content-center">
-                <div class="figure"></div>
-            </div>
-        </div>
+    <div class="flex justify-center text-2xl md:text-4xl">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            class="absolute top-15"
+            viewBox="0 0 16 16"
+            id="arrow-up-icon"
+        >
+            <path
+                id="arrow-up-icon-path"
+                fill-rule="evenodd"
+                fill="transparent"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-dasharray="100"
+                stroke-dashoffset="100"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
+            ></path>
+        </svg>
     </div>
 
-    <div class="container-fluid con-welcome ">
-        <h1 class="h1" id="h1">Welcome</h1>
+    <div class="con-welcome relative top-60" data-aos="fade-up">
+        <h1 class="h1" id="h1">Felix Cabello</h1>
+    </div>
+
+    <div class="absolute top-50 left-0 z-0 opacity-10 w-full" id="future-text">
+        <h2 class="text-9xl font-bold text-nowrap text-slate-800 select-none">
+            Future = Neuro + Computing
+        </h2>
     </div>
 
     <div class="position-absolute divi-content">
         <h4>
             <i class="one-h">const</i>
-            | portfolio
-            <i class="one-h"> =</i>
+            portfolio |
+            <i class="one-h">= </i>
             <i class="str-h"> "Cv-online"</i>;
         </h4>
     </div>
 
-    <Nav />
-    
+    <!-- Arrow Up animation -->
+    <script is:client>
+        gsap.to("#arrow-up-icon-path", {
+            strokeDashoffset: 0,
+            color: "rgb(0, 0, 0, 0.4)",
+            duration: 1.5,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1,
+        });
+
+        gsap.timeline({
+            repeat: -1,
+        }).fromTo(
+            "#future-text",
+            {
+                translateX: "-120%",
+            },
+            {
+                translateX: "110%",
+                ease: "none",
+                duration: 9,
+            },
+        );
+    </script>
+
+    <!-- Portfolio text animation -->
+    <script is:client>
+        const strH = document.querySelector(".str-h");
+        gsap.timeline({
+            repeat: -1,
+        })
+            .to(strH, {
+                text: '"Suitcase"',
+                duration: 2,
+                ease: "sine.inOut",
+            })
+            .to(strH, {
+                text: '"Resume"',
+                duration: 2,
+                ease: "sine.inOut",
+            })
+            .to(strH, {
+                text: '"Portfolio"',
+                duration: 2,
+                ease: "sine.inOut",
+            })
+            .to(strH, {
+                text: '"Identity Document XXI"',
+                duration: 2,
+                ease: "sine.inOut",
+            })
+            .to(strH, {
+                text: '"CV Online"',
+                duration: 2,
+                ease: "sine.inOut",
+            });
+    </script>
 </div>

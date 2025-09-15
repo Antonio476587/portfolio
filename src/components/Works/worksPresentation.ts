@@ -1,62 +1,80 @@
+// Import all images
+import spaImg from "@assets/media/native_m/SPA.webp";
+import spaSquaredImg from "@assets/media/native_m/SPA-squared.webp";
+import nftsImg from "@assets/media/native_m/NFTs.webp";
+import nftsSquaredImg from "@assets/media/native_m/NFTs-squared.webp";
+import gamesImg from "@assets/media/native_m/Games.webp";
+import gamesSquaredImg from "@assets/media/native_m/Games-squared.webp";
+import barbaImg from "@assets/media/native_m/BarbaJS.webp";
+import barbaSquaredImg from "@assets/media/native_m/BarbaJS-squared.webp";
+import bonsaiImg from "@assets/media/native_m/Bonsai.webp";
+import bonsaiSquaredImg from "@assets/media/native_m/Bonsai-squared.webp";
+import codiconImg from "@assets/media/native_m/Codicon.webp";
+import codiconSquaredImg from "@assets/media/native_m/Codicon_squared.webp";
+import blogImg from "@assets/media/native_m/Blog.webp";
+import blogSquaredImg from "@assets/media/native_m/Blog-squared.webp";
+import projectsImg from "@assets/media/native_m/Projects.webp";
+import projectsSquaredImg from "@assets/media/native_m/Projects-squared.webp";
+
 export interface worksPresentationObject {
-  img: `/${string}/${string}.${string}`;
-  squaredImg: `/${string}/${string}.${string}`;
+  img: string;
+  squaredImg: string;
   alternativeText: string;
-  workUrlId: `${number}` | "/";
+  workUrlId: string;
 }
 
 const worksPresentation: worksPresentationObject[] = [
   {
-    img: "/static/media/native_m/SPA.webp",
-    squaredImg: "/static/media/native_m/SPA-squared.webp",
+    img: spaImg,
+    squaredImg: spaSquaredImg,
     alternativeText:
       "Single Page Applicaation with MERN stack, google sign in, JWT, etc.",
-    workUrlId: "1",
+    workUrlId: "/work/spa",
   },
   {
-    img: "/static/media/native_m/NFTs.webp",
-    squaredImg: "/static/media/native_m/NFTs-squared.webp",
+    img: nftsImg,
+    squaredImg: nftsSquaredImg,
     alternativeText: "NFTs where appear Elon Musk, Lebron James, BonsAI...",
-    workUrlId: "2",
+    workUrlId: "/work/nfts",
   },
   {
-    img: "/static/media/native_m/Games.webp",
-    squaredImg: "/static/media/native_m/Games-squared.webp",
+    img: gamesImg,
+    squaredImg: gamesSquaredImg,
     alternativeText:
       "These are the games I've made, what are you waiting for watch them?",
-    workUrlId: "3",
+    workUrlId: "/work/games",
   },
+  // {
+  //   img: barbaImg,
+  //   squaredImg: barbaSquaredImg,
+  //   alternativeText: "Beatifuld and smooth transitions.",
+  //   workUrlId: "4",
+  // },
   {
-    img: "/static/media/native_m/BarbaJS.webp",
-    squaredImg: "/static/media/native_m/BarbaJS-squared.webp",
-    alternativeText: "Beatifuld and smooth transitions.",
-    workUrlId: "4",
-  },
-  {
-    img: "/static/media/native_m/Bonsai.webp",
-    squaredImg: "/static/media/native_m/Bonsai-squared.webp",
+    img: bonsaiImg,
+    squaredImg: bonsaiSquaredImg,
     alternativeText: "This is my BonsAI page",
-    workUrlId: "5",
+    workUrlId: "/work/my-first-static-page",
   },
   {
-    img: "/static/media/native_m/Codicon.webp",
-    squaredImg: "/static/media/native_m/Codicon-squared.webp",
+    img: codiconImg,
+    squaredImg: codiconSquaredImg,
     alternativeText: "My first hackathon",
-    workUrlId: "6",
+    workUrlId: "/work/codicon-canaimeros",
   },
   {
-    img: "/static/media/native_m/Blog.webp",
-    squaredImg: "/static/media/native_m/Blog-squared.webp",
+    img: blogImg,
+    squaredImg: blogSquaredImg,
     alternativeText: "This is my blog, I should make it interesting",
-    workUrlId: "7",
+    workUrlId: "/blog",
   },
-  {
-    img: "/static/media/native_m/Projects.webp",
-    squaredImg: "/static/media/native_m/Projects-squared.webp",
-    alternativeText:
-      "There are projects, but projects are ideas for more projects, so let's make more projects",
-    workUrlId: "8",
-  },
+  // {
+  //   img: projectsImg,
+  //   squaredImg: projectsSquaredImg,
+  //   alternativeText:
+  //     "There are projects, but projects are ideas for more projects, so let's make more projects",
+  //   workUrlId: "/work/projects",
+  // },
 ];
 
 export default worksPresentation;

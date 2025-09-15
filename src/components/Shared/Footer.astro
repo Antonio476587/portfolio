@@ -1,0 +1,202 @@
+---
+
+---
+
+<footer
+    class="bg-slate-200 text-black m-0 py-12 overflow-hidden relative rounded-lg"
+>
+    <!-- Marquee Section -->
+    <div class="relative whitespace-nowrap overflow-hidden">
+        <div class="w-full text-4xl md:text-5xl font-light">
+            <span
+                class="relative flex items-center gap-4 justify-center max-w-fit"
+                id="marquee-1"
+            >
+                <!-- <div class="f"> -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"></path>
+                </svg>
+
+                <b>Let's go to the future</b>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+                </svg>
+                <!-- </div> -->
+            </span>
+        </div>
+        <div class="w-full text-4xl md:text-5xl font-light">
+            <span
+                id="marquee-2"
+                class="relative left-full -translate-x-full translate-y-0 flex items-center gap-4 justify-center max-w-fit"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"></path>
+                </svg>
+                <b>Let's create something</b>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    <!-- Bottom Links -->
+    <div
+        class="mt-12 flex flex-col md:flex-row md:justify-between gap-6 text-sm text-gray-700 px-6 md:px-16 font-bold"
+    >
+        <!-- Left Links -->
+        <div>
+            <div class="flex flex-wrap gap-6 text text-black">
+                <a href="#" class="hover:underline">Facebook</a>
+                <a href="#" class="hover:underline">X / Twitter</a>
+                <a href="#" class="hover:underline">LinkedIn</a>
+                <a href="#" class="hover:underline">Github</a>
+            </div>
+
+            <div class="text-center md:text-left">
+                © 2025 Psyque. All rights reserved.
+            </div>
+        </div>
+
+        <!-- Right Links -->
+        <div class="flex flex-col items-center md:items-end gap-2">
+            <div>Developed by <span class="underline">Felix Cabello</span></div>
+        </div>
+    </div>
+</footer>
+
+<!-- GSAP animation -->
+<script is:client></script>
+
+<script is:client>
+    const marquee1 = document.getElementById("marquee-1");
+    const marquee1Content = marquee1.querySelector("b");
+    const marquee2 = document.getElementById("marquee-2");
+    const marquee2Content = marquee2.querySelector("b");
+
+    const moveRight = {
+        left: "100%",
+        translateX: "-100%",
+        ease: "linear",
+        duration: 15,
+    };
+
+    const moveLeft = {
+        left: "0%",
+        translateX: "-0%",
+        ease: "linear",
+        duration: 15,
+    };
+
+    const moveUp = {
+        translateY: "0%",
+        ease: "linear",
+        duration: 4,
+    };
+
+    const moveUp2 = {
+        translateY: "-100%",
+        ease: "linear",
+        duration: 4,
+    };
+
+    const moveDown = {
+        translateY: "100%",
+        ease: "linear",
+        duration: 4,
+    };
+
+    const moveDown2 = {
+        translateY: "0%",
+        ease: "linear",
+        duration: 4,
+    };
+
+    gsap.timeline({ repeat: -1 })
+        .to(marquee1, moveRight)
+        .to(
+            marquee1Content,
+            {
+                text: "go to the future",
+                duration: 8,
+                ease: "power2.inOut",
+            },
+            "-=15",
+        )
+        .to(marquee1, moveDown)
+        .to(marquee1, moveLeft)
+        .to(
+            marquee1Content,
+            {
+                text: "Let's create something amazing",
+                duration: 8,
+                ease: "power2.inOut",
+            },
+            "-=15",
+        )
+        .to(marquee1, moveUp);
+
+    gsap.timeline({ repeat: -1 })
+        .to(marquee2, moveLeft)
+        .to(
+            marquee2Content,
+            {
+                text: "Let's create something wonderful",
+                duration: 8,
+                ease: "power2.inOut",
+            },
+            "-=15",
+        )
+        .to(marquee2, moveUp2)
+        .to(marquee2, moveRight)
+        .to(
+            marquee2Content,
+            {
+                text: "towards the future",
+                duration: 8,
+                ease: "power2.inOut",
+            },
+            "-=15",
+        )
+        .to(marquee2, moveDown2);
+</script>

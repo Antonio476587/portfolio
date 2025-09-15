@@ -189,40 +189,42 @@
         quoteImageQuickSetter(firstQuoteToRender);
 
         // Preset
-        anime.set(preloadLogoWrapper, {
+        gsap.set(preloadLogoWrapper, {
             width: "100%",
             height: "0%",
             opacity: 0,
         });
 
-        anime
-            .timeline({
-                easing: "easeOutExpo",
-                duration: 2000,
-            })
-            .add({
-                targets: preloadLogoWrapper,
+        // Create GSAP timeline
+        const logoTimeline = gsap.timeline({
+            defaults: {
+                ease: "expo.out",
+                duration: 2,
+            }
+        });
+
+        logoTimeline
+            .to(preloadLogoWrapper, {
                 height: "100%",
                 opacity: 1,
-                delay: 1500,
+                delay: 1.5,
             })
-            .add({
-                targets: preloadLogoWrapper,
+            .to(preloadLogoWrapper, {
                 width: "10%",
                 height: "10%",
             })
-            .add({
-                targets: "#fantonix-preload-logo path",
+            .to("#fantonix-preload-logo path", {
                 fill: "#CC000B",
+                duration: 0.5,
             })
-            .finished.then(function () {
-                anime({
-                    targets: preloadLogoWrapper,
+            .then(function () {
+                // Create repeating animation
+                gsap.to(preloadLogoWrapper, {
                     opacity: 0,
-                    easing: "easeOutExpo",
-                    duration: 2000,
-                    direction: "alternate",
-                    loop: 10,
+                    duration: 2,
+                    ease: "expo.out",
+                    yoyo: true,
+                    repeat: 10,
                 });
             });
 

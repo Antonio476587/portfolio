@@ -1,10 +1,6 @@
 /// <reference path="../../utils/moduleDeclarations.ts"/>
 
-import React, {
-  ChangeEvent,
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
 function format(text: string | null) {
   return text != null ? text : "";
@@ -53,7 +49,7 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
     upperChange(e, unformat(value));
   }
 
-  function onChange(e: ChangeEvent) {
+  function onChange(e: Event) {
     e.target.value !== null && typeof e.target.value !== "number"
       ? setValue(secureLength(e.target.value, maxLength))
       : setValue("");
