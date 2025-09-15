@@ -37,6 +37,8 @@ export default defineConfig({
         gallery: "storyblok/Gallery",
         caseStudy: "storyblok/CaseStudy",
         classic: "storyblok/Classic",
+        landingContent: "storyblok/LandingContent",
+        cardItem: "storyblok/CardItem",
       },
     }),
   ],

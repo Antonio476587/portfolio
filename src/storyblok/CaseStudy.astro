@@ -1,0 +1,213 @@
+---
+const { blok } = Astro.props;
+import { storyblokEditable } from "@storyblok/astro";
+import { richTextResolver } from "@storyblok/richtext";
+
+const { render } = richTextResolver();
+
+// Extract subtitle from short description if needed
+const subtitle = blok.subtitle || blok.short_description || "";
+---
+
+<style>
+    :root {
+        --primary-color: #1380ec;
+    }
+
+    body {
+        font-family: "Inter", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Newsreader", serif;
+    }
+
+    .case-study-section {
+        margin-bottom: 6rem;
+    }
+
+    .section-image {
+        margin-top: 3rem;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0.5rem;
+    }
+
+    .section-image img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<main {...storyblokEditable(blok)} class="container mx-auto flex-1 px-8 py-16">
+    <div class="mx-auto max-w-4xl">
+        <!-- Hero Section -->
+        <div class="w-full overflow-hidden rounded-lg">
+            <img
+                alt={blok.hero_image?.alt ||
+                    "Hero image for project case study"}
+                class="h-auto w-full object-cover"
+                src={blok.hero_image?.filename ||
+                    blok.thumbnail?.filename ||
+                    ""}
+            />
+        </div>
+
+        <!-- Title and Subtitle -->
+        <div class="py-16">
+            <h1
+                class="text-5xl font-bold leading-tight tracking-tight text-center"
+            >
+                {blok.title}
+            </h1>
+            {
+                subtitle && (
+                    <div class="mt-4 text-center text-lg text-gray-600">
+                        <Fragment set:html={render(subtitle)} />
+                    </div>
+                )
+            }
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-24">
+            <!-- Problem Section -->
+            {
+                blok.problem && (
+                    <section class="case-study-section">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            Problem
+                        </h2>
+                        <div class="mt-4 text-base leading-relaxed text-gray-600">
+                            <Fragment set:html={render(blok.problem)} />
+                        </div>
+                        {blok.problem_image?.filename && (
+                            <div class="section-image">
+                                <img
+                                    alt={
+                                        blok.problem_image.alt ||
+                                        "Image illustrating the problem section"
+                                    }
+                                    class="h-auto w-full object-cover"
+                                    src={blok.problem_image.filename}
+                                />
+                            </div>
+                        )}
+                    </section>
+                )
+            }
+
+            <!-- Process Section -->
+            {
+                blok.process && (
+                    <section class="case-study-section">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            Process
+                        </h2>
+                        <div class="mt-4 text-base leading-relaxed text-gray-600">
+                            <Fragment set:html={render(blok.process)} />
+                        </div>
+                        {blok.process_image?.filename && (
+                            <div class="section-image">
+                                <img
+                                    alt={
+                                        blok.process_image.alt ||
+                                        "Image illustrating the process section"
+                                    }
+                                    class="h-auto w-full object-cover"
+                                    src={blok.process_image.filename}
+                                />
+                            </div>
+                        )}
+                    </section>
+                )
+            }
+
+            <!-- Solution Section -->
+            {
+                blok.solution && (
+                    <section class="case-study-section">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            Solution
+                        </h2>
+                        <div class="mt-4 text-base leading-relaxed text-gray-600">
+                            <Fragment set:html={render(blok.solution)} />
+                        </div>
+                        {blok.solution_image?.filename && (
+                            <div class="section-image">
+                                <img
+                                    alt={
+                                        blok.solution_image.alt ||
+                                        "Image illustrating the solution section"
+                                    }
+                                    class="h-auto w-full object-cover"
+                                    src={blok.solution_image.filename}
+                                />
+                            </div>
+                        )}
+                    </section>
+                )
+            }
+
+            <!-- Results Section -->
+            {
+                blok.results && (
+                    <section class="case-study-section">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            Results
+                        </h2>
+                        <div class="mt-4 text-base leading-relaxed text-gray-600">
+                            <Fragment set:html={render(blok.results)} />
+                        </div>
+                        {blok.results_image?.filename && (
+                            <div class="section-image">
+                                <img
+                                    alt={
+                                        blok.results_image.alt ||
+                                        "Image illustrating the results section"
+                                    }
+                                    class="h-auto w-full object-cover"
+                                    src={blok.results_image.filename}
+                                />
+                            </div>
+                        )}
+                    </section>
+                )
+            }
+
+            <!-- Additional Sections (if any) -->
+            {
+                blok.additional_sections?.map((section) => (
+                    <section class="case-study-section">
+                        <h2 class="text-3xl font-bold tracking-tight">
+                            {section.section_title}
+                        </h2>
+                        <div class="mt-4 text-base leading-relaxed text-gray-600">
+                            <Fragment
+                                set:html={render(section.section_content)}
+                            />
+                        </div>
+                        {section.section_image?.filename && (
+                            <div class="section-image">
+                                <img
+                                    alt={
+                                        section.section_image.alt ||
+                                        `Image for ${section.section_title} section`
+                                    }
+                                    class="h-auto w-full object-cover"
+                                    src={section.section_image.filename}
+                                />
+                            </div>
+                        )}
+                    </section>
+                ))
+            }
+        </div>
+    </div>
+</main>

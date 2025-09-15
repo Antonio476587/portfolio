@@ -39,3 +39,5 @@ dist
 _public
 
 .turbo
+
+.astro

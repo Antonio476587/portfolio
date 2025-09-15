@@ -1,0 +1,272 @@
+---
+const { blok } = Astro.props;
+import { storyblokEditable } from "@storyblok/astro";
+import { richTextResolver } from "@storyblok/richtext";
+
+const { render } = richTextResolver();
+
+// Extract description/subtitle if available
+const subtitle = blok.subtitle || blok.description || "";
+---
+
+<style>
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.75rem;
+        box-shadow:
+            0 10px 25px -5px rgba(0, 0, 0, 0.1),
+            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        background: white;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow:
+            0 20px 50px -5px rgba(0, 0, 0, 0.15),
+            0 10px 20px -5px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+        transform: scale(1.05);
+    }
+
+    .masonry-grid {
+        columns: 3;
+        column-gap: 2rem;
+    }
+
+    .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 2rem;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        background: white;
+    }
+
+    .masonry-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .masonry-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .masonry-item:hover .masonry-image {
+        transform: scale(1.02);
+    }
+
+    .gallery-description-animators {
+        padding: 1rem;
+        background: url("@assets/media/images/sunflower_spinner.png");
+        background-size: cover;
+        border-radius: 0.75rem;
+        transition: transform 0.3s ease;
+    }
+
+    .masonry-item:hover .gallery-description-animators {
+        transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+        .masonry-grid {
+            columns: 2;
+        }
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .masonry-grid {
+            columns: 1;
+        }
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<main
+    {...storyblokEditable(blok)}
+    class="container mx-auto flex-1 px-8 py-16 rounded-2xl"
+>
+    <div class="mx-auto max-w-7xl">
+        <!-- Hero Section with Title -->
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h1 class="text-5xl font-bold leading-7 tracking-tight mb-6">
+                {blok.title}
+            </h1>
+            {
+                subtitle && (
+                    <div class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        <Fragment set:html={render(subtitle)} />
+                    </div>
+                )
+            }
+        </div>
+
+        <!-- Gallery Grid (Standard Layout) -->
+        {
+            blok.layout_style !== "masonry" &&
+                blok.images &&
+                blok.images.length > 0 && (
+                    <div class="gallery-grid">
+                        {blok.images.map((img, index) => (
+                            <div class="gallery-item group">
+                                <div class="overflow-hidden">
+                                    <img
+                                        src={img.filename}
+                                        alt={
+                                            img.alt ||
+                                            `Gallery image ${index + 1}`
+                                        }
+                                        class="gallery-image"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                {img.caption && (
+                                    <div class="p-4">
+                                        <p class="text-sm text-gray-600 leading-6">
+                                            {img.caption}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )
+        }
+
+        <!-- Masonry Layout -->
+        {
+            blok.layout_style === "masonry" &&
+                blok.images &&
+                blok.images.length > 0 && (
+                    <div class="masonry-grid">
+                        {blok.images.map((img, index) => (
+                            <div class="masonry-item group">
+                                <img
+                                    src={img.filename}
+                                    alt={
+                                        img.alt || `Gallery image ${index + 1}`
+                                    }
+                                    class="masonry-image"
+                                    loading="lazy"
+                                />
+                                {img.caption && (
+                                    <div class="p-4">
+                                        <p class="text-sm text-gray-600 leading-6">
+                                            {img.caption}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )
+        }
+
+        <!-- Gallery Description/Captions -->
+
+        <div class="relative font-bold"></div>
+        {
+            blok.captions && (
+                <div class="mt-16 max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="max-w-none text-gray-600 leading-7 gap-12 flex flex-col [&_blockquote]:w-10/12 [&_blockquote]:mx-auto">
+                        <Fragment set:html={render(blok.captions)} />
+                    </div>
+                </div>
+            )
+        }
+    </div>
+
+    <!-- Featured Images Section (if available) -->
+    {
+        blok.featured_images && blok.featured_images.length > 0 && (
+            <div class="mt-24">
+                <h2 class="text-3xl font-bold tracking-tight text-center mb-12">
+                    Featured
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {blok.featured_images.map((img, index) => (
+                        <div class="group relative overflow-hidden rounded-xl shadow-lg">
+                            <img
+                                src={img.filename}
+                                alt={img.alt || `Featured image ${index + 1}`}
+                                class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                                loading="lazy"
+                            />
+                            {img.title && (
+                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-end">
+                                    <div class="p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <h3 class="text-xl font-bold mb-2">
+                                            {img.title}
+                                        </h3>
+                                        {img.caption && (
+                                            <p class="text-sm opacity-90">
+                                                {img.caption}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+    <!-- Call to Action (if available) -->
+    {
+        blok.cta_text && blok.cta_link && (
+            <div class="text-center mt-16">
+                <a
+                    href={blok.cta_link.url || blok.cta_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[var(--primary-color)] rounded-lg hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 duration-300"
+                >
+                    {blok.cta_text}
+                </a>
+            </div>
+        )
+    }
+</main>
+
+<script>
+    // Add your JavaScript code here
+    gsap.to(".gallery-description-animators", {
+        rotate: 360,
+        duration: 2,
+        repeat: -1,
+        yoyo: false,
+        ease: "linear",
+    });
+</script>

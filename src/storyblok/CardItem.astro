@@ -1,0 +1,32 @@
+---
+const { blok } = Astro.props;
+---
+
+<article
+    class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition"
+>
+    <a href={`/${blok.section}/${blok.slug}`} class="block">
+        <!-- Image -->
+        {
+            blok.image?.filename && (
+                <div class="aspect-[2/1] overflow-hidden">
+                    <img
+                        src={blok.image.filename}
+                        alt={blok.image.alt || blok.title}
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                </div>
+            )
+        }
+
+        <!-- Text -->
+        <div class="p-6">
+            <h3
+                class="text-xl font-bold mb-2 group-hover:text-blue-600 transition"
+            >
+                {blok.title}
+            </h3>
+            <p class="text-gray-600 line-clamp-3">{blok.description}</p>
+        </div>
+    </a>
+</article>
