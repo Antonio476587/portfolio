@@ -2,146 +2,139 @@
 /* Home Page */
 
 .home {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background: azure;
-  background: url(variables.resolveUrl("images/First-middle-background-page.jpg")) top no-repeat;
-  background-size: cover;
-  overflow: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: azure;
+    background: url(variables.resolveUrl("images/background_professional.jpg"))
+        no-repeat;
+    background-size: 100% 100%;
+    background-position-x: 50%;
+    overflow: hidden;
 }
 
 /* Background complement */
 
 .bg-complement-container {
-  position: absolute;
-  transform-style: preserve-3d;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 0.8;
-
-  .bg-complement {
-    position: relative;
-    width: 100px;
-    height: 100px;
+    position: absolute;
     transform-style: preserve-3d;
-    transform: rotate(33deg) rotateY(33deg) rotateX(50deg);
-    opacity: 1 !important;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0.8;
 
-    div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: 0.1s;
+    .bg-complement {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        transform-style: preserve-3d;
+        transform: rotate(33deg) rotateY(33deg) rotateX(50deg);
+        opacity: 1 !important;
 
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: url(variables.resolveUrl("images/Moca-800.jpg"));
-        clip-path: variables.$polygon-complement;
-        background-size: 100%;
-        transform: rotateX(90deg) translateZ(50px);
-        opacity: 0.8;
-      }
+        div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: 0.1s;
 
-      &::after {
-        transform: rotateX(-90deg) translateZ(50px);
-      }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: url(variables.resolveUrl("images/mepicture3.jpeg"));
+                clip-path: variables.$polygon-complement;
+                background-size: 100%;
+                transform: rotateX(-90deg) translateZ(50px);
+                opacity: 1;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: url(variables.resolveUrl("images/mepicture2.jpeg"));
+                clip-path: variables.$polygon-complement;
+                background-size: 100%;
+                transform: rotateX(90deg) translateZ(50px);
+                opacity: 1;
+            }
+        }
+
+        span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            clip-path: variables.$polygon-complement;
+            background: url(variables.resolveUrl("images/mepicture4.jpeg"));
+            background-size: 100% 100%;
+            transform: rotateY(calc(90deg * var(--i))) translateZ(50px);
+            opacity: 1;
+
+            &:first-child {
+                background: url(variables.resolveUrl("images/mepicture5.jpeg"));
+                background-size: 100% 100%;
+            }
+            &:nth-child(2) {
+                background: url(variables.resolveUrl("images/mepicture6.jpeg"));
+                background-size: 100% 100%;
+            }
+
+            &:last-child {
+                background: url(variables.resolveUrl("images/mepicture1.jpeg"));
+                background-size: 100% 100%;
+            }
+        }
     }
-
-    span {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      clip-path: variables.$polygon-complement;
-      background: url(variables.resolveUrl("images/Tron-800.jpg"));
-      background-size: 100%;
-      transform: rotateY(calc(90deg * var(--i))) translateZ(50px);
-      opacity: 0.8;
-
-      &:first-child,
-      &:nth-child(2),
-      &:last-child {
-        background: url(variables.resolveUrl("images/Tron-800.jpg"));
-        background-size: 100%;
-      }
-    }
-  }
 }
 /* Menu style */
 
 /* Arrows and bars in home top */
 
-.con-up {
-  font-size: 3em;
-  color: var(--bs-white);
-
-  .figure {
-    width: 80%;
-    height: 10px;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    background-color: var(--bs-white);
-    border-radius: 1.5em;
-    transform: translateY(60px);
-  }
-
-  svg {
-    width: 44px;
-    height: 44px;
-  }
-}
-
 /* Text of Welcoming */
 
 .con-welcome {
-  position: relative;
-  width: 80%;
-  margin: auto;
-  text-align: center;
-
-  #h1 {
-    filter: drop-shadow(5px 9px 1px #8a6161f0);
+    position: relative;
+    width: 80%;
     margin: auto;
-    font-size: 16vw;
-    color: var(--bs-white);
-    font-family: "Josefin Sans", "Chine Handwriting", "Franklin Gothic Medium",
-      "Arial Narrow", Arial, sans-serif;
-  }
+    text-align: center;
+
+    #h1 {
+        filter: drop-shadow(2px 3px 1px #8a6161f0);
+        margin: auto;
+        font-size: 7vw;
+        color: var(--color-gray-800);
+        font-family:
+            "Josefin Sans", "Chine Handwriting", "Franklin Gothic Medium",
+            "Arial Narrow", Arial, sans-serif;
+    }
 }
 
 .divi-content {
-  top: 80%;
-  left: 2%;
-  color: var(--bs-white);
-  font-style: italic;
-  font-family: var(--bs-font-sans-serif);
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    color: var(--color-black);
+    font-style: italic;
+    font-family: var(---font-sans);
 
-  h4 {
-    font-size: 4vw;
-    font-weight: 500;
-    filter: drop-shadow(1px 1px 0px #000);
+    h4 {
+        font-size: 4vw;
+        font-weight: 500;
+        filter: drop-shadow(1px 1px 0px #b45309);
 
-    .one-h {
-      color: var(--bs-orange);
-      font-family: var(--bs-font-sans-serif);
-      font-style: none !important;
+        .one-h {
+            color: #d97706;
+            font-family: var(--font-sans);
+            font-style: none !important;
+        }
+
+        .str-h {
+            color: #db2777;
+            font-family: var(--font-mono);
+            font-style: normal;
+        }
     }
-
-    .str-h {
-      color: var(--bs-yellow);
-      font-family: var(--bs-font-monospace);
-      font-style: normal;
-    }
-  }
-}
-
-.nav-home {
-  position: absolute;
-  top: 89%;
-  width: 100%;
 }

@@ -1,0 +1,57 @@
+/* Key frames */
+
+/* Movement animation */
+@keyframes movement {
+    0% {
+        filter: blur(0.5px) brightness(1.2);
+    }
+
+    50% {
+        filter: blur(0.7px) brightness(1.28);
+    }
+
+    100% {
+        filter: blur(0.5px) brightness(1.2);
+    }
+}
+
+@keyframes colorado {
+    0% {
+        color: var(--color-black);
+    }
+
+    100% {
+        color: var(--color-gray-500);
+    }
+}
+
+@keyframes levitating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes movementBackground {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 15vh;
+    }
+}
+
+@keyframes jumping {
+    0% {
+        transform: translateY(0);
+    }
+    0% {
+        transform: translateY(200%);
+    }
+}

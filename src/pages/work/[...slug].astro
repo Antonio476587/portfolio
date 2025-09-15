@@ -1,0 +1,29 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const storyblokApi = useStoryblokApi();
+
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+const slug = Astro.params.slug || "home";
+
+let story = null;
+try {
+    const { data } = await storyblokApi.get(`cdn/stories/work/${slug}`, {
+        version: "draft",
+    });
+    story = data.story;
+} catch (err) {
+    // Storyblok API throws if not found
+}
+
+if (!story) {
+    // Show Astro's 404 page:
+    return Astro.redirect("/notfound");
+}
+---
+
+<BlogLayout>
+    <StoryblokComponent blok={story.content} />
+</BlogLayout>

@@ -1,330 +1,21 @@
 @use "../variables.scss";
 /* Contact */
 
-.contact {
-  position: relative;
-  min-height: 100vh;
-  height: 100%;
-  background-color: var(--bs-dark);
-
-  .btn.btn-secondary {
-    position: relative;
-    z-index: 31000;
-  }
-
-  .nav-contact-icon-span {
-    width: 4.5em;
-    border: none !important;
-    img {
-      object-fit: contain;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .div-contact {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bs-white);
-
-    .contact-row {
-      background: var(--bs-dark);
-    }
-  }
-}
-
-.contact-row .contacts {
-  position: relative;
-  padding: 1em;
-  color: var(--bs-red);
-  transition: 1s;
-
-  &:hover {
-    cursor: pointer;
-    svg {
-      filter: drop-shadow(0px 0px 10px) blur(50px);;
-    }
-  }
-
-  &:first-child {
-    background: var(--bs-dark);
-    border-right: 3px solid var(--bs-gray-400);
-    border-bottom: 5px solid var(--bs-gray-400);
-  }
-
-  &:nth-child(2) {
-    @extend .contacts, :first-child;
-    border-right: none;
-    border-left: 3px solid var(--bs-gray-400);
-  }
-
-  &:nth-child(3) {
-    background-color: var(--bs-white);
-    border-radius: 0 0 30% 30%;
-    border-top: 5px solid var(--bs-white);
-    border-right: 3px solid var(--bs-gray-400);
-    border-bottom: 5px solid var(--bs-gray-400);
-  }
-
-  &:last-child {
-    @extend .contacts, :nth-child(3);
-    border-right: none;
-    border-left: 3px solid var(--bs-gray-400);
-  }
-
-  .linkedIN,
-  .github {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    border-radius: 0 0 30% 30%;
-    background-color: var(--bs-dark);
-    transform: translateY(-5px);
-  }
-
-  svg {
-    width: 1.5em;
-    height: 1.5em;
-    transition: 1s;
-  }
-}
-
 /* FORM CONTACT */
-
-.contact-body {
-  position: relative;
-  width: 100%;
-  height: 10vh;
-  text-align: center;
-}
-
-.toast-contact {
-  position: absolute;
-  right: 50%;
-  bottom: 2%;
-  width: 275px;
-  height: 150px;
-  transform: translateX(50%);
-  border-radius: 3%;
-  transition: 0.5s;
-  padding: 0.8em;
-  opacity: 0;
-
-  h5 {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    letter-spacing: 0.5px;
-    color: var(--bs-light);
-  }
-
-  p {
-    font-family: sans-serif;
-    color: var(--bs-light);
-  }
-}
-
-.denied-toast {
-  opacity: 1;
-  background-color: var(--bs-danger);
-}
-
-.success-toast {
-  opacity: 1;
-  background-color: var(--bs-success);
-}
-
-button.contact-body-button {
-  position: relative;
-  width: 3em;
-  height: 3em;
-  background: none;
-  border: none;
-  cursor: pointer;
-  background: var(--bs-white);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px -23px 25px 0px inset,rgb(242, 236, 236) 0px -36px 30px 0px inset,rgba(0,0,0,.1) 0px -79px 40px 0px inset,rgba(0,0,0,.06) 0px 2px 1px,rgba(0,0,0,.09) 0px 4px 2px,rgba(0,0,0,.09) 0px 8px 4px,rgba(0,0,0,.09) 0px 16px 8px,rgba(0,0,0,.09) 0px 32px 16px;
-  border-radius: 15px;
-
-  svg {
-    color: var(--bs-gray-900);
-    width: 80%;
-    height: 80%;
-    transition: 375ms;
-  }
-
-  &:hover {
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
 
 /* CONTACT BODY PRINCIPAL PART */
 
-.contact-body-div {
-  position: absolute;
-  width: 100%;
-  height: 0vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  background: var(--bs-dark);
-  overflow: hidden;
-  z-index: 20000;
-  color: #fff;
-  border-radius: 0 0 15% 15%;
-}
-
-.contact-body-active {
-  height: 100vh;
-  min-height: 70vh;
-  max-height: 140vh;
-}
 /* NFT GIFT */
-
-.contact-nft-gift {
-  width: 100%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border-radius: 0 0 0 15%;
-
-  .div-nft-gift {
-    position: relative;
-    min-width: 200px;
-    min-height: 200px;
-    max-width: 230px;
-    max-height: 230px;
-    aspect-ratio: 1/1;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    border: medium solid #fff;
-    border-radius: 3px;
-
-    &-hover-1,
-    &-hover-2 {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: #000;
-      clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
-      transform: scale(1.003);
-      transform-origin: left top;
-      transition: 1s;
-    }
-
-    &-hover-2 {
-      background: #222;
-      clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
-      transform-origin: bottom right;
-    }
-
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-
-  }
-  a {
-    margin-top: auto;
-  }
-
-  button {
-    width: 3.5em;
-    height: 3.5em;
-    background: var(--bs-red);
-    border: none;
-    cursor: pointer;
-    margin-bottom: auto;
-    color: #fff;
-    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-    border-radius: 4px;
-    appearance: button;
-    overflow: visible;
-    white-space: nowrap;
-
-    svg {
-      color: white;
-      width: 3em;
-      height: 3em;
-    }
-  }
-}
-
-.nft-gift-active {
-  &:hover {
-    .div-nft-gift-hover-1,
-    .div-nft-gift-hover-2  {
-      transform: scale(0);
-    }
-  }
-
-  &:focus {
-    .div-nft-gift-hover-1,
-    .div-nft-gift-hover-2  {
-      transform: scale(0);
-    }
-  }
+.burst-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    opacity: 0.8;
 }
 
 /* FORM */
-.contact-div-form {
-  width: 100%;
-  height: 90%;
-  margin-left: auto;
-  border-radius: 0 0 15% 0;
-}
-
-.contact-sub-div-form {
-  min-width: 35%;
-  min-height: 80%;
-  max-width: 55%;
-  max-height: 90%;
-  aspect-ratio: 1/1;
-  margin: auto;
-  margin-top: 0.5em;
-}
-
-.contact-input-name-div input,
-.contact-input-message-div textarea,
-.contact-input-email-div input {
-  width: 94%;
-  padding: 2%;
-  margin: 3%;
-  border: none;
-  outline: none;
-  box-shadow: rgba(255, 255, 255, 0.16) 0px 3px 6px, rgba(255, 255, 255, 0.23) 0px 3px 6px;
-  border-radius: 10px;
-}
-
-.contact-button-submit-div {
-  button {
-    width: 3.5em;
-    height: 2.5em;
-    background: var(--bs-red);
-    color: #fff;
-    box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-    border-radius: 4px;
-    appearance: button;
-    overflow: visible;
-    white-space: nowrap;
-    vertical-align: middle;
-  
-    svg {
-      width: 2em;
-      height: 2em;
-      transform: rotate(45deg);
-    }
-  }
-}
 
 /* Hidden NFTs Menu */
 
@@ -332,221 +23,150 @@ button.contact-body-button {
 appear over all the elements */
 
 .menu-nft {
-  width: 3.5em;
-  height: 100vh;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  left: 100%;
-  top: 0;
-  z-index: 30000;
-  transform: translateX(-100%);
-  mix-blend-mode: difference;
-  transition: 0.5s;
-
-  .menu-nft-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    height: 20%;
-    margin: 1em 0.5em;
-    padding: 0 1.5em;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .nft-item-detail-div {
-      width: 100%;
-      height: 0;
-      background: linear-gradient(to bottom, var(--bs-dark) 5%, #1b1b1b 10%);
-      overflow: hidden;
-      color: #fff;
-      transition: 0.5s;
-      border-bottom: 2px solid var(--bs-light);
-    }
-
-    .nft-item-detail-active {
-      height: 20vh;
-      padding: 1em 0.5em;
-      h3 {
-        margin-bottom: 0.5em;
-      }
-    }
-
-    &-portrait {
-      position: relative;
-      width: 20vh;
-      height: 20vh;
-      margin: 0.5em 0;
-
-      .nft-item-price-div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #111;
-        color: #fff;
-        transition: 0.5s;
-      }
-
-      .nft-item-price-hidden {
-        opacity: 0;
-      }
-    }
-  }
-
-  button.menu-nft-button {
-    position: relative;
-    width: 2.35em;
-    height: 3em;
+    width: 3.5em;
+    height: 100vh;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
-    border-radius: 50%;
-    background: var(--bs-red);
-    left: 1em;
-    z-index: 40000;
+    left: 100%;
+    top: 0;
+    z-index: 30000;
+    transform: translateX(-100%);
     transition: 0.5s;
-
-    svg {
-      width: 2em;
-      height: 2em;
-      color: var(--bs-dark);
-      transition: 0.5s;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 3em;
-      height: 2em;
-      left: -11.5px;
-      top: -35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      clip-path: ellipse(100% 30% at 0% 100%);
-      background: var(--bs-red);
-      transform: rotate(-90deg);
-      transition: 0.5s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 50%;
-      height: 50%;
-      left: 12px;
-      top: 35px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      border-radius: 7px 17px;
-      background: var(--bs-red);
-      transition: 0.5s;
-    }
-  }
-
-  &-active {
-    width: 20em;
-    mix-blend-mode: normal;
-    z-index: 40000;
-
-    button.menu-nft-button {
-      background: var(--bs-dark);
-
-      svg {
-        color: var(--bs-white);
-      }
-
-      &::before {
-        left: -14px;
-        background: var(--bs-dark);
-      }
-
-      &::after {
-        left: 20px;
-        top: 28px;
-        background: var(--bs-dark);
-      }
-    }
-
-    .menu-nft-div {
-      overflow-y: auto;
-      background: var(--bs-dark);
-      border-radius: 10% 0 0 10%;
-    }
 
     .menu-nft-item {
-      width: 100%;
-    }
-  }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        height: 20%;
+        margin: 1em 0.5em;
+        padding: 0 1.5em;
 
-  &-div {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background: var(--bs-red);
-    overflow: hidden;
-    transition: 0.5s;
-    border-radius: 45% 0 0 300%;
-  }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nft-item-detail-div {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(
+                to bottom,
+                var(--color-black) 5%,
+                #1b1b1b 10%
+            );
+            overflow: hidden;
+            color: #fff;
+            transition: 0.5s;
+            border-bottom: 2px solid var(--color-slate-50);
+        }
+
+        .nft-item-detail-active {
+            height: 20vh;
+            padding: 1em 0.5em;
+            h3 {
+                margin-bottom: 0.5em;
+            }
+        }
+
+        &-portrait {
+            position: relative;
+            width: 20vh;
+            height: 20vh;
+            margin: 0.5em 0;
+
+            .nft-item-price-div {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #111;
+                color: #fff;
+                transition: 0.5s;
+            }
+
+            .nft-item-price-hidden {
+                opacity: 0;
+            }
+        }
+    }
+
+    button.menu-nft-button {
+        position: relative;
+        width: 2.35em;
+        padding: 0.5em;
+        height: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 12px;
+        background: var(--color-black);
+        left: 1em;
+        z-index: 40000;
+        transition: 0.5s;
+
+        svg {
+            width: 2em;
+            height: 2em;
+            color: var(--color-white);
+            transition: 0.5s;
+        }
+    }
+
+    &-active {
+        width: 20em;
+        z-index: 40000;
+
+        .menu-nft-div {
+            overflow-y: auto !important;
+            border-radius: 5% 0 0 5% !important;
+        }
+
+        button.menu-nft-button {
+            background: var(--color-black);
+
+            svg {
+                color: var(--color-white);
+            }
+
+            &::before {
+                left: -14px;
+                background: var(--color-black);
+            }
+
+            &::after {
+                left: 20px;
+                top: 28px;
+                background: var(--color-black);
+            }
+        }
+
+        .menu-nft-item {
+            width: 100%;
+        }
+    }
+
+    &-div {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--color-black);
+        overflow: hidden;
+        transition: 0.5s;
+        border-radius: 45% 0 0 45%;
+    }
 }
 
 /* Footer */
-
-.footer {
-  width: 100%;
-  padding: 0;
-  border-radius: 25% 25% 0 0;
-  background: var(--bs-white);
-  font: var(--bs-body-font-weight) var(--bs-font-monospace);
-
-  blockquote b {
-    color: var(--bs-dark);
-    font-size: 105%;
-
-    s {
-      display: inline-block;
-      margin: 0 0.25rem;
-      transition:500ms;
-      
-      &:first-child {
-        transform-origin: left bottom;
-      }
-
-      &:last-child {
-        transform-origin: right bottom;
-      }
-
-      &:hover {
-        scale: 1.2;
-      }
-    }
-  }
-
-  .goodbye {
-    color: var(--bs-dark);
-    font-size: 105%;
-  }
-
-  .h6 {
-    color: var(--bs-orange);
-  }
-}

@@ -1,8 +1,7 @@
 ---
 import Home from "../components/Home/home.astro";
-import Preload from "../components/Utils/preload.astro";
 import About from "../components/About/About";
-import Contact from "../components/Contact/Contact";
+import Contact from "../components/Contact/Contact.astro";
 import Works from "../components/Works/Works.vue";
 
 import "../../styles/index.scss";
@@ -11,11 +10,12 @@ import "aos/dist/aos.css";
 import BlogLayout from "../layouts/BlogLayout.astro";
 ---
 
-<BlogLayout>
-    <!-- <body allow="fullscreen *"> -->
-    <div class="body" id="body">
-        <Preload />
-
+<BlogLayout showFooter={false} stickyHeader={false}>
+    <div class="relative m-0">
+        <div class="preloader" id="preloader">
+            <div class="fantonix-logo" id="fantonixLogo"></div>
+            <div class="loading-text" id="loadingText">Loading</div>
+        </div>
         <!-- Contact page  -->
         <!-- Main -->
         <div class="page">
@@ -26,5 +26,52 @@ import BlogLayout from "../layouts/BlogLayout.astro";
 
         <!-- Home page or welcoming page   -->
         <Home />
+        <script is:client>
+            const logo = document.getElementById("fantonixLogo");
+            const text = document.getElementById("loadingText");
+            const preload = document.getElementById("preloader");
+
+            gsap.to(logo, {
+                opacity: 1,
+                scale: 1,
+                duration: 1.2,
+                ease: "power2.out",
+            });
+            const loop1gsap = gsap.to(text, {
+                opacity: 1,
+                delay: 1,
+                duration: 1,
+                text: "Loading...",
+                yoyo: true,
+                repeat: -1,
+                duration: 1.5,
+                ease: "sine.inOut",
+            });
+            const loop2gsap = gsap.to(logo, {
+                yoyo: true,
+                repeat: -1,
+                scale: 1.05,
+                duration: 1.5,
+                ease: "sine.inOut",
+            });
+            document.addEventListener("DOMContentLoaded", () => {
+                gsap.to(preload, {
+                    opacity: 0,
+                    duration: 1,
+                    display: "none",
+                    ease: "power2.inOut",
+                    delay: 1.5,
+                });
+
+                loop1gsap.kill();
+                loop2gsap.kill();
+
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: document.body.offsetHeight - window.innerHeight,
+                    ease: "power2.inOut",
+                });
+            });
+        </script>
     </div>
 </BlogLayout>

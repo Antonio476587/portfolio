@@ -1,72 +1,77 @@
 @use "../variables.scss";
 .not-found {
-  margin: auto;
-  width: 75%;
-  height: 100vh;
-  padding-top: 3%;
+    margin: auto;
+    width: 75%;
+    height: 100vh;
+    padding-top: 3%;
 
-  h2 {
-    font-family: Helvetica, "Franklin Gothic Medium", "Arial Narrow", Arial,
-      sans-serif;
-    margin-bottom: 7%;
-    font-size: xx-large;
-    font-weight: bold;
-  }
+    h2 {
+        font-family:
+            Helvetica, "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+        margin-bottom: 7%;
+        font-size: xx-large;
+        font-weight: bold;
+    }
 }
 
 .not-found-content {
-  margin: 7%;
+    margin: 7%;
 
-  & > h3 {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 2% 0;
-    font-size: x-large;
-    font-weight: bolder;
-  }
+    & > h3 {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 2% 0;
+        font-size: x-large;
+        font-weight: bolder;
+    }
 
-  & > ul li {
-    margin: 1%;
-  }
+    & > ul li {
+        margin: 1%;
+    }
 
-  ul li h4 {
-    font-size: large;
-    font-family: "Courier New", Courier, monospace;
-  }
-  
+    ul li h4 {
+        font-size: large;
+        font-family: "Courier New", Courier, monospace;
+
+        a {
+            color: orange;
+            text-decoration: none;
+        }
+    }
 }
 
 .not-found-link {
-  margin-top: 10%;
+    margin-top: 10%;
 
-  h3 {
-    display: inline-block;
-    margin: 0 2%;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: x-large;
-    letter-spacing: 1px;
-  }
-
-  button {
-    border: none;
-    height: 2.5em;
-    border-radius: 2.5%;
-    background-color: darkolivegreen;
-    transition: 0.5;
-
-    a {
-      width: 100%;
-      height: 100%;
-      padding: 1em;
-      color: azure;
-      text-decoration: none;
+    h3 {
+        display: inline-block;
+        margin: 0 2%;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: x-large;
+        letter-spacing: 1px;
     }
 
-    &:hover {
-      background-color: #40581a;
-    }
+    button {
+        border: none;
+        height: 2.5em;
+        border-radius: 2.5%;
+        background-color: darkolivegreen;
+        transition: 0.5;
 
-    &:focus {
-      background-color: #40581a;
+        a {
+            width: 100%;
+            height: 100%;
+            padding: 1em;
+            color: white;
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: #40581a;
+        }
+
+        &:focus {
+            background-color: #40581a;
+        }
     }
-  }
 }

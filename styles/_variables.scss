@@ -1,49 +1,58 @@
+@use "sass:string";
 
 $color-shadow: #000;
 $animate-duration: 1400ms;
 
-@function resolveUrl ($fileUrl: string) {
-  @return "/static/media/" + quote($string: $fileUrl);
+@function resolveUrl($fileUrl: string) {
+    @return "@assets/media/" + string.quote($string: $fileUrl);
 }
 
 @mixin displayFlexCenterCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@mixin widthAndHeight ($width, $height) {
-  width: $width;
-  height: $height;
+@mixin widthAndHeight($width, $height) {
+    width: $width;
+    height: $height;
 }
 
 /* Home */
 
 $polygon-complement: polygon(
-  0% 5%,
-  5% 0%,
-  95% 0%,
-  100% 5%,
-  100% 95%,
-  95% 100%,
-  5% 100%,
-  0% 95%
+    0% 5%,
+    5% 0%,
+    95% 0%,
+    100% 5%,
+    100% 95%,
+    95% 100%,
+    5% 100%,
+    0% 95%
 );
 
 /* About */
-
-@mixin antonioAndSimonImages ($url) {
-  background: url(resolveUrl($url));
-  position: absolute;
+/* @deprecated */
+@mixin antonioAndSimonImages($url) {
+    background: url(resolveUrl($url));
+    position: absolute;
 }
 
-@mixin notes ($blend-mode, $border-radius, $bg, $shadow: true) {
-  @if $shadow {
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  }
-  mix-blend-mode: $blend-mode;
-  border-radius: percentage($number: calc($border-radius / 100));
-  background: var(--bs-#{$bg});
+@mixin notes($blend-mode, $border-radius, $bg, $shadow: true) {
+    @if $shadow {
+        box-shadow:
+            rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    }
+    mix-blend-mode: $blend-mode;
+    border-radius: percentage($number: calc($border-radius / 100));
+    background: var(--color-#{$bg});
 }
 
 $airscooter-color: #f1e7db;
@@ -54,27 +63,27 @@ $airscooter-air-2: rgba(0, 0, 0, 0);
 // Works
 
 @mixin anchor-pseudo-elements($type) {
-  content: "";
-  position: absolute;
-  transition: 1s;
-  @if $type == before {
-    inset: 0 -2px;
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
-  } @else {
-    inset: -2px 0;
-    border-top: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-  }
+    content: "";
+    position: absolute;
+    transition: 1s;
+    @if $type == before {
+        inset: 0 -2px;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+    } @else {
+        inset: -2px 0;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+    }
 }
 
 @mixin hover-anchor-pseudo-elements($type) {
-  @if $type == before {
-    inset: 0 -15px;
-    transform: skewY(10deg);
-  } @else {
-    inset: -15px 0;
-    transform: skewX(10deg);
-  }
-  border-color: var(--bs-white);
+    @if $type == before {
+        inset: 0 -15px;
+        transform: skewY(10deg);
+    } @else {
+        inset: -15px 0;
+        transform: skewX(10deg);
+    }
+    border-color: var(--color-black);
 }

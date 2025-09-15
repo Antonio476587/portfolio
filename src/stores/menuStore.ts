@@ -1,5 +1,5 @@
 import { atom } from "nanostores";
 
-export const isMenuOpen = atom(false);
+export const isMenuSticky = atom(true);
 
-globalThis.isMenuOpen = isMenuOpen;
+globalThis.isMenuSticky = isMenuSticky;

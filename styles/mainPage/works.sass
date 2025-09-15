@@ -1,8 +1,8 @@
 @use "../variables.scss"
 
 div#works
-  background-color: var(--bs-gray-900)
-  background: url("/static/media/native_m/background.webp") bottom no-repeat
+  background-color: var(--color-gray-900)
+  background: url("@assets/media/native_m/background.webp") bottom no-repeat
   background-size: cover
   padding: 3rem 1rem
   position: relative
@@ -14,6 +14,7 @@ div#works
 
   &::before, &::after
     position: absolute
+    opacity: .9
     content: ""
     width: 100%
     aspect-ratio: 16/9
@@ -23,8 +24,9 @@ div#works
     transform: rotate(180deg)
 
   &::after
-    filter: blur(10px)
-  
+    transform: rotate(0deg)
+    bottom: 0
+
   a
     position: relative
     min-width: 30vw
@@ -34,9 +36,10 @@ div#works
     border: 2px solid transparent
     transition: 1s
     z-index: 1000
+    aspect-ratio: 2/1
 
     &:hover
-      border: 2px solid var(--bs-white)
+      border: 2px solid var(--color-black)
 
       &::before
         @include variables.hover-anchor-pseudo-elements(before)
@@ -52,3 +55,4 @@ div#works
 
     img
       border-radius: 12px
+      object-fit: cover

@@ -1,36 +1,172 @@
 ---
-import { ReactFragment } from "astro/jsx-runtime";
-
 import "../../styles/global.css";
+import "../../styles/index.scss";
+
+import Head from "../components/Utils/head.astro";
+import Header from "../components/Shared/Header.astro";
+import Footer from "../components/Shared/Footer.astro";
+
+const { showFooter = true, stickyHeader = true } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8" />
-        <title><slot name="title" /></title>
-    </head>
+    <Head />
+    <style>
+        body {
+            background-image: url("@assets/media/images/noise_background_2.png");
+            background-size: auto;
+            background-position: center;
+            background-repeat: repeat;
+            background-blend-mode: color-burn;
+        }
+    </style>
     <body
-        class="max-w-3xl mx-auto p-6 font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500"
+        class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 space-y-8"
     >
-        <header
-            class="sticky top-0 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md py-4 z-50 flex justify-between items-center border-b border-gray-200 dark:border-gray-800"
-        >
-            <h1 class="text-xl font-bold">My Blog</h1>
-            <button
-                id="theme-toggle"
-                class="px-3 py-1 rounded bg-gray-100 dark:bg-gray-800"
-                onclick="document.documentElement.classList.toggle('dark')"
-            >
-                Toggle Theme
-            </button>
-        </header>
+        <Header stickyHeader={stickyHeader} />
+        <slot />
 
-        <main class="mt-8">
-            <slot />
-        </main>
+        {showFooter && <Footer />}
+        <script is:client src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script is:client>
+            AOS.init();
+        </script>
 
-        <footer class="mt-16 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} My Blog
-        </footer>
+        <script is:client>
+            const bgComplement = document.querySelector(".bg-complement");
+            const bgComplementContainer = document.querySelector(
+                ".bg-complement-container",
+            );
+
+            let gradosX = 50;
+            let gradosY = 33;
+            let scale = 1;
+            let growing = true;
+            let positionComplementContainer;
+
+            let bgAnimation;
+
+            const xSet = gsap.quickSetter(bgComplement, "rotationX", "deg");
+            const ySet = gsap.quickSetter(bgComplement, "rotationY", "deg");
+
+            const setScaleX = gsap.quickSetter(bgComplementContainer, "scaleX");
+            const setScaleY = gsap.quickSetter(bgComplementContainer, "scaleY");
+            const scaleSet = (val) => {
+                setScaleX(val);
+                setScaleY(val);
+            };
+
+            const yPositionSet = gsap.quickSetter(
+                bgComplementContainer,
+                "y",
+                "px",
+            );
+
+            const transformer = gsap.utils.pipe(gsap.utils.clamp(0, 200));
+
+            function animateComplement() {
+                if (gradosY === 393 || gradosY > 393) gradosY = 33;
+                if (gradosX === 410 || gradosX > 410) gradosX = 50;
+                scaleSet(scale);
+                ySet(gradosY);
+                xSet(gradosX);
+                gradosY += 1;
+                gradosX += 0.2;
+            }
+
+            const animateHome = () => {
+                bgAnimation = gsap.timeline({
+                    repeat: -1,
+                    onUpdate: animateComplement,
+                    delay: 1,
+                });
+            };
+
+            const desAnimateHome = () => {
+                bgAnimation.kill();
+            };
+
+            animateHome();
+            desAnimateHome();
+
+            const windowPosX = window.innerWidth / 2;
+            const windowPosY = window.innerHeight / 2;
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            let targetX = 0;
+            let targetY = 0;
+
+            function onDocumentMouseMove(event) {
+                mouseX = event.clientX - windowPosX;
+                mouseY = event.clientY - windowPosY;
+
+                targetX = mouseX * 0.001;
+                targetY = mouseY * 0.001;
+
+                gradosX = gsap.getProperty(bgComplement, "rotateX");
+                gradosY = gsap.getProperty(bgComplement, "rotateY");
+
+                gradosX += -0.001 * (targetY - gradosX);
+                gradosY += -0.001 * (targetX - gradosY);
+
+                if (!growing) {
+                    scale += 0.00003 * (targetY - gradosX);
+                    if (scale < 1) growing = !growing;
+                }
+                if (growing) {
+                    scale += -0.00003 * (targetY - gradosX);
+                    if (scale > 2) growing = !growing;
+                }
+            }
+
+            function updateComplement() {
+                positionComplementContainer =
+                    (window.scrollY - window.scrollMaxY) * -0.7;
+                yPositionSet(transformer(positionComplementContainer));
+            }
+
+            // Se activa cuando se está visualizando
+
+            if (location.pathname == "/") {
+                console.log(document.getElementById("home"));
+                document.getElementById("home").removeAttribute("hidden");
+                gsap.from(bgComplementContainer, {
+                    scale: 0,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    transformOrigin: "center center",
+                });
+                ScrollTrigger.create({
+                    trigger: ".home",
+                    start: "top center",
+                    end: "top+=100 top",
+                    onToggle: (self) => {
+                        if (self.isActive) {
+                            animateHome();
+                            window.addEventListener(
+                                "mousemove",
+                                onDocumentMouseMove,
+                            );
+                            document.addEventListener(
+                                "scroll",
+                                updateComplement,
+                            );
+                        } else {
+                            desAnimateHome();
+                            window.removeEventListener(
+                                "mousemove",
+                                onDocumentMouseMove,
+                            );
+                            document.removeEventListener(
+                                "scroll",
+                                updateComplement,
+                            );
+                        }
+                    },
+                });
+            }
+        </script>
     </body>
 </html>

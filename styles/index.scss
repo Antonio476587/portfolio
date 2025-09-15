@@ -1,9 +1,10 @@
 @use "variables.scss";
+@use "tailwindcss";
+@use "keyframes.scss";
+
 @forward "mainPage/index.sass";
-@forward "work/index.sass";
 @forward "errors/index.sass";
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-@import "tailwindcss";
 
 /* Variables and GLOBAL STYLES */
 
@@ -11,27 +12,22 @@
     &:hover,
     &:focus {
         outline-offset: 3px;
-        outline: 3px solid var(--bs-gray-100);
-        box-shadow: 0 5px 20px 4px var(--bs-orange);
+        outline: 3px solid var(--color-gray-100);
+        box-shadow: 0 5px 20px 4px var(#d97706);
     }
 }
 
 button {
     width: fit-content;
     height: fit-content;
-    border: none;
-    background: none;
-    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .body {
     position: relative;
-}
-
-.any-infinite {
-    animation-duration: 2s;
-    animation-delay: 20s;
-    animation-iteration-count: 3;
 }
 
 @media (prefers-reduced-motion: reduce), print {
@@ -59,63 +55,43 @@ img {
     object-fit: contain;
 }
 
-/* Key frames */
-
-/* Movement animation */
-@keyframes movement {
-    0% {
-        filter: blur(0.5px) brightness(1.2);
-    }
-
-    50% {
-        filter: blur(0.7px) brightness(1.28);
-    }
-    100% {
-        filter: blur(0.5px) brightness(1.2);
-    }
+h1 {
+    font-family:
+        Josefin Sans,
+        Chine Handwriting,
+        Franklin Gothic Medium,
+        Arial Narrow,
+        Arial,
+        sans-serif !important;
 }
 
-@keyframes colorado {
-    0% {
-        color: var(--bs-dark);
-    }
-
-    100% {
-        color: var(--bs-gray-500);
-    }
+p,
+blockquote {
+    font-family: "PT Sans", sans-serif !important;
 }
 
-@keyframes levitating {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+h2,
+h3 {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
 }
 
-@keyframes movement {
-    0% {
-        background-position: 0;
-    }
-
-    100% {
-        background-position: 15vh;
-    }
+a {
+    font-family: "Questrial", "PT Sans", sans-serif;
 }
 
-@keyframes jumping {
-    0% {
-        transform: translateY(0);
-    }
-    0% {
-        transform: translateY(200%);
-    }
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    backdrop-filter: blur(16px);
+    border-radius: 0 0 16px 16px;
 }
-
 /* Media queries */
 
 /* Highest phones */
@@ -144,10 +120,6 @@ img {
     /* About */
 
     /* Contact */
-
-    .contact {
-        height: 100vh;
-    }
 }
 
 /* Landscape phones */
@@ -157,7 +129,7 @@ img {
         height: 100vh;
 
         #h1 {
-            font-size: 13vw;
+            font-size: 3vw;
         }
 
         .bg-complement {
@@ -178,8 +150,6 @@ img {
         }
 
         .divi-content {
-            top: 70%;
-
             h4 {
                 font-size: calc(1.25rem + 0.3vw);
             }
@@ -194,25 +164,6 @@ img {
 
     /* Contact page */
 
-    .contact {
-        height: 100%;
-
-        .contacts {
-            padding: 0.5em;
-        }
-
-        .footer {
-            blockquote b {
-                font-size: 100%;
-                font-weight: bold;
-            }
-
-            .goodbye {
-                font-size: 80%;
-            }
-        }
-    }
-
     /* Works */
 }
 
@@ -223,11 +174,10 @@ img {
         height: 100vh;
 
         #h1 {
-            font-size: 16vw;
+            font-size: 4vw;
         }
 
         .divi-content {
-            top: 85%;
         }
 
         .nav-home {
@@ -247,55 +197,12 @@ img {
 
     /* conctact page */
 
-    .contact {
-        min-height: 100vh;
-        height: 100%;
-
-        .contacts {
-            padding: 1em;
-            color: var(--bs-red);
-
-            svg {
-                width: 2em;
-                height: 2em;
-            }
-        }
-
-        .contact-body {
-            height: 10vh;
-
-            .contact-body-active {
-                height: max-content;
-            }
-        }
-
-        .footer {
-            blockquote b {
-                font-size: 130%;
-                color: var(--bs-dark);
-            }
-        }
-    }
     /* Works */
 }
 
 /* Desktops */
 @media screen and (min-width: 992px) {
-    .lightDiv#lightDiv {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        background: radial-gradient(
-            circle at var(--x) var(--y),
-            transparent 40%,
-            rgba(255, 255, 255, 0.5) 70%,
-            rgba(255, 255, 255, 0.95) 90%
-        );
-        pointer-events: none;
-        z-index: 100000;
-    }
+    /* Deleting Light Div */
 
     /* Home page */
     .bg-complement {
@@ -315,214 +222,21 @@ img {
         }
     }
 
-    #h1 {
-        font-size: 15vw;
-    }
-
-    .con-up svg {
-        width: 88px;
-        height: 88px;
-    }
-
-    /* Main */
-
-    .main-menu {
-        #main-menu-item1,
-        #main-menu-item2 {
-            width: 50%;
-            height: 100%;
-            perspective-origin: 360% 50%;
-            top: 0;
-            left: 0%;
-        }
-
-        #main-menu-item2 {
-            top: 0;
-            left: 50%;
-            perspective-origin: -260% 50%;
-        }
-    }
-
     /* About page */
 
     /* About me */
 
     .about-me {
-        margin-left: 5vw;
-
-        .title-me {
-            h3 {
-                font-size: 200%;
-            }
-
-            span svg {
-                width: 2.5em;
-                height: 2.5em;
-            }
-        }
     }
 
     /* Works page */
 
     /* Work page */
 
-    /* Header */
-    .smoother-nav {
-        .bookmark {
-            left: 60%;
-            opacity: 1;
-
-            .bookmark-child {
-                width: 6em;
-                height: 4.3em;
-                clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
-                border-radius: 0 0 6% 6%;
-            }
-        }
-    }
-
-    nav {
-        ul {
-            flex: 1;
-
-            div {
-                display: flex;
-                width: 47%;
-                border-bottom: 2px solid var(--color-foreground-2);
-            }
-        }
-
-        li .active {
-            color: #fff !important;
-        }
-    }
-
-    /* Section 1 */
-
-    section.banner-1 {
-        margin: 1.5em auto;
-        height: 85vh;
-
-        .banner-1-div {
-            display: flex;
-            height: 80%;
-
-            .container {
-                width: 90%;
-
-                /* Stripe effect */
-                .div {
-                    width: 10%;
-                    height: 10%;
-                    top: 0%;
-                    left: 100%;
-
-                    &::before {
-                        width: 100%;
-                        height: 100%;
-                        top: 120%;
-                        left: 0%;
-                    }
-
-                    &::after {
-                        width: 100%;
-                        height: 50%;
-                        top: 240%;
-                        left: 0%;
-                    }
-
-                    /*  Second stripe effect */
-                    &:nth-child(4) {
-                        width: 10%;
-                        height: 5%;
-                        top: 31%;
-                        left: 100%;
-                    }
-
-                    &:nth-child(4)::before {
-                        width: 100%;
-                        height: 200%;
-                        top: 150%;
-                        left: 0%;
-                    }
-
-                    &:nth-child(4)::after {
-                        width: 100%;
-                        height: 390%;
-                        top: 390%;
-                        left: 0%;
-                    }
-
-                    /*  Third stripe effect */
-
-                    &:nth-child(5) {
-                        width: 10%;
-                        height: 5%;
-                        top: 72%;
-                        left: 100%;
-                    }
-
-                    &:nth-child(5)::before {
-                        width: 100%;
-                        height: 100%;
-                        top: 130%;
-                        left: 0%;
-                    }
-
-                    &:nth-child(5)::after {
-                        width: 100%;
-                        height: 300%;
-                        top: 260%;
-                        left: 0%;
-                    }
-                }
-            }
-
-            h2 {
-                line-height: 170%;
-            }
-        }
-    }
-
-    /* SECTION MAIN for section 2/3 */
-
-    .section-main {
-        display: grid;
-        width: 100%;
-        max-width: 97vw !important;
-        height: 95vh;
-        grid-template-columns: 48% 48%;
-        grid-template-rows: 100%;
-        grid-auto-flow: dense;
-        column-gap: 4%;
-
-        .div-img {
-            height: 80%;
-        }
-    }
     /* Contact page */
-
-    div.contact-body-active {
-        min-height: 40vh;
-        height: 660%;
-        max-height: 60vh;
-        flex-direction: row;
-    }
 
     div.menu-nft-active {
         width: 30vw;
-    }
-
-    .footer {
-        justify-content: end;
-
-        .header-foot {
-            margin-bottom: 3%;
-        }
-
-        blockquote b {
-            font-size: 130%;
-        }
     }
 }
 
@@ -539,22 +253,11 @@ img {
     /* Contact */
 
     /* Work */
-    section.banner-1 p {
-        font-size: 120%;
-    }
-    div.div-p,
-    .main-footer .div-p {
-        font-size: 130%;
-    }
 }
 
 /* Ultra large desktops */
 @media screen and (min-width: 1400px) {
     /* Main */
-
-    .span-main-menu span h3 {
-        font-size: 400%;
-    }
 
     /* About */
 }
