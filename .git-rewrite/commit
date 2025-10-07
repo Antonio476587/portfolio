@@ -1,6 +1,0 @@
-tree b6bd98994da2fb49feb3d4e14c6b3335d7503d30
-parent 122319ec759720bb4bd539db8419f2b763d8821f
-author fantonix <fantonix.web@gmail.com> 1679328104 -0400
-committer fantonix <fantonix.web@gmail.com> 1679328104 -0400
-
-feat(.github/workflows/deno.yml): Updating deno.yml action, adding DENO_NO_PACKAGE_JSON=1 variable
