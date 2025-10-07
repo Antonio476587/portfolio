@@ -21,14 +21,20 @@ const { stickyHeader } = Astro.props;
 
 <>
     <header
-        class=`${stickyHeader ? 'sticky' : 'relative'} top-0 py-8 px-4 m-0 z-10 flex justify-evenly items-center overflow-hidden bg-gradient-to-t from-slate-50 to-slate-100/20`
+        class={`${
+            stickyHeader ? "sticky" : "relative"
+        } top-0 py-8 px-4 m-0 z-10 flex justify-evenly items-center overflow-hidden bg-gradient-to-t from-slate-50 to-slate-100/20`}
         id="navigation"
     >
         <h1 class="text-3xl font-bold uppercase w-3/12" id="navigation-title">
             {site}
         </h1>
 
-        <button class="md:hidden w-16 h-16 rounded-2xl p-2 border-2">
+        <!-- Mobile Menu Open Button -->
+        <button
+            class="md:hidden w-16 h-16 rounded-2xl p-2 border-2"
+            id="headerNavigationButton"
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -43,28 +49,27 @@ const { stickyHeader } = Astro.props;
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
             </svg>
         </button>
+
+        <!-- Desktop Menu -->
         <nav
-            class="md:w-4/12 relative text-gray-900 dark:text-gray-100 font-sans
- rounded-4xl border-1 border-gray-300 dark:border-gray-700"
+            class="md:w-4/12 relative text-gray-900 dark:text-gray-100 font-sans rounded-4xl border-1 border-gray-300 dark:border-gray-700"
             id="navigation-menu"
             aria-labelledby="navigation-title"
-            aria-describedby="navigation-description"
             role="navigation"
             aria-label="Main Navigation"
         >
             <div
-                class="hidden relative md:flex justify-around backdrop-blur-sm bg-gray-200/40 dark:bg-gray-800/40 rounded-4xl py-4 px-8
- gap-8 z-10 bg-opacity-70 font-bold"
+                class="hidden relative md:flex justify-around backdrop-blur-sm bg-gray-200/40 dark:bg-gray-800/40 rounded-4xl py-4 px-8 gap-8 z-10 bg-opacity-70 font-bold"
             >
                 <div
                     class="absolute w-3/12 h-4/6 bg-gray-300 dark:bg-gray-700 top-2/12 left-0 rounded-4xl opacity-0"
                     id="navigation-menu-link-background"
                 >
                 </div>
+
                 <a href="/" class="relative z-50 navigation-menu-link">Home</a>
-                <a
-                    href="/work"
-                    class="relative z-50 navigation-menu-link active">Works</a
+                <a href="/work" class="relative z-50 navigation-menu-link"
+                    >Works</a
                 >
                 <a href="/blog" class="relative z-50 navigation-menu-link"
                     >Blog</a
@@ -75,6 +80,7 @@ const { stickyHeader } = Astro.props;
             </div>
         </nav>
 
+        <!-- Desktop Social Links -->
         <div
             id="social-links"
             class="hidden md:flex flex-wrap md:w-3/12 justify-end text-xs md:text-sm translate-x-0"
@@ -103,82 +109,131 @@ const { stickyHeader } = Astro.props;
                 >
             </div>
         </div>
+    </header>
 
-        <script is:client>
-            // Add your client-side JavaScript code here
-            let lastScrollY = window.pageYOffset;
+    <!-- Mobile Menu -->
+    <div
+        class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-full bg-slate-50 dark:bg-slate-900/95 z-50 flex flex-col items-center justify-center space-y-8 text-2xl font-bold"
+    >
+        <!-- Close Button -->
+        <button
+            id="mobileMenuCloseButton"
+            class="absolute top-6 right-6 w-12 h-12 rounded-full border-2 flex items-center justify-center"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
 
-            gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#navigation",
-                    start: "top top",
-                    end: "center top",
-                    scrub: 1, // Smoothly sync with scroll
-                },
-            })
-                .add("startTogether", "+=0")
-                .to(
-                    "#navigation-title",
-                    {
-                        duration: 0.5,
-                        translateX: "-20%",
-                        opacity: 0.1,
-                        ease: "power2.inOut",
-                    },
-                    "startTogether",
-                )
-                .to(
-                    "#social-links",
-                    {
-                        duration: 0.5,
-                        translateX: "20%",
-                        opacity: 0.1,
-                        ease: "power2.inOut",
-                    },
-                    "startTogether",
-                );
+        <a href="/" class="navigation-menu-link">Home</a>
+        <a href="/work" class="navigation-menu-link">Works</a>
+        <a href="/blog" class="navigation-menu-link">Blog</a>
+        <a href="/#contact" class="navigation-menu-link">Contact</a>
+    </div>
 
-            const navigationMenu = document.getElementById("navigation-menu");
-            const navigationMenuLinks = navigationMenu.querySelectorAll(
-                ".navigation-menu-link",
-            );
-            const navigationMenuBackground = document.getElementById(
-                "navigation-menu-link-background",
-            );
-            navigationMenuLinks.forEach((link) => {
-                link.addEventListener("mouseover", () => {
-                    gsap.to(navigationMenuBackground, {
-                        duration: 0.2,
-                        width: link.clientWidth + link.clientWidth * 0.7,
-                        left: link.offsetLeft - link.clientWidth * 0.4,
-                        ease: "power2.inOut",
-                    });
+    <script is:client>
+        const openButton = document.getElementById("headerNavigationButton");
+        const closeButton = document.getElementById("mobileMenuCloseButton");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        openButton.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+        });
+
+        closeButton.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu
+            .querySelectorAll("a.navigation-menu-link")
+            .forEach((link) => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
                 });
             });
+    </script>
 
-            function setInActiveLink() {
-                const navigationMenuLink = navigationMenu.querySelectorAll(
-                    ".navigation-menu-link",
-                );
-                const navigationMenuLinkActive = navigationMenu.querySelector(
-                    ".navigation-menu-link.active",
-                );
-                let activeLink = null;
+    <script is:client>
+        let lastScrollY = window.pageYOffset;
 
-                if (navigationMenuLinkActive !== null)
-                    navigationMenuLink.forEach((link) => {
-                        if (
-                            link.href.includes(
-                                window.location.pathname.split("/")[1],
-                            )
-                        ) {
-                            link.classList.add("active");
-                            activeLink = link;
-                        } else {
-                            link.classList.remove("active");
-                        }
-                    });
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#navigation",
+                start: "top top",
+                end: "center top",
+                scrub: 1,
+            },
+        })
+            .add("startTogether", "+=0")
+            .to(
+                "#navigation-title",
+                {
+                    duration: 0.5,
+                    translateX: "-20%",
+                    opacity: 0.1,
+                    ease: "power2.inOut",
+                },
+                "startTogether",
+            )
+            .to(
+                "#social-links",
+                {
+                    duration: 0.5,
+                    translateX: "20%",
+                    opacity: 0.1,
+                    ease: "power2.inOut",
+                },
+                "startTogether",
+            );
 
+        const navigationMenu = document.getElementById("navigation-menu");
+        const navigationMenuLinks = navigationMenu.querySelectorAll(
+            ".navigation-menu-link",
+        );
+        const navigationMenuBackground = document.getElementById(
+            "navigation-menu-link-background",
+        );
+
+        navigationMenuLinks.forEach((link) => {
+            link.addEventListener("mouseover", () => {
+                gsap.to(navigationMenuBackground, {
+                    duration: 0.2,
+                    width: link.clientWidth + link.clientWidth * 0.7,
+                    left: link.offsetLeft - link.clientWidth * 0.4,
+                    ease: "power2.inOut",
+                });
+            });
+        });
+
+        function setInActiveLink() {
+            const navigationMenuLink = navigationMenu.querySelectorAll(
+                ".navigation-menu-link",
+            );
+            let activeLink = null;
+
+            navigationMenuLink.forEach((link) => {
+                if (
+                    link.href.includes(window.location.pathname.split("/")[1])
+                ) {
+                    link.classList.add("active");
+                    activeLink = link;
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+
+            if (activeLink) {
                 gsap.to(navigationMenuBackground, {
                     duration: 0.5,
                     width:
@@ -188,36 +243,27 @@ const { stickyHeader } = Astro.props;
                     opacity: 1,
                 });
             }
-            window.addEventListener("load", () => {
-                setInActiveLink();
-            });
-            navigationMenu.addEventListener("mouseleave", () => {
-                setInActiveLink();
-            });
+        }
 
-            window.addEventListener("scroll", () => {
-                let currentScrollY = window.pageYOffset;
+        window.addEventListener("load", setInActiveLink);
+        navigationMenu.addEventListener("mouseleave", setInActiveLink);
 
-                if (currentScrollY > lastScrollY) {
-                    // Scrolling down
-                    console.log("scrolling down");
-                    // Hide navigation here
-                    gsap.to("#navigation-menu", {
-                        duration: 0.5,
-                        translateY: "-6rem",
-                    });
-                } else {
-                    // Scrolling up
-                    console.log("scrolling up");
-                    // Show navigation here
-                    gsap.to("#navigation-menu", {
-                        duration: 0.5,
-                        translateY: "0%",
-                    });
-                }
+        window.addEventListener("scroll", () => {
+            let currentScrollY = window.pageYOffset;
 
-                lastScrollY = currentScrollY;
-            });
-        </script>
-    </header>
+            if (currentScrollY > lastScrollY) {
+                gsap.to("#navigation-menu", {
+                    duration: 0.5,
+                    translateY: "-6rem",
+                });
+            } else {
+                gsap.to("#navigation-menu", {
+                    duration: 0.5,
+                    translateY: "0%",
+                });
+            }
+
+            lastScrollY = currentScrollY;
+        });
+    </script>
 </>

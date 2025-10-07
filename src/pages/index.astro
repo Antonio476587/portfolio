@@ -66,11 +66,13 @@ import BlogLayout from "../layouts/BlogLayout.astro";
                 loop1gsap.kill();
                 loop2gsap.kill();
 
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: document.body.offsetHeight - window.innerHeight,
-                    ease: "power2.inOut",
-                });
+                if (!location.pathname.includes("#"))
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo:
+                            document.body.offsetHeight - window.innerHeight,
+                        ease: "power2.inOut",
+                    });
             });
         </script>
     </div>
