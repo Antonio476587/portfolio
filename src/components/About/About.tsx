@@ -49,28 +49,41 @@ export default function About(): JSX.Element {
     <div className="about" id="about" role="main" aria-roledescription="about">
       <div>
         <InfoAbout>
-          I like basketball, martial arts and reading books and articles that
-          make me grow as a person or professional.
+          Core Competencies:
+          <br />
+          • Backend: Golang, Node.js, Deno, Microservices, RESTful APIs,
+          Firebase Functions
+          <br />
+          • Frontend: React, React Native (Expo), Astro, TypeScript, JavaScript
+          (ES6+)
+          <br />
+          • Cloud & DevOps: Google Cloud Platform (GCP), GKE, Kubernetes,
+          Docker, CI/CD
+          <br />
+          • Security & Systems: DevSecOps Principles, Linux, Penetration Testing
+          Concepts
+          <br />
+          • Databases: NoSQL, SQL, Graph
         </InfoAbout>
 
         <InfoAbout>
-          I have knowledge in Design Patterns, Data Structures, Algorithms and
-          Software Version Control (Git), as well as multiparadigm languages
-          ​​(JavaScript, Python), low level (C, Rust) and in-demand
-          frameworks/libraries (React, Deno, Sass ). Focusing on Full Stack
-          development (Frontend and Backend).
+          I am constantly deepening my expertise in software architecture and
+          cybersecurity and am actively seeking opportunities to contribute to
+          innovative projects in a collaborative, remote-first environment.
         </InfoAbout>
         <InfoAbout>
-          I had started a career in Biology at the UCV, but I stopped because it
-          was not the career I wanted and in Venezuela it is difficult to choose
-          and be able to study the career you want to pursue, I hope to have the
-          opportunity to obtain my degree in Computer Science, I would like to
-          specialize in Neurocomputing.
+          With a strong foundation in computer science fundamentals like Data
+          Structures, Algorithms, and Design Patterns, I have hands-on
+          experience architecting and deploying systems. My unconventional
+          journey has provided me with a unique background in operations and a
+          relentless drive to overcome challenges.
         </InfoAbout>
         <InfoAbout>
-          I am a young Full Stack developer, mainly based on
-          JavaScript/TypeScript. I have learned self-taught, constantly, willing
-          to improve to achieve my dreams.
+          I am a resilient and highly motivated Full Stack Developer
+          specializing in building secure, scalable applications from the ground
+          up. My passion is transforming complex problems into elegant,
+          user-centric solutions, leveraging a deep understanding of modern
+          cloud-native and web technologies.
         </InfoAbout>
       </div>
     </div>
