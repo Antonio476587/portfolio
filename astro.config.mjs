@@ -15,6 +15,26 @@ const { STORYBLOK_DELIVERY_API_TOKEN } = loadEnv(
   "",
 );
 
+const firebaseBase =
+  "https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/";
+
+// ponytail: rewrites @assets/media/* url() refs to Firebase Storage at build time,
+// avoiding missing-file errors for assets not stored locally.
+function firebaseAssetsPlugin() {
+  return {
+    name: "vite-firebase-assets",
+    enforce: "pre",
+    transform(code) {
+      if (!code.includes("@assets/media/")) return null;
+      const result = code.replace(
+        /url\(["']?@assets\/media\/([^"')]+)["']?\)/g,
+        (_, p) => `url("${firebaseBase}${p.replace(/\//g, "%2F")}?alt=media")`
+      );
+      return result !== code ? { code: result, map: null } : null;
+    },
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
@@ -43,7 +63,7 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [firebaseAssetsPlugin(), tailwindcss()],
     resolve: {
       alias: {
         "@assets": new URL("./assets", import.meta.url).pathname,
