@@ -1,14 +1,14 @@
 ---
-import NFT1 from "@assets/media/images/1.png";
-import NFT2 from "@assets/media/images/2.jpg";
-import NFT3 from "@assets/media/images/3.jpg";
-import NFT4 from "@assets/media/images/4.jpg";
-import NFT5 from "@assets/media/images/5.jpg";
-import NFT6 from "@assets/media/images/6.jpg";
-import NFT7 from "@assets/media/images/7.jpg";
-import NFT8 from "@assets/media/images/8.png";
-
-const images = [NFT1, NFT2, NFT3, NFT4, NFT5, NFT6, NFT7, NFT8];
+const images = [
+    "/media/images/1.png",
+    "/media/images/2.jpg",
+    "/media/images/3.jpg",
+    "/media/images/4.jpg",
+    "/media/images/5.jpg",
+    "/media/images/6.jpg",
+    "/media/images/7.jpg",
+    "/media/images/8.png",
+];
 ---
 
 <>
@@ -63,7 +63,7 @@ const images = [NFT1, NFT2, NFT3, NFT4, NFT5, NFT6, NFT7, NFT8];
         <div class="card-glow" id="legendaryCard">
             <img
                 id="legendaryImg"
-                src={images[Math.floor(Math.random() * images.length)].src}
+                src={images[Math.floor(Math.random() * images.length)]}
                 alt="NFT"
             />
             <div class="meta font-bold">

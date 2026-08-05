@@ -2,14 +2,14 @@ import React, { useRef, useState } from "react";
 import Image from "../../shared/utilities/Image.tsx";
 
 // Import all NFT images
-import nft1 from "@assets/media/images/1.png";
-import nft2 from "@assets/media/images/2.jpg";
-import nft3 from "@assets/media/images/3.jpg";
-import nft4 from "@assets/media/images/4.jpg";
-import nft5 from "@assets/media/images/5.jpg";
-import nft6 from "@assets/media/images/6.jpg";
-import nft7 from "@assets/media/images/7.jpg";
-import nft8 from "@assets/media/images/8.png";
+const nft1 = "/media/images/1.png";
+const nft2 = "/media/images/2.jpg";
+const nft3 = "/media/images/3.jpg";
+const nft4 = "/media/images/4.jpg";
+const nft5 = "/media/images/5.jpg";
+const nft6 = "/media/images/6.jpg";
+const nft7 = "/media/images/7.jpg";
+const nft8 = "/media/images/8.png";
 
 interface MenuNFTItem {
   price: string;
@@ -42,7 +42,7 @@ function MenuNFTItem({ price, img, name, children }: MenuNFTItem) {
         <div className="nft-item-price-div" ref={nftPriceRef}>
           <h3>{price}</h3>
         </div>
-        <Image src={img.src} alt="" />
+        <Image src={img} alt="" />
       </div>
       <div className="nft-item-detail-div" ref={nftDetailRef}>
         <h3>{name}</h3>
