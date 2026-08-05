@@ -32,7 +32,6 @@ const rewriteFirebaseAssets = {
     );
   },
 };
-rewriteFirebaseAssets.postcss = true;
 
 // https://astro.build/config
 export default defineConfig({
