@@ -12,8 +12,8 @@
 .fantonix-logo {
     width: 64px;
     height: 64px;
-    mask: url("@assets/media/images/icon.png") center/contain no-repeat;
-    -webkit-mask: url("@assets/media/images/icon.png") center/contain no-repeat;
+    mask: url("/media/images/icon.png") center/contain no-repeat;
+    -webkit-mask: url("/media/images/icon.png") center/contain no-repeat;
     background: #fff;
     opacity: 0;
     transform: scale(0.8);

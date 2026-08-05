@@ -17,18 +17,15 @@ const { STORYBLOK_DELIVERY_API_TOKEN } = loadEnv(
   "",
 );
 
-const firebaseBase =
-  "https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/";
-
-// ponytail: PostCSS plugin — runs after SASS compiles resolveUrl() to @assets/media/* strings,
-// before Vite tries to resolve them as local files.
-const rewriteFirebaseAssets = {
-  postcssPlugin: "rewrite-firebase-assets",
+// ponytail: safety net — rewrites any remaining @assets/media/* url() refs to root-relative
+// /media/* paths, which Vite skips during build. Runtime redirect handled by src/pages/media/[...path].ts
+const rewriteMediaUrls = {
+  postcssPlugin: "rewrite-media-urls",
   Declaration(decl) {
     if (!decl.value.includes("@assets/media/")) return;
     decl.value = decl.value.replace(
       /url\(["']?@assets\/media\/([^"')]+)["']?\)/g,
-      (_, p) => `url("${firebaseBase}${p.replace(/\//g, "%2F")}?alt=media")`
+      (_, p) => `url("/media/${p}")`
     );
   },
 };
@@ -64,7 +61,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     css: {
       postcss: {
-        plugins: [rewriteFirebaseAssets, postcssImport(), autoprefixer()],
+        plugins: [rewriteMediaUrls, postcssImport(), autoprefixer()],
       },
     },
     resolve: {
