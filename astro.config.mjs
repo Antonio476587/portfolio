@@ -1,4 +1,6 @@
 import { defineConfig } from "astro/config";
+import postcssImport from "postcss-import";
+import autoprefixer from "autoprefixer";
 import { storyblok } from "@storyblok/astro";
 import { loadEnv } from "vite";
 import react from "@astrojs/react";
@@ -18,22 +20,19 @@ const { STORYBLOK_DELIVERY_API_TOKEN } = loadEnv(
 const firebaseBase =
   "https://firebasestorage.googleapis.com/v0/b/portfolio-personal-df7a4.appspot.com/o/";
 
-// ponytail: rewrites @assets/media/* url() refs to Firebase Storage at build time,
-// avoiding missing-file errors for assets not stored locally.
-function firebaseAssetsPlugin() {
-  return {
-    name: "vite-firebase-assets",
-    enforce: "pre",
-    transform(code) {
-      if (!code.includes("@assets/media/")) return null;
-      const result = code.replace(
-        /url\(["']?@assets\/media\/([^"')]+)["']?\)/g,
-        (_, p) => `url("${firebaseBase}${p.replace(/\//g, "%2F")}?alt=media")`
-      );
-      return result !== code ? { code: result, map: null } : null;
-    },
-  };
-}
+// ponytail: PostCSS plugin — runs after SASS compiles resolveUrl() to @assets/media/* strings,
+// before Vite tries to resolve them as local files.
+const rewriteFirebaseAssets = {
+  postcssPlugin: "rewrite-firebase-assets",
+  Declaration(decl) {
+    if (!decl.value.includes("@assets/media/")) return;
+    decl.value = decl.value.replace(
+      /url\(["']?@assets\/media\/([^"')]+)["']?\)/g,
+      (_, p) => `url("${firebaseBase}${p.replace(/\//g, "%2F")}?alt=media")`
+    );
+  },
+};
+rewriteFirebaseAssets.postcss = true;
 
 // https://astro.build/config
 export default defineConfig({
@@ -63,7 +62,12 @@ export default defineConfig({
     }),
   ],
   vite: {
-    plugins: [firebaseAssetsPlugin(), tailwindcss()],
+    plugins: [tailwindcss()],
+    css: {
+      postcss: {
+        plugins: [rewriteFirebaseAssets, postcssImport(), autoprefixer()],
+      },
+    },
     resolve: {
       alias: {
         "@assets": new URL("./assets", import.meta.url).pathname,
