@@ -55,13 +55,7 @@ export default function TextInput(props: TextInputProps): React.ReactElement {
       : setValue("");
   }
 
-  const { tag = "input" } = props.inputProps;
+  const Tag = (props.inputProps.tag ?? "input") as keyof JSX.IntrinsicElements;
 
-  return React.createElement(tag, {
-    ...props.inputProps,
-    value,
-    onBlur,
-    onChange,
-    maxLength,
-  });
+  return <Tag {...props.inputProps} value={value} onBlur={onBlur} onChange={onChange} maxLength={maxLength} />;
 }

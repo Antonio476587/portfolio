@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Image from "../../shared/utilities/Image.tsx";
 
 // Import all NFT images
 const nft1 = "/media/images/1.png";
@@ -42,7 +41,7 @@ function MenuNFTItem({ price, img, name, children }: MenuNFTItem) {
         <div className="nft-item-price-div" ref={nftPriceRef}>
           <h3>{price}</h3>
         </div>
-        <Image src={img} alt="" />
+        <img src={img} alt="" />
       </div>
       <div className="nft-item-detail-div" ref={nftDetailRef}>
         <h3>{name}</h3>
