@@ -28,12 +28,6 @@ const worksPresentation: worksPresentationObject[] = [
       "These are the games I've made, what are you waiting for watch them?",
     workUrlId: "/work/games",
   },
-  // {
-  //   img: `${m}BarbaJS.webp`,
-  //   squaredImg: `${m}BarbaJS-squared.webp`,
-  //   alternativeText: "Beatifuld and smooth transitions.",
-  //   workUrlId: "4",
-  // },
   {
     img: `${m}Bonsai.webp`,
     squaredImg: `${m}Bonsai-squared.webp`,
@@ -52,14 +46,6 @@ const worksPresentation: worksPresentationObject[] = [
     alternativeText: "This is my blog, I should make it interesting",
     workUrlId: "/blog",
   },
-  // {
-  //   img: `${m}Projects.webp`,
-  //   squaredImg: `${m}Projects-squared.webp`,
-  //   alternativeText:
-  //     "There are projects, but projects are ideas for more projects, so let's make more projects",
-  //   workUrlId: "/work/projects",
-  // },
 ];
 
 export default worksPresentation;
-export { worksPresentation as worksPresentationObject };

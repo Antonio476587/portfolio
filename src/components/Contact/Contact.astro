@@ -260,7 +260,6 @@ import LegendaryNFT from "./LegendaryNFT.astro";
         }
 
         function downloadNFT() {
-            const url = "https://example.com/nft";
             const link = document.createElement("a");
             link.href = img.src;
             link.download = "nft.png";
@@ -340,11 +339,6 @@ import LegendaryNFT from "./LegendaryNFT.astro";
                 }, 3000);
             }
 
-            function validateEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-
             contactForm.addEventListener("submit", async function (e) {
                 e.preventDefault();
 
@@ -362,10 +356,6 @@ import LegendaryNFT from "./LegendaryNFT.astro";
                     return;
                 }
 
-                if (!email || !validateEmail(email)) {
-                    showToast("Please enter a valid email address", "error");
-                    return;
-                }
 
                 if (!message || message.length < 10) {
                     showToast(
@@ -390,7 +380,6 @@ import LegendaryNFT from "./LegendaryNFT.astro";
                             name,
                             email,
                             message,
-                            date: new Date().toISOString(),
                         }),
                     });
 

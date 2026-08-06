@@ -90,4 +90,3 @@ export default function About(): JSX.Element {
   );
 }
 
-export { InfoAbout };
