@@ -6,16 +6,10 @@ import { loadEnv } from "vite";
 import react from "@astrojs/react";
 import vue from "@astrojs/vue";
 import deno from "@astrojs/deno";
-import mkcert from "vite-plugin-mkcert";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 
 const env = loadEnv("", process.cwd(), "STORYBLOK");
-const { STORYBLOK_DELIVERY_API_TOKEN } = loadEnv(
-  import.meta.env.MODE,
-  process.cwd(),
-  "",
-);
 
 // ponytail: safety net — rewrites any remaining @assets/media/* url() refs to root-relative
 // /media/* paths, which Vite skips during build. Runtime redirect handled by src/pages/media/[...path].ts
