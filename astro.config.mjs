@@ -5,7 +5,7 @@ import { storyblok } from "@storyblok/astro";
 import { loadEnv } from "vite";
 import react from "@astrojs/react";
 import vue from "@astrojs/vue";
-import deno from "@astrojs/deno";
+import deno from "@deno/astro-adapter";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 
