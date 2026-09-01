@@ -1,9 +1,12 @@
 ---
 const { blok } = Astro.props;
-import { storyblokEditable } from "@storyblok/astro";
-import { richTextResolver } from "@storyblok/richtext";
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
 
-const { render } = richTextResolver();
+function render(text: any) {
+    if (!text) return "";
+    if (typeof text === "string") return text;
+    return renderRichText(text);
+}
 
 // Extract subtitle from short description if needed
 const subtitle = blok.subtitle || blok.short_description || "";

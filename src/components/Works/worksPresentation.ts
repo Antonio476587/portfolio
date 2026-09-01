@@ -26,7 +26,7 @@ const worksPresentation: worksPresentationObject[] = [
     squaredImg: `${m}Games-squared.webp`,
     alternativeText:
       "These are the games I've made, what are you waiting for watch them?",
-    workUrlId: "/work/games",
+    workUrlId: "/work/my-games",
   },
   {
     img: `${m}Bonsai.webp`,

@@ -1,7 +1,7 @@
 <template>
     <div id="works">
         <a v-for="work in worksPresentation" :href="work.workUrlId">
-            <img :src="work.img.src" :alt="work.alternativeText" />
+            <img :src="work.img" :alt="work.alternativeText" />
         </a>
     </div>
 </template>

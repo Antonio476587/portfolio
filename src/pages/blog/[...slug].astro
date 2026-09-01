@@ -11,7 +11,7 @@ const slug = Astro.params.slug || "home";
 let story = null;
 try {
     const { data } = await storyblokApi.get(`cdn/stories/blog/${slug}`, {
-        version: "draft",
+        version: "published",
     });
     story = data.story;
 } catch (err) {
